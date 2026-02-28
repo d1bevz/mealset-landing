@@ -74,7 +74,8 @@ h1 { margin:.6rem 0 .8rem; font-size: clamp(2rem, 4.7vw, 3.4rem); line-height:1.
   background: radial-gradient(circle at 30% 25%, #d7ffb8, #9ee7df 68%, #89cfff 100%);
   border: 10px solid rgba(255,255,255,.92);
   box-shadow: 0 24px 46px rgba(76, 166, 138, .25);
-  display: grid; place-items: center; position: relative;
+  position: relative;
+  overflow: hidden;
   transition: transform .25s ease;
 }
 .hero-art::after {
@@ -83,13 +84,15 @@ h1 { margin:.6rem 0 .8rem; font-size: clamp(2rem, 4.7vw, 3.4rem); line-height:1.
   border: 4px solid rgba(255,255,255,.85); border-radius: 50%;
 }
 .bowl {
-  position: relative;
+  position: absolute;
   z-index: 2;
-  display: block;
+  left: 50%;
+  top: 50%;
   line-height: 1;
   font-size: 124px;
-  transform: translateY(10px);
+  transform: translate(-50%, -42%);
   filter: drop-shadow(0 10px 14px rgba(0,0,0,.12));
+  pointer-events: none;
 }
 .spark { position:absolute; z-index: 3; font-size: 20px; animation: twinkle 2.5s ease-in-out infinite; }
 .spark.s1 { top: 18%; left: 20%; }
