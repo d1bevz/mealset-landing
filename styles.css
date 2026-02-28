@@ -91,23 +91,21 @@ h1 { margin:.6rem 0 .8rem; font-size: clamp(2rem, 4.7vw, 3.4rem); line-height:1.
 .spark.s2 { top: 22%; right: 18%; animation-delay: .7s; }
 .spark.s3 { bottom: 18%; right: 20%; animation-delay: 1.2s; }
 
-.recipe-chip {
+.recipe-dot {
   position: absolute;
   z-index: 4;
-  font-size: 12px;
-  font-weight: 600;
-  color: #235165;
-  background: rgba(255,255,255,.9);
-  border: 1px solid rgba(133, 201, 198, .8);
-  border-radius: 999px;
-  padding: .3rem .55rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.95);
+  border: 2px solid rgba(133, 201, 198, .8);
   box-shadow: 0 8px 20px rgba(30, 100, 100, .12);
   animation: bob 3.5s ease-in-out infinite;
 }
-.recipe-chip.c1 { top: 6%; left: 35%; }
-.recipe-chip.c2 { right: -2%; top: 42%; animation-delay: .5s; }
-.recipe-chip.c3 { left: -4%; top: 48%; animation-delay: 1s; }
-.recipe-chip.c4 { bottom: 8%; left: 34%; animation-delay: 1.4s; }
+.recipe-dot.c1 { top: 10%; left: 35%; }
+.recipe-dot.c2 { right: 6%; top: 42%; animation-delay: .5s; }
+.recipe-dot.c3 { left: 7%; top: 48%; animation-delay: 1s; }
+.recipe-dot.c4 { bottom: 12%; left: 34%; animation-delay: 1.4s; }
 
 @keyframes twinkle { 0%,100%{opacity:.4; transform:scale(1)} 50%{opacity:1; transform:scale(1.25)} }
 @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
@@ -163,7 +161,7 @@ h2 { margin:0 0 .9rem; font-size: clamp(1.5rem, 3vw, 2rem); }
   .hero { grid-template-columns: 1fr; }
   .hero-art { max-width: 320px; }
   .bowl { font-size: 104px; }
-  .recipe-chip { font-size: 11px; }
+  .recipe-dot { width: 12px; height: 12px; }
 }
 @media (max-width: 760px) {
   .nav { display:none; }
