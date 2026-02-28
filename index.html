@@ -3,148 +3,173 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mealset — Every meal is a move forward</title>
+    <title>Mealset — AI Nutrition Coach</title>
     <meta
       name="description"
-      content="Mealset — AI-нутрициолог: персональное питание, план на неделю, список покупок и поддержка привычек на базе CBT и геймификации."
+      content="Mealset — AI nutrition coach: personalized meal plans, simple routines, and lasting habits."
     />
-    <meta property="og:title" content="Mealset — AI-нутрициолог" />
+    <meta property="og:title" content="Mealset — AI Nutrition Coach" />
     <meta
       property="og:description"
-      content="Every meal is a move forward. Персональный рацион, коучинг и устойчивые привычки без крайностей."
+      content="Every meal is a move forward. Personalized nutrition for real life."
     />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#6A5CFF" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="bg-orb orb-1"></div>
-    <div class="bg-orb orb-2"></div>
-
     <header class="header container">
-      <a class="logo" href="#">Mealset</a>
-      <nav class="nav">
-        <a href="#pillars">Возможности</a>
-        <a href="#science">Подход</a>
-        <a href="#waitlist" class="btn btn-sm">Ранний доступ</a>
-      </nav>
+      <a class="logo" href="#" aria-label="Mealset home">Mealset</a>
+      <div class="header-right">
+        <nav class="nav" aria-label="Main navigation">
+          <a href="#pillars" data-i18n="nav.features">Features</a>
+          <a href="#science" data-i18n="nav.approach">Approach</a>
+          <a href="#waitlist" data-i18n="nav.waitlist">Waitlist</a>
+        </nav>
+        <div class="lang-switch" role="group" aria-label="Language switcher">
+          <button id="lang-ru" class="lang-btn" type="button" aria-pressed="true">RU</button>
+          <button id="lang-en" class="lang-btn" type="button" aria-pressed="false">EN</button>
+        </div>
+      </div>
     </header>
 
     <main>
       <section class="hero container">
-        <div class="hero-copy">
-          <p class="badge">AI nutrition coach</p>
-          <h1>Every meal is a move forward.</h1>
-          <p class="subtitle">
-            Mealset помогает выстроить здоровые отношения с едой через
-            персонализацию, маленькие победы и привычки, которые остаются с
-            тобой надолго.
-          </p>
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="#waitlist">Вступить в waitlist</a>
-            <a class="btn btn-ghost" href="#pillars">Смотреть демо-поток</a>
-          </div>
-          <div class="hero-meta">
-            <span>🧠 CBT-подход</span>
-            <span>🎮 Геймификация без токсика</span>
-            <span>🍽️ Под твой ритм и бюджет</span>
-          </div>
-        </div>
-
-        <div class="hero-card">
-          <p class="mini-title">Сегодняшний фокус</p>
-          <h3>+2 осознанных выбора еды</h3>
-          <ul>
-            <li>Завтрак с белком и клетчаткой</li>
-            <li>Ужин ≤ 20 минут готовки</li>
-            <li>AI-замена сладкого на сбалансированный перекус</li>
-          </ul>
-          <p class="xp">+45 XP streak bonus</p>
+        <p class="eyebrow" data-i18n="hero.eyebrow">AI nutrition coach</p>
+        <h1 data-i18n="hero.title">Every meal is a move forward.</h1>
+        <p class="lead" data-i18n="hero.lead">
+          Mealset helps you build a healthy relationship with food through self-awareness, small wins, and routines that actually last.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#waitlist" data-i18n="hero.ctaPrimary">Join waitlist</a>
+          <a class="btn btn-ghost" href="#pillars" data-i18n="hero.ctaSecondary">See how it works</a>
         </div>
       </section>
 
       <section id="pillars" class="section container">
-        <h2>4 pillars Mealset</h2>
-        <div class="grid grid-4">
+        <h2 data-i18n="pillars.title">Core pillars</h2>
+        <div class="grid">
           <article class="card">
-            <span class="icon">🎯</span>
-            <h3>Track</h3>
-            <p>Логируй питание и получай понятный, поддерживающий фидбек.</p>
+            <h3 data-i18n="pillars.track.title">Track</h3>
+            <p data-i18n="pillars.track.text">Log meals and get clear, judgment-free feedback.</p>
           </article>
           <article class="card">
-            <span class="icon">🍽️</span>
-            <h3>Plan</h3>
-            <p>Персональное меню на неделю под цели, ограничения и бюджет.</p>
+            <h3 data-i18n="pillars.plan.title">Plan</h3>
+            <p data-i18n="pillars.plan.text">Weekly menus personalized to your goals, preferences, and budget.</p>
           </article>
           <article class="card">
-            <span class="icon">👨‍🍳</span>
-            <h3>Cook</h3>
-            <p>Пошаговые рецепты, замены ингредиентов и список покупок.</p>
+            <h3 data-i18n="pillars.cook.title">Cook</h3>
+            <p data-i18n="pillars.cook.text">Simple recipes, substitutions, and smart grocery lists.</p>
           </article>
           <article class="card">
-            <span class="icon">🏆</span>
-            <h3>Level Up</h3>
-            <p>Стрики, достижения и прогресс, который реально мотивирует.</p>
+            <h3 data-i18n="pillars.level.title">Level Up</h3>
+            <p data-i18n="pillars.level.text">Streaks and milestones to keep momentum without pressure.</p>
           </article>
         </div>
       </section>
 
-      <section id="science" class="section container split">
-        <div>
-          <h2>Психология + наука, а не магия</h2>
-          <p>
-            Mealset опирается на принципы CBT: помогает замечать паттерны
-            пищевого поведения, мягко переосмысливать их и закреплять новые
-            действия через маленькие повторяемые шаги.
-          </p>
-          <p>
-            Геймификация работает как усилитель дисциплины: XP, milestones и
-            streaks поддерживают темп без чувства вины.
-          </p>
-        </div>
-        <div class="card note">
-          <p class="mini-title">Что меняется на практике</p>
-          <ul>
-            <li>Меньше реактивного переедания</li>
-            <li>Больше контроля без жёстких запретов</li>
-            <li>Стабильный прогресс, который можно удерживать</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section container">
-        <div class="quote card">
-          <p>
-            «Mealset понимает не только <strong>что</strong> ты ешь, но и
-            <strong>почему</strong> ты ешь именно так»
-          </p>
-        </div>
+      <section id="science" class="section container science">
+        <h2 data-i18n="science.title">Psychology-backed, not magic</h2>
+        <p data-i18n="science.text">
+          Mealset uses CBT principles and light gamification to help you notice patterns, make better choices, and stay consistent over time.
+        </p>
       </section>
 
       <section id="waitlist" class="section container">
-        <div class="card cta-card">
-          <h2>Получить ранний доступ</h2>
-          <p>
-            Первые участники получат приоритетный онбординг и special founder
-            perks.
-          </p>
+        <div class="cta">
+          <h2 data-i18n="waitlist.title">Get early access</h2>
+          <p data-i18n="waitlist.text">Be first to try Mealset and shape the product.</p>
           <form
             class="waitlist-form"
-            onsubmit="event.preventDefault(); window.location.href='mailto:hello@mealset.ai?subject=Mealset%20Early%20Access&body=Привет!%20Хочу%20ранний%20доступ%20к%20Mealset.';"
+            onsubmit="event.preventDefault(); window.location.href='mailto:hello@mealset.ai?subject=Mealset%20Early%20Access&body=Hi!%20I%20want%20early%20access%20to%20Mealset.';"
           >
             <input type="email" placeholder="you@example.com" required />
-            <button class="btn btn-primary" type="submit">Join waitlist</button>
+            <button class="btn btn-primary" type="submit" data-i18n="waitlist.button">Join waitlist</button>
           </form>
-          <small>Откроется почтовый клиент для отправки заявки.</small>
         </div>
       </section>
     </main>
 
     <footer class="footer container">
-      <p>© <span id="year"></span> Mealset. Build better habits for life.</p>
+      <p>© <span id="year"></span> Mealset</p>
     </footer>
 
     <script>
+      const i18n = {
+        ru: {
+          'nav.features': 'Возможности',
+          'nav.approach': 'Подход',
+          'nav.waitlist': 'Лист ожидания',
+          'hero.eyebrow': 'AI нутрициолог',
+          'hero.title': 'Every meal is a move forward.',
+          'hero.lead': 'Mealset помогает выстроить здоровые отношения с едой через осознанность, маленькие победы и привычки, которые остаются надолго.',
+          'hero.ctaPrimary': 'Вступить в waitlist',
+          'hero.ctaSecondary': 'Как это работает',
+          'pillars.title': 'Ключевые pillars',
+          'pillars.track.title': 'Track',
+          'pillars.track.text': 'Логируй питание и получай понятный, поддерживающий фидбек.',
+          'pillars.plan.title': 'Plan',
+          'pillars.plan.text': 'Меню на неделю под цели, предпочтения и бюджет.',
+          'pillars.cook.title': 'Cook',
+          'pillars.cook.text': 'Простые рецепты, замены ингредиентов и список покупок.',
+          'pillars.level.title': 'Level Up',
+          'pillars.level.text': 'Стрики и milestones, чтобы держать темп без давления.',
+          'science.title': 'На основе психологии, а не магии',
+          'science.text': 'Mealset использует принципы CBT и мягкую геймификацию: помогает замечать паттерны, делать более осознанные выборы и удерживать прогресс.',
+          'waitlist.title': 'Получить ранний доступ',
+          'waitlist.text': 'Стань одним из первых пользователей Mealset и повлияй на продукт.',
+          'waitlist.button': 'Хочу ранний доступ'
+        },
+        en: {
+          'nav.features': 'Features',
+          'nav.approach': 'Approach',
+          'nav.waitlist': 'Waitlist',
+          'hero.eyebrow': 'AI nutrition coach',
+          'hero.title': 'Every meal is a move forward.',
+          'hero.lead': 'Mealset helps you build a healthy relationship with food through self-awareness, small wins, and routines that actually last.',
+          'hero.ctaPrimary': 'Join waitlist',
+          'hero.ctaSecondary': 'See how it works',
+          'pillars.title': 'Core pillars',
+          'pillars.track.title': 'Track',
+          'pillars.track.text': 'Log meals and get clear, judgment-free feedback.',
+          'pillars.plan.title': 'Plan',
+          'pillars.plan.text': 'Weekly menus personalized to your goals, preferences, and budget.',
+          'pillars.cook.title': 'Cook',
+          'pillars.cook.text': 'Simple recipes, substitutions, and smart grocery lists.',
+          'pillars.level.title': 'Level Up',
+          'pillars.level.text': 'Streaks and milestones to keep momentum without pressure.',
+          'science.title': 'Psychology-backed, not magic',
+          'science.text': 'Mealset uses CBT principles and light gamification to help you notice patterns, make better choices, and stay consistent over time.',
+          'waitlist.title': 'Get early access',
+          'waitlist.text': 'Be first to try Mealset and shape the product.',
+          'waitlist.button': 'Join waitlist'
+        }
+      };
+
+      const ruBtn = document.getElementById('lang-ru');
+      const enBtn = document.getElementById('lang-en');
+
+      function applyLanguage(lang) {
+        document.documentElement.lang = lang;
+        localStorage.setItem('mealset_lang', lang);
+
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          if (i18n[lang][key]) el.textContent = i18n[lang][key];
+        });
+
+        ruBtn.setAttribute('aria-pressed', String(lang === 'ru'));
+        enBtn.setAttribute('aria-pressed', String(lang === 'en'));
+        ruBtn.classList.toggle('active', lang === 'ru');
+        enBtn.classList.toggle('active', lang === 'en');
+      }
+
+      const initial = localStorage.getItem('mealset_lang') || 'ru';
+      applyLanguage(initial);
+
+      ruBtn.addEventListener('click', () => applyLanguage('ru'));
+      enBtn.addEventListener('click', () => applyLanguage('en'));
+
       document.getElementById('year').textContent = new Date().getFullYear();
     </script>
   </body>
