@@ -112,6 +112,12 @@ h1 {
   font-size: 1.06rem;
 }
 
+.trust-line {
+  margin: 0.75rem 0 0;
+  color: #cdd5fb;
+  font-size: 0.95rem;
+}
+
 .hero-cta {
   margin-top: 1.2rem;
   display: flex;
