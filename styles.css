@@ -68,12 +68,12 @@ h1 { margin:.6rem 0 .8rem; font-size: clamp(2rem, 4.7vw, 3.4rem); line-height:1.
 
 .hero-art {
   justify-self: center;
-  width: min(350px, 100%);
+  width: min(420px, 100%);
   aspect-ratio: 1/1;
   border-radius: 50%;
-  background: linear-gradient(160deg, #b8f58a, #84dfe0 70%);
-  border: 10px solid rgba(255,255,255,.9);
-  box-shadow: 0 20px 40px rgba(76, 166, 138, .25);
+  background: radial-gradient(circle at 30% 25%, #d7ffb8, #9ee7df 68%, #89cfff 100%);
+  border: 10px solid rgba(255,255,255,.92);
+  box-shadow: 0 24px 46px rgba(76, 166, 138, .25);
   display: grid; place-items: center; position: relative;
   transition: transform .25s ease;
 }
@@ -83,14 +83,34 @@ h1 { margin:.6rem 0 .8rem; font-size: clamp(2rem, 4.7vw, 3.4rem); line-height:1.
   border: 4px solid rgba(255,255,255,.85); border-radius: 50%;
 }
 .bowl {
-  position: relative; z-index: 1;
-  font-size: 96px; filter: drop-shadow(0 8px 12px rgba(0,0,0,.12));
+  position: relative; z-index: 2;
+  font-size: 124px; filter: drop-shadow(0 10px 14px rgba(0,0,0,.12));
 }
-.spark { position:absolute; z-index: 1; font-size: 20px; animation: twinkle 2.5s ease-in-out infinite; }
-.spark.s1 { top: 22%; left: 22%; }
-.spark.s2 { top: 28%; right: 20%; animation-delay: .7s; }
-.spark.s3 { bottom: 24%; right: 26%; animation-delay: 1.2s; }
+.spark { position:absolute; z-index: 3; font-size: 20px; animation: twinkle 2.5s ease-in-out infinite; }
+.spark.s1 { top: 18%; left: 20%; }
+.spark.s2 { top: 22%; right: 18%; animation-delay: .7s; }
+.spark.s3 { bottom: 18%; right: 20%; animation-delay: 1.2s; }
+
+.recipe-chip {
+  position: absolute;
+  z-index: 4;
+  font-size: 12px;
+  font-weight: 600;
+  color: #235165;
+  background: rgba(255,255,255,.9);
+  border: 1px solid rgba(133, 201, 198, .8);
+  border-radius: 999px;
+  padding: .3rem .55rem;
+  box-shadow: 0 8px 20px rgba(30, 100, 100, .12);
+  animation: bob 3.5s ease-in-out infinite;
+}
+.recipe-chip.c1 { top: 6%; left: 35%; }
+.recipe-chip.c2 { right: -2%; top: 42%; animation-delay: .5s; }
+.recipe-chip.c3 { left: -4%; top: 48%; animation-delay: 1s; }
+.recipe-chip.c4 { bottom: 8%; left: 34%; animation-delay: 1.4s; }
+
 @keyframes twinkle { 0%,100%{opacity:.4; transform:scale(1)} 50%{opacity:1; transform:scale(1.25)} }
+@keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
 
 .section { padding: 1.4rem 0; }
 h2 { margin:0 0 .9rem; font-size: clamp(1.5rem, 3vw, 2rem); }
@@ -141,7 +161,9 @@ h2 { margin:0 0 .9rem; font-size: clamp(1.5rem, 3vw, 2rem); }
 
 @media (max-width: 860px) {
   .hero { grid-template-columns: 1fr; }
-  .hero-art { max-width: 280px; }
+  .hero-art { max-width: 320px; }
+  .bowl { font-size: 104px; }
+  .recipe-chip { font-size: 11px; }
 }
 @media (max-width: 760px) {
   .nav { display:none; }
