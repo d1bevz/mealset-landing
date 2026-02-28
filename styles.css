@@ -55,23 +55,36 @@ body {
   font-size: 0.95rem;
 }
 
+.lang-switch-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.lang-label {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
 .lang-switch {
   display: inline-flex;
   border: 1px solid var(--line);
   border-radius: 0.7rem;
   overflow: hidden;
+  background: #0c1329;
 }
 
 .lang-btn {
   border: 0;
   background: transparent;
   color: var(--muted);
-  padding: 0.42rem 0.65rem;
+  padding: 0.42rem 0.72rem;
   cursor: pointer;
+  min-width: 44px;
 }
 
 .lang-btn.active {
-  background: rgba(106, 92, 255, 0.22);
+  background: rgba(106, 92, 255, 0.3);
   color: var(--text);
 }
 
