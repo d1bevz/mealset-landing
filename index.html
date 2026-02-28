@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mealset — AI-нутрициолог</title>
+    <meta
+      name="description"
+      content="Mealset — AI-нутрициолог: персональные планы питания, список покупок и понятный путь к форме без крайностей."
+    />
+    <meta property="og:title" content="Mealset — AI-нутрициолог" />
+    <meta
+      property="og:description"
+      content="Персональный план питания, рецепты и контроль прогресса в одном месте."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header container">
+      <a class="logo" href="#">Mealset</a>
+      <a class="btn btn-ghost" href="#waitlist">Присоединиться</a>
+    </header>
+
+    <main>
+      <section class="hero container">
+        <p class="badge">AI-нутрициолог для реальной жизни</p>
+        <h1>Ешь вкусно. Цели достигаются автоматически.</h1>
+        <p class="subtitle">
+          Mealset собирает персональный план питания под твои цели, предпочтения,
+          бюджет и ритм жизни — без сложных таблиц и запретов.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#waitlist">Вступить в waitlist</a>
+          <a class="btn btn-ghost" href="#how">Как это работает</a>
+        </div>
+        <p class="trust">⚡ Первые пользователи получат lifetime-условия</p>
+      </section>
+
+      <section id="how" class="section container">
+        <h2>Как работает</h2>
+        <div class="grid grid-3">
+          <article class="card">
+            <h3>1. Профиль</h3>
+            <p>
+              Указываешь цель, пищевые ограничения, любимые продукты и график.
+            </p>
+          </article>
+          <article class="card">
+            <h3>2. AI-план</h3>
+            <p>
+              Получаешь меню на неделю с калориями, БЖУ и заменами под твой день.
+            </p>
+          </article>
+          <article class="card">
+            <h3>3. Адаптация</h3>
+            <p>
+              Mealset корректирует рацион по прогрессу и обратной связи, а не по
+              шаблону.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section container">
+        <h2>Почему Mealset</h2>
+        <div class="grid grid-2">
+          <article class="card">
+            <h3>Персонализация</h3>
+            <p>Подходит веганам, спортсменам, занятым родителям и новичкам.</p>
+          </article>
+          <article class="card">
+            <h3>Экономия времени</h3>
+            <p>Меню + список покупок + рецепты в одном месте.</p>
+          </article>
+          <article class="card">
+            <h3>Без крайностей</h3>
+            <p>Фокус на устойчивых привычках, а не жёстких ограничениях.</p>
+          </article>
+          <article class="card">
+            <h3>Прозрачность</h3>
+            <p>Ты всегда понимаешь, почему система предлагает именно так.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="waitlist" class="section container">
+        <div class="card cta-card">
+          <h2>Запуск уже близко</h2>
+          <p>Оставь email, и мы позовём тебя в ранний доступ.</p>
+          <form class="waitlist-form" onsubmit="event.preventDefault(); window.location.href='mailto:hello@mealset.ai?subject=Waitlist%20Mealset&body=Хочу%20в%20ранний%20доступ';">
+            <input type="email" placeholder="you@example.com" required />
+            <button class="btn btn-primary" type="submit">Хочу ранний доступ</button>
+          </form>
+          <small>Нажатие откроет email-клиент для отправки заявки.</small>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer container">
+      <p>© <span id="year"></span> Mealset. AI-нутрициолог нового поколения.</p>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
