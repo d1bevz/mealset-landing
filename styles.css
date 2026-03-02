@@ -134,6 +134,16 @@ h2 { margin:0 0 .9rem; font-size: clamp(1.5rem, 3vw, 2rem); }
 .card h3 { margin: 0 0 .35rem; }
 .card p, .science p, .cta p { margin:0; color: var(--muted); }
 
+.journey-list { display: grid; gap: .7rem; }
+.journey-item {
+  background: rgba(255,255,255,.62);
+  border: 1px solid var(--line);
+  border-radius: .9rem;
+  padding: .85rem .95rem;
+}
+.journey-item h3 { margin: 0 0 .28rem; font-size: 1rem; }
+.journey-item p { margin: 0; color: var(--muted); }
+
 .cta {
   background: linear-gradient(160deg, rgba(138,223,90,.18), rgba(86,184,232,.16));
   border: 1px solid var(--line);
