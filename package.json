@@ -7,9 +7,9 @@
   },
   "scripts": {
     "dev": "vinext dev",
-    "build": "vinext build && node scripts/verify-export.mjs",
+    "build": "vinext build && node scripts/prepare-export.mjs && node scripts/verify-export.mjs",
     "start": "vinext start",
-    "lint": "oxlint app lib/site-url.ts lib/utils.ts components/ui/tabs.tsx",
+    "lint": "oxlint app lib components/ui/tabs.tsx",
     "format": "oxfmt",
     "typecheck": "tsc --noEmit",
     "verify:export": "node scripts/verify-export.mjs",

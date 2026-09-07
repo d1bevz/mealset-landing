@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import { publicPath } from '@/lib/public-path';
 import { useState } from 'react';
 import { ArrowUp } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
@@ -22,7 +23,7 @@ export function Conversation({ locale }: { locale: Locale }) {
             <div className="chat-header">
               <Image
                 unoptimized
-                src="/assets/sasha-avatar.png"
+                src={publicPath('/assets/sasha-avatar.png')}
                 alt=""
                 width={44}
                 height={44}

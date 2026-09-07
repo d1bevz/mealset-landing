@@ -1,6 +1,7 @@
 /* Language links cross document layouts and intentionally use full navigation. */
 /* oxlint-disable next/no-html-link-for-pages */
 import Image from 'next/image';
+import { pagePath, publicPath } from '@/lib/public-path';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import type { Locale } from '../copy';
 import { premiumCopy } from './copy';
@@ -17,7 +18,7 @@ export function PremiumLanding({ locale }: { locale: Locale }) {
       <header className="p-header">
         <a
           className="p-wordmark"
-          href={locale === 'ru' ? '/v2' : '/en/v2'}
+          href={pagePath(locale === 'ru' ? '/v2' : '/en/v2')}
           aria-label="Mealset"
         >
           mealset<span>.</span>
@@ -29,7 +30,7 @@ export function PremiumLanding({ locale }: { locale: Locale }) {
         <div className="p-header-right">
           <div className="p-languages">
             <a
-              href="/v2"
+              href={pagePath('/v2')}
               hrefLang="ru"
               lang="ru"
               aria-current={locale === 'ru' ? 'page' : undefined}
@@ -38,7 +39,7 @@ export function PremiumLanding({ locale }: { locale: Locale }) {
             </a>
             <span>/</span>
             <a
-              href="/en/v2"
+              href={pagePath('/en/v2')}
               hrefLang="en"
               lang="en"
               aria-current={locale === 'en' ? 'page' : undefined}
@@ -57,7 +58,7 @@ export function PremiumLanding({ locale }: { locale: Locale }) {
           <Image
             unoptimized
             className="p-hero-art"
-            src="/assets/premium/romanesco-natural.jpg"
+            src={publicPath('/assets/premium/romanesco-natural.jpg')}
             alt={d.imageAlt}
             width={1536}
             height={1024}
@@ -120,7 +121,7 @@ export function PremiumLanding({ locale }: { locale: Locale }) {
           </div>
           <Image
             unoptimized
-            src="/assets/food-hero.jpg"
+            src={publicPath('/assets/food-hero.jpg')}
             alt={d.foodAlt}
             width={1536}
             height={1024}
@@ -144,7 +145,7 @@ export function PremiumLanding({ locale }: { locale: Locale }) {
             <Image
               unoptimized
               className="p-sasha"
-              src="/assets/sasha-avatar.png"
+              src={publicPath('/assets/sasha-avatar.png')}
               alt={locale === 'ru' ? 'Саша' : 'Sasha'}
               width={72}
               height={72}
@@ -168,7 +169,7 @@ export function PremiumLanding({ locale }: { locale: Locale }) {
       <footer className="p-footer p-shell">
         <a
           className="p-wordmark"
-          href={locale === 'ru' ? '/v2' : '/en/v2'}
+          href={pagePath(locale === 'ru' ? '/v2' : '/en/v2')}
           aria-label="Mealset"
         >
           mealset<span>.</span>

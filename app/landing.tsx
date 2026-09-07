@@ -1,6 +1,7 @@
 /* Full document navigation between language root layouts keeps html lang correct. */
 /* oxlint-disable next/no-html-link-for-pages */
 import Image from 'next/image';
+import { pagePath, publicPath } from '@/lib/public-path';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { Conversation } from './conversation';
 import { copy, type Locale } from './copy';
@@ -32,7 +33,7 @@ export function Landing({ locale }: { locale: Locale }) {
         {d.skip}
       </a>
       <header className="site-header">
-        <a href={locale === 'ru' ? '/' : '/en'} aria-label={d.home}>
+        <a href={pagePath(locale === 'ru' ? '/' : '/en')} aria-label={d.home}>
           <Wordmark />
         </a>
         <nav
@@ -52,7 +53,7 @@ export function Landing({ locale }: { locale: Locale }) {
             aria-label={locale === 'ru' ? 'Язык страницы' : 'Page language'}
           >
             <a
-              href="/"
+              href={pagePath('/')}
               hrefLang="ru"
               lang="ru"
               aria-current={locale === 'ru' ? 'page' : undefined}
@@ -61,7 +62,7 @@ export function Landing({ locale }: { locale: Locale }) {
             </a>
             <span>/</span>
             <a
-              href="/en"
+              href={pagePath('/en')}
               hrefLang="en"
               lang="en"
               aria-current={locale === 'en' ? 'page' : undefined}
@@ -97,7 +98,7 @@ export function Landing({ locale }: { locale: Locale }) {
             <Image
               unoptimized
               className="hero-image"
-              src="/assets/food-hero.jpg"
+              src={publicPath('/assets/food-hero.jpg')}
               alt={d.foodAlt}
               width={1536}
               height={1024}
@@ -169,7 +170,7 @@ export function Landing({ locale }: { locale: Locale }) {
           <div className="food-detail">
             <Image
               unoptimized
-              src="/assets/food-bolognese.png"
+              src={publicPath('/assets/food-bolognese.png')}
               alt={d.foodDetailAlt}
               width={1536}
               height={1024}
@@ -189,7 +190,7 @@ export function Landing({ locale }: { locale: Locale }) {
             <div className="sasha-art">
               <Image
                 unoptimized
-                src="/assets/sasha-avatar.png"
+                src={publicPath('/assets/sasha-avatar.png')}
                 alt={d.sashaAlt}
                 width={1254}
                 height={1254}

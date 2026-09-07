@@ -14,6 +14,35 @@
 Кнопки ведут в [@mealset_bot](https://t.me/mealset_bot). Серверная часть бота,
 его база и секреты в этот репозиторий не входят.
 
+## GitHub Pages — для тестирования
+
+Сайт: **https://d1bevz.github.io/mealset-landing/**.
+Русская и английская версии доступны в корне сайта и по `en/`;
+второй вариант — по `v2/` и `en/v2/`.
+
+После каждого изменения в `main` workflow **Publish GitHub Pages** собирает
+лендинг, проверяет страницы и ресурсы, затем публикует его. Результат виден
+во вкладке **Actions**. Workflow также можно запустить вручную через
+**Run workflow** на ветке `main`. Pull request проходит проверку сборки
+без публикации.
+
+В **Settings → Pages → Build and deployment → Source** должно быть
+выбрано **GitHub Actions**. Свой домен и VPS для этого режима не нужны.
+
+Адрес и префикс проекта берутся из настроек Pages при сборке.
+Для воспроизведения такой сборки локально:
+
+```bash
+SITE_URL=https://d1bevz.github.io \
+NEXT_PUBLIC_BASE_PATH=/mealset-landing \
+NEXT_PUBLIC_TRAILING_SLASH=true \
+bun run build
+```
+
+Готовые файлы находятся в `dist/client`. Этот каталог размещается
+под префиксом `/mealset-landing/`; префикс уже учтён в ссылках,
+картинках, шрифте и метаданных.
+
 ## Запуск на VPS
 
 Нужны Git, Docker Engine и Docker Compose v2. Для Ubuntu:
@@ -129,10 +158,10 @@ SITE_URL=https://mealset.example bun run build
 CHECK_URL=http://127.0.0.1:8080 bun run verify:http
 ```
 
-GitHub Actions проверяет типы, линт, Docker-сборку, страницы, ресурсы,
-редиректы и ответы 404. Workflow не подключается к VPS: выкладка выполняется
-командами выше. Прежний workflow GitHub Pages удалён; сайт на Pages этим
-репозиторием больше не обновляется.
+Workflow **Check landing** проверяет типы, линт, Docker-сборку, страницы,
+ресурсы, редиректы и ответы 404. Он не подключается к VPS: выкладка на VPS
+выполняется командами выше. Публикацией на GitHub Pages занимается отдельный
+workflow **Publish GitHub Pages**.
 
 ## Файлы
 

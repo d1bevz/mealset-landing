@@ -3,7 +3,7 @@
 @import 'shadcn/tailwind.css';
 @font-face {
   font-family: 'Onest';
-  src: url('/fonts/onest.ttf') format('truetype');
+  src: url('../public/fonts/onest.ttf') format('truetype');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;

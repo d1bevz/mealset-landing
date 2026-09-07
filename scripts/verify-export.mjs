@@ -10,6 +10,8 @@ const routes = [
   ['en/v2', 'en', 'Mealset'],
 ];
 const origin = new URL(process.env.SITE_URL || 'http://localhost:8080').origin;
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+const trailingSlash = process.env.NEXT_PUBLIC_TRAILING_SLASH === 'true';
 for (const [route, language, text] of routes) {
   const html = readFileSync(
     join(root, route ? `${route}.html` : 'index.html'),
@@ -17,7 +19,27 @@ for (const [route, language, text] of routes) {
   );
   assert(html.includes(`lang="${language}"`), `${route}: document language`);
   assert(html.includes(text), `${route}: server-rendered content`);
-  assert(html.includes(`${origin}/${route}`), `${route}: domain metadata`);
+  const canonical = `${origin}${basePath}/${route}${route && trailingSlash ? '/' : ''}`;
+  assert(
+    html.includes(`rel="canonical" href="${canonical}"`),
+    `${route}: domain metadata`,
+  );
+  if (trailingSlash && route) {
+    assert.equal(readFileSync(join(root, route, 'index.html'), 'utf8'), html);
+  }
+  for (const match of html.matchAll(/(?:src|href)="(\/[^"<>]*)"/g)) {
+    const url = new URL(match[1], origin);
+    assert(
+      url.pathname.startsWith(`${basePath}/`),
+      `${route}: unprefixed URL ${url.pathname}`,
+    );
+    if (/\.[a-z0-9]+$/i.test(url.pathname)) {
+      assert(
+        existsSync(join(root, url.pathname.slice(basePath.length + 1))),
+        `${route}: missing referenced asset ${url.pathname}`,
+      );
+    }
+  }
   assert(html.includes('https://t.me/mealset_bot'), `${route}: Telegram CTA`);
   assert(
     !html.includes('mealset-mindset.d1bevz.chatgpt.site'),
@@ -26,10 +48,13 @@ for (const [route, language, text] of routes) {
   assert(!html.includes('/_sites/'), `${route}: private Sites runtime`);
   if (!route.includes('v2')) {
     assert(
-      html.includes('/assets/food-bolognese.png'),
+      html.includes(`${basePath}/assets/food-bolognese.png`),
       `${route}: final food photo`,
     );
-    assert(html.includes('/assets/food-hero.jpg'), `${route}: original hero`);
+    assert(
+      html.includes(`${basePath}/assets/food-hero.jpg`),
+      `${route}: original hero`,
+    );
   }
 }
 for (const asset of [

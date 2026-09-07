@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Image from 'next/image';
+import { publicPath } from '@/lib/public-path';
 import { ArrowRight, ArrowUpRight, Check } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import type { Locale } from '../copy';
@@ -54,7 +55,7 @@ export function PremiumExperience({ locale }: { locale: Locale }) {
                 <header>
                   <Image
                     unoptimized
-                    src="/assets/sasha-avatar.png"
+                    src={publicPath('/assets/sasha-avatar.png')}
                     alt=""
                     width={40}
                     height={40}

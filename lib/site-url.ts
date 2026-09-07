@@ -1,3 +1,5 @@
+import { pagePath } from './public-path';
+
 const origin = new URL(process.env.SITE_URL || 'http://localhost:8080');
 
 if (
@@ -14,6 +16,5 @@ if (
 }
 
 export function siteUrl(path: string) {
-  const normalized = path === '/' ? '/' : path.replace(/\/$/, '');
-  return new URL(normalized, origin).href;
+  return new URL(pagePath(path), origin).href;
 }
