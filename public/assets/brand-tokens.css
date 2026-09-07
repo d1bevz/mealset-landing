@@ -1,0 +1,17 @@
+:root {
+  --mealset-paper: #f7f9f5;
+  --mealset-pine: #173b32;
+  --mealset-lime: #c5e879;
+  --mealset-mint: #80c9b5;
+  --mealset-deep-mint: #30725f;
+  --mealset-tomato: #d75b42;
+  --mealset-font: 'Onest', Arial, sans-serif;
+  --mealset-body-size: 1rem;
+  --mealset-body-leading: 1.6;
+  --mealset-heading-weight: 550;
+  --mealset-wordmark-weight: 650;
+  --mealset-wordmark-tracking: -.035em;
+  --mealset-button-radius: 999px;
+  --mealset-panel-radius: 24px;
+  --mealset-motion-duration: 200ms;
+}
