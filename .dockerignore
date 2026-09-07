@@ -1,0 +1,15 @@
+.git
+.github
+.openai
+node_modules
+dist
+.vinext
+.next
+.wrangler
+.env
+.env.*
+*.tsbuildinfo
+*.log
+README.md
+work
+outputs
