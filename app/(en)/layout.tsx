@@ -5,7 +5,7 @@ import '../globals.css';
 export const metadata: Metadata = {
   title: 'Mealset — Good food. Second nature.',
   description:
-    'Meet Sasha, your AI nutrition companion in Telegram. Understand your food, build a realistic meal plan and make self-care an everyday habit.',
+    'Sasha is your AI nutrition companion in Telegram. Log food by text, voice, photo or Uber Eats screenshot. Personal memory and science-based guidance.',
   icons: { icon: publicPath('/assets/mealset-mark.svg') },
   alternates: {
     canonical: siteUrl('/en'),

@@ -9,8 +9,8 @@ export const copy = {
     eyebrow: 'ТВОЙ ИИ-НУТРИЦИОЛОГ В TELEGRAM',
     headline: ['Хорошее питание.', 'Привычное дело.'],
     intro: [
-      'Понять свой рацион. Найти свой ритм.',
-      'Саша поможет превратить заботу о себе в привычку.',
+      'Записывай еду текстом, голосом или фото.',
+      'Саша помнит тебя и опирается на науку.',
     ],
     foodAlt: 'Лосось, крупа и свежие овощи в мятной керамической миске',
     note: ['Место для еды.', 'И для жизни.'],
@@ -35,10 +35,10 @@ export const copy = {
         label: 'Забота о себе',
       },
     ],
-    howEyebrow: 'ОДИН РАЗГОВОР. МНОГО МАЛЕНЬКИХ ПЕРЕМЕН.',
-    howTitle: ['Твой день меняется.', 'Саша в курсе.'],
+    howEyebrow: 'ПОМНИТ ТЕБЯ И ВАШИ РАЗГОВОРЫ',
+    howTitle: ['Вы уже знакомы.', 'И завтра тоже.'],
     howBody:
-      'Расскажи о цели, вкусах и привычном дне. Саша поможет составить план, вести дневник питания и найти замену, если всё пошло иначе.',
+      'Любимая паста. Нелюбимая кинза. Привычка готовить на два дня. Саша запоминает то, чем ты делишься, и учитывает это в следующих разговорах, блюдах и планах.',
     howNote: 'Всё в Telegram — там, где ты уже общаешься.',
     foodEyebrow: 'ЕДА ОСТАЁТСЯ ЕДОЙ',
     foodTitle: ['Вкусно.', 'Разнообразно.', 'По-твоему.'],
@@ -53,7 +53,7 @@ export const copy = {
     sashaEyebrow: 'ЗНАКОМЬСЯ, САША',
     sashaTitle: ['На твоей стороне.', 'Со своим мнением.'],
     sashaBody:
-      'Я — ИИ-нутрициолог Mealset. Помогу разобраться с питанием и двигаться к твоей цели. Если план слишком сложный — скажу. И предложу тот, с которым можно жить.',
+      'Я — ИИ-нутрициолог Mealset. Помню, что ты любишь, что не любишь и о чём мы говорили. Помогу разобраться с рационом, а свои рекомендации объясню с опорой на научные данные. Если чего-то не знаю — так и скажу.',
     quote: ['«Давай начнём с того,', 'что тебе нравится есть.»'],
     talk: 'Начать разговор',
     access: [
@@ -76,15 +76,14 @@ export const copy = {
       'Сценарии показывают подход Саши. Ответы в твоём чате будут зависеть от контекста.',
     examples: [
       {
-        id: 'plan',
-        label: 'Составить план',
-        question:
-          'Хочу наладить питание. Но каждый день готовить не получится.',
+        id: 'taste',
+        label: 'Твои вкусы',
+        question: 'Предложи ужин на завтра.',
         answer:
-          'Учтём это в плане. Можно готовить основу на два дня и менять гарнир. Какие блюда тебе нравятся?',
-        followup: 'Люблю рыбу, овощи и пасту.',
+          'Помню, ты любишь пасту с томатами, а кинзу не любишь. Предлагаю пасту с индейкой и томатным соусом — без кинзы. Рассчитаю на два дня, как мы обсуждали.',
+        followup: 'А можно в этот раз без мяса?',
         response:
-          'От них и оттолкнёмся. Сколько времени обычно есть на готовку?',
+          'Конечно. Заменим индейку на фасоль, томатный соус оставим. Помню, готовить отдельно на каждый день тебе неудобно — рассчитаю две порции.',
       },
       {
         id: 'change',
@@ -98,14 +97,14 @@ export const copy = {
           'Добавь к рису с овощами ложку воды и прогрей под крышкой. Затем вмешай яйцо и доведи до готовности — получится новое блюдо из того, что осталось.',
       },
       {
-        id: 'understand',
-        label: 'Разобраться',
-        question: 'Нужно совсем отказываться от любимой пасты?',
+        id: 'science',
+        label: 'Научный подход',
+        question: 'Почему ты предлагаешь добавлять бобовые и цельнозерновые?',
         answer:
-          'Давай посмотрим, как вписать её в твой рацион. Какую пасту обычно готовишь?',
-        followup: 'С томатами и сыром.',
+          'Это источники клетчатки, витаминов и минералов. ВОЗ рекомендует включать их в разнообразный рацион вместе с овощами и фруктами. Конкретные блюда подберём с учётом твоих вкусов.',
+        followup: 'Можешь показать, откуда это?',
         response:
-          'Учтём её в плане вместе с остальными блюдами. Начнём с привычной порции и твоей цели.',
+          'Да. Это рекомендации ВОЗ по здоровому питанию, раздел об углеводах и пищевых волокнах. Объясню, какие выводы относятся к твоему рациону и где данных пока недостаточно.',
       },
     ],
   },
@@ -118,8 +117,8 @@ export const copy = {
     eyebrow: 'YOUR AI NUTRITION COMPANION IN TELEGRAM',
     headline: ['Good food.', 'Second nature.'],
     intro: [
-      'Understand your food. Find your rhythm.',
-      'Sasha helps make taking care of yourself an everyday habit.',
+      'Log food by text, voice note or photo.',
+      'Sasha remembers you and draws on science.',
     ],
     foodAlt: 'Salmon, grains and fresh vegetables in a mint ceramic bowl',
     note: ['Room for food.', 'And for life.'],
@@ -144,10 +143,10 @@ export const copy = {
         label: 'Self-care',
       },
     ],
-    howEyebrow: 'ONE CONVERSATION. SMALL, EVERYDAY CHANGES.',
-    howTitle: ['Your day changes.', 'Sasha keeps up.'],
+    howEyebrow: 'REMEMBERS YOU AND YOUR CONVERSATIONS',
+    howTitle: ['She knows you.', 'Tomorrow, too.'],
     howBody:
-      'Share your goals, tastes and everyday routine. Sasha helps you make a meal plan, keep a food diary and find alternatives when the day takes a turn.',
+      'Favourite pasta. A dislike of coriander. Cooking for two days at once. Sasha remembers what you share and uses it in future conversations, meals and plans.',
     howNote: 'All in Telegram, right where you already chat.',
     foodEyebrow: 'LET FOOD BE FOOD',
     foodTitle: ['Enjoyable.', 'Varied.', 'Yours.'],
@@ -162,7 +161,7 @@ export const copy = {
     sashaEyebrow: 'MEET SASHA',
     sashaTitle: ['On your side.', 'With a point of view.'],
     sashaBody:
-      'I’m Mealset’s AI nutrition companion. I help you make sense of your food and work towards your goals. If a plan asks too much of you, I’ll say so. Then we’ll find one you can live with.',
+      'I’m Mealset’s AI nutrition companion. I remember your likes, dislikes and what we’ve discussed. I help you understand your food and explain my recommendations using scientific evidence. If I don’t know something, I’ll say so.',
     quote: ['“Let’s start with', 'what you enjoy eating.”'],
     talk: 'Start a conversation',
     access: [
@@ -185,14 +184,14 @@ export const copy = {
       'These examples illustrate Sasha’s approach. Replies in your own chat depend on your context.',
     examples: [
       {
-        id: 'plan',
-        label: 'Make a plan',
-        question: 'I want to eat better, but I can’t cook every day.',
+        id: 'taste',
+        label: 'Your tastes',
+        question: 'Suggest dinner for tomorrow.',
         answer:
-          'We can work with that. You could cook a base for two days and change the sides. What meals do you enjoy?',
-        followup: 'I like fish, vegetables and pasta.',
+          'I remember you love tomato pasta and dislike coriander. How about pasta with turkey and tomato sauce, without coriander? I’ll plan enough for two days, as we discussed.',
+        followup: 'Could we make it meat-free this time?',
         response:
-          'Let’s build around those. How much time do you usually have to cook?',
+          'Of course. We’ll swap the turkey for beans and keep the tomato sauce. I remember cooking every day doesn’t work for you, so I’ll plan two portions.',
       },
       {
         id: 'change',
@@ -206,14 +205,14 @@ export const copy = {
           'Add a spoonful of water to the rice and vegetables and heat with a lid on. Then stir in an egg and cook it through — a new dish from what’s left.',
       },
       {
-        id: 'understand',
-        label: 'Understand',
-        question: 'Do I have to give up my favourite pasta?',
+        id: 'science',
+        label: 'The science',
+        question: 'Why do you suggest adding beans and whole grains?',
         answer:
-          'Let’s see how it can fit into your meals. How do you usually make it?',
-        followup: 'With tomatoes and cheese.',
+          'They provide fibre, vitamins and minerals. WHO recommends including them in a varied diet alongside fruit and vegetables. We’ll choose the actual meals around what you enjoy.',
+        followup: 'Can you show me the source?',
         response:
-          'We’ll make room for it alongside your other meals. Let’s start with your usual portion and your goal.',
+          'Yes. It’s WHO’s healthy diet guidance, in the section on carbohydrates and dietary fibre. I’ll explain which findings apply to your meals and where the evidence is still limited.',
       },
     ],
   },

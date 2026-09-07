@@ -4,19 +4,35 @@ export const premiumCopy = {
     eyebrow: 'САША. ИИ-НУТРИЦИОЛОГ В TELEGRAM.',
     hero: ['Питание.', 'Становится', 'личным.'],
     heroBody:
-      'Твои вкусы. Твой ритм. Твоя цель.\nВнимание к питанию, которое начинается с тебя.',
+      'Записывает еду по сообщению, голосу или фото.\nПомнит тебя. Опирается на науку.',
     start: 'Познакомиться с Сашей',
     scroll: 'Открыть Mealset',
     imageAlt: 'Свежий романеско с зелёными листьями на глубоком зелёном фоне',
     thesisLabel: 'ЛИЧНЫЙ ПОДХОД',
     thesis: ['Всё начинается', 'с внимания.'],
     thesisBody:
-      'Что ты любишь. Как проходит твой день. К чему хочешь прийти. Саша учитывает детали, из которых складывается твоя жизнь.',
+      'Что ты любишь и что не ешь. Как готовишь и к чему стремишься. Саша запоминает то, чем ты делишься, и использует это в следующих разговорах и планах.',
     experienceLabel: 'ПОМНИТ КОНТЕКСТ. ПОМОГАЕТ ДЕЙСТВОВАТЬ.',
-    experience: ['Разговор,', 'который меняет подход.'],
+    experience: ['Вы уже знакомы.', 'И завтра тоже.'],
     experienceBody:
-      'План питания становится полезным, когда в нём есть место тебе.',
+      'Саша помнит твои вкусы, привычки и прошлые разговоры. Не нужно каждый раз знакомиться заново.',
     topics: [
+      {
+        id: 'taste',
+        title: 'Помнит тебя.',
+        description: 'Любимое, нелюбимое и то, что уже обсудили.',
+        context: [
+          'Любит пасту с томатами',
+          'Не любит кинзу',
+          'Готовит сразу на два дня',
+        ],
+        message: 'Предложи ужин на завтра.',
+        answer:
+          'Помню, ты любишь пасту с томатами, а кинзу не любишь. Предлагаю пасту с индейкой и томатным соусом — без кинзы. Рассчитаю на два дня, как мы обсуждали.',
+        continuation: 'А можно в этот раз без мяса?',
+        reply:
+          'Конечно. Заменим индейку на фасоль, томатный соус оставим. Помню, готовить отдельно на каждый день тебе неудобно — рассчитаю две порции.',
+      },
       {
         id: 'rhythm',
         title: 'Твой ритм.',
@@ -31,28 +47,16 @@ export const premiumCopy = {
           'Добавь к рису с овощами ложку воды и прогрей под крышкой. Затем вмешай яйцо и доведи до готовности — получится новое блюдо из того, что осталось.',
       },
       {
-        id: 'taste',
-        title: 'Твои вкусы.',
-        description: 'Любимая еда остаётся в жизни.',
-        context: ['Любит пасту', 'Предпочитает овощи'],
-        message: 'Хочу оставить пасту в плане. Это моё любимое блюдо.',
+        id: 'science',
+        title: 'Объясняет почему.',
+        description: 'Рекомендации с научной основой.',
+        context: ['Вопрос о составе рациона', 'Рекомендации ВОЗ'],
+        message: 'Почему ты предлагаешь добавлять бобовые и цельнозерновые?',
         answer:
-          'Оставим. Помню, ты любишь пасту с томатами. Учтём её вместе с остальными блюдами недели.',
-        continuation: 'И не хочется готовить отдельно от семьи.',
+          'Это источники клетчатки, витаминов и минералов. ВОЗ рекомендует включать их в разнообразный рацион вместе с овощами и фруктами. Конкретные блюда подберём с учётом твоих вкусов.',
+        continuation: 'Можешь показать, откуда это?',
         reply:
-          'Тогда возьмём общие блюда за основу. Сколько человек обычно ужинает вместе?',
-      },
-      {
-        id: 'goal',
-        title: 'Твоя цель.',
-        description: 'Понятный следующий шаг.',
-        context: ['Наладить режим питания', 'Обеды часто пропускаются'],
-        message: 'Снова пропустила обед, а к вечеру очень захотелось есть.',
-        answer:
-          'Вижу, с обедом пока сложно. Давай найдём вариант, который будет под рукой даже в загруженный день.',
-        continuation: 'Хорошо бы что-то брать с собой.',
-        reply:
-          'Подберём обед, который можно собрать с вечера. На работе есть холодильник?',
+          'Да. Это рекомендации ВОЗ по здоровому питанию, раздел об углеводах и пищевых волокнах. Объясню, какие выводы относятся к твоему рациону и где данных пока недостаточно.',
       },
     ],
     contextLabel: 'Контекст примера',
@@ -73,7 +77,10 @@ export const premiumCopy = {
         name: 'Осознанность.',
         body: 'Понимать, что подходит тебе.\nИ почему.',
       },
-      { name: 'Дисциплина.', body: 'Делать посильный шаг.\nИ продолжать.' },
+      {
+        name: 'Дисциплина.',
+        body: 'Делать посильный шаг.\nИ продолжать.',
+      },
       {
         name: 'Забота о себе.',
         body: 'Учитывать реальную жизнь.\nИ быть на своей стороне.',
@@ -91,7 +98,7 @@ export const premiumCopy = {
     eyebrow: 'SASHA. YOUR AI NUTRITION COMPANION IN TELEGRAM.',
     hero: ['Nutrition.', 'Made', 'personal.'],
     heroBody:
-      'Your tastes. Your rhythm. Your goals.\nNutrition support that starts with you.',
+      'Logs food from a message, voice note or photo.\nRemembers you. Grounded in science.',
     start: 'Meet Sasha',
     scroll: 'Discover Mealset',
     imageAlt:
@@ -99,11 +106,28 @@ export const premiumCopy = {
     thesisLabel: 'A PERSONAL APPROACH',
     thesis: ['It starts', 'with attention.'],
     thesisBody:
-      'What you enjoy. How your day unfolds. Where you want to go. Sasha considers the details that make your life yours.',
+      'What you love and what you avoid. How you cook and what you’re working towards. Sasha remembers what you share and uses it in future conversations and plans.',
     experienceLabel: 'REMEMBERS THE CONTEXT. HELPS YOU ACT.',
-    experience: ['A conversation.', 'A different approach.'],
-    experienceBody: 'A meal plan becomes useful when it makes room for you.',
+    experience: ['She knows you.', 'Tomorrow, too.'],
+    experienceBody:
+      'Sasha remembers your tastes, habits and past conversations. You don’t have to introduce yourself all over again.',
     topics: [
+      {
+        id: 'taste',
+        title: 'Remembers you.',
+        description: 'Your likes, dislikes and past conversations.',
+        context: [
+          'Loves tomato pasta',
+          'Dislikes coriander',
+          'Cooks for two days at a time',
+        ],
+        message: 'Suggest dinner for tomorrow.',
+        answer:
+          'I remember you love tomato pasta and dislike coriander. How about pasta with turkey and tomato sauce, without coriander? I’ll plan enough for two days, as we discussed.',
+        continuation: 'Could we make it meat-free this time?',
+        reply:
+          'Of course. We’ll swap the turkey for beans and keep the tomato sauce. I remember cooking every day doesn’t work for you, so I’ll plan two portions.',
+      },
       {
         id: 'rhythm',
         title: 'Your rhythm.',
@@ -118,28 +142,16 @@ export const premiumCopy = {
           'Add a spoonful of water to the rice and vegetables and heat with a lid on. Then stir in an egg and cook it through — a new dish from what’s left.',
       },
       {
-        id: 'taste',
-        title: 'Your tastes.',
-        description: 'Room for the food you love.',
-        context: ['Loves pasta', 'Enjoys vegetables'],
-        message: 'I want to keep pasta in the plan. It’s my favourite.',
+        id: 'science',
+        title: 'Explains why.',
+        description: 'Advice with a scientific foundation.',
+        context: ['A question about food choices', 'WHO nutrition guidance'],
+        message: 'Why do you suggest adding beans and whole grains?',
         answer:
-          'We will. I remember you like it with tomatoes. We’ll include it alongside your other meals this week.',
-        continuation: 'And I don’t want to cook separately from my family.',
+          'They provide fibre, vitamins and minerals. WHO recommends including them in a varied diet alongside fruit and vegetables. We’ll choose the actual meals around what you enjoy.',
+        continuation: 'Can you show me the source?',
         reply:
-          'Then let’s build around the meals you share. How many people usually have dinner together?',
-      },
-      {
-        id: 'goal',
-        title: 'Your goals.',
-        description: 'A clear next step.',
-        context: ['Build a regular eating routine', 'Often skips lunch'],
-        message: 'I skipped lunch again and felt really hungry by the evening.',
-        answer:
-          'Lunch is still proving tricky. Let’s find something you can have ready, even on a busy day.',
-        continuation: 'Something I can bring with me would help.',
-        reply:
-          'Let’s choose a lunch you can put together the night before. Is there a fridge at work?',
+          'Yes. It’s WHO’s healthy diet guidance, in the section on carbohydrates and dietary fibre. I’ll explain which findings apply to your meals and where the evidence is still limited.',
       },
     ],
     contextLabel: 'Example context',
@@ -156,7 +168,10 @@ export const premiumCopy = {
     foodAlt: 'Salmon, vegetables and grains in a mint ceramic bowl',
     valuesLabel: 'MEAL + MINDSET',
     values: [
-      { name: 'Awareness.', body: 'Understand what works for you.\nAnd why.' },
+      {
+        name: 'Awareness.',
+        body: 'Understand what works for you.\nAnd why.',
+      },
       {
         name: 'Discipline.',
         body: 'Take a manageable step.\nThen keep going.',

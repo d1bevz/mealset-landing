@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { pagePath, publicPath } from '@/lib/public-path';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { Conversation } from './conversation';
+import { FoodLogging } from './food-logging';
+import { Science } from './science';
 import { copy, type Locale } from './copy';
 const telegram = 'https://t.me/mealset_bot';
 export function Wordmark() {
@@ -138,6 +140,7 @@ export function Landing({ locale }: { locale: Locale }) {
             ))}
           </div>
         </section>
+        <FoodLogging locale={locale} />
         <section className="how-section" id="how" aria-labelledby="how-title">
           <div className="section-shell how-grid">
             <div className="how-copy">
@@ -153,6 +156,7 @@ export function Landing({ locale }: { locale: Locale }) {
             <Conversation locale={locale} />
           </div>
         </section>
+        <Science locale={locale} />
         <section
           className="food-story section-shell"
           aria-labelledby="food-title"

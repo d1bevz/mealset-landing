@@ -7,6 +7,8 @@ import type { Locale } from '../copy';
 import { premiumCopy } from './copy';
 import './premium.css';
 import { PremiumExperience } from './experience';
+import { FoodLogging } from '../food-logging';
+import { Science } from '../science';
 const bot = 'https://t.me/mealset_bot';
 export function PremiumLanding({ locale }: { locale: Locale }) {
   const d = premiumCopy[locale];
@@ -99,6 +101,7 @@ export function PremiumLanding({ locale }: { locale: Locale }) {
           </div>
           <p className="p-thesis-body">{d.thesisBody}</p>
         </section>
+        <FoodLogging locale={locale} />
         <section id="experience" className="p-experience p-shell">
           <p className="p-eyebrow">{d.experienceLabel}</p>
           <h2>
@@ -109,6 +112,7 @@ export function PremiumLanding({ locale }: { locale: Locale }) {
           <p className="p-section-body">{d.experienceBody}</p>
           <PremiumExperience locale={locale} />
         </section>
+        <Science locale={locale} />
         <section className="p-food">
           <div className="p-food-copy p-shell">
             <p className="p-eyebrow">{d.foodLabel}</p>
