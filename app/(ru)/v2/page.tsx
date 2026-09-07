@@ -4,7 +4,7 @@ import { PremiumLanding } from '../../premium/landing';
 export const metadata: Metadata = {
   title: 'Mealset — питание становится личным',
   description:
-    'Твои вкусы. Твой ритм. Твоя цель. Саша — ИИ-нутрициолог Mealset в Telegram. Личный подход к повседневному питанию.',
+    'Саша — ИИ-нутрициолог в Telegram. Записывает еду текстом, голосом, по фото и скриншоту Uber Eats. Помнит твои вкусы и разговоры. Рекомендации на основе науки.',
   alternates: {
     canonical: siteUrl('/v2'),
     languages: {

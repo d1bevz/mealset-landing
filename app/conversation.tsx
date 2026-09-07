@@ -10,7 +10,7 @@ export function Conversation({ locale }: { locale: Locale }) {
   const d = copy[locale];
   return (
     <div className="demo">
-      <Tabs defaultValue="plan" className="demo-tabs">
+      <Tabs defaultValue="taste" className="demo-tabs">
         <TabsList className="scenario-tabs" aria-label={d.demoAria}>
           {d.examples.map((e) => (
             <TabsTrigger key={e.id} value={e.id}>

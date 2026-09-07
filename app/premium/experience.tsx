@@ -12,7 +12,7 @@ export function PremiumExperience({ locale }: { locale: Locale }) {
   return (
     <div className="p-demonstration">
       <Tabs
-        defaultValue="rhythm"
+        defaultValue="taste"
         orientation="vertical"
         className="p-context-tabs"
       >
