@@ -58,14 +58,6 @@ export function FoodLogging({ locale }: { locale: Locale }) {
                 value={method.id}
                 className="logging-panel"
               >
-                <div className="logging-explanation">
-                  <h3>{method.title}</h3>
-                  <p>{method.body}</p>
-                  <div className="logging-search">
-                    <span>8 000+</span>
-                    <p>{d.database}</p>
-                  </div>
-                </div>
                 {activeMethod === method.id && (
                   <FoodDemo
                     key={`${locale}-${method.id}`}
