@@ -6,7 +6,7 @@ export type LoggingMethod = {
   body: string;
   message: string;
   answer: string;
-  feedback?: {
+  feedback: {
     title: string;
     strength: string;
     suggestion: string;
@@ -131,6 +131,13 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
           'Сделал смузи: манго, половина авокадо, две горсти шпината и стакан соевого молока.',
         answer:
           'Смузи записала: манго, авокадо, шпинат и соевое молоко. Фрукты и стакан молока взяла как обычные порции.',
+        feedback: {
+          title: 'Саша о твоём смузи',
+          strength:
+            'Манго и шпинат дают клетчатку и витамины, авокадо — ненасыщенные жиры.',
+          suggestion:
+            'Если это весь завтрак, я бы добавила в блендер мягкий тофу — так белка будет больше.',
+        },
         items: [
           'Манго',
           '½ авокадо',
@@ -150,6 +157,13 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
         message: 'Вот мой ужин. Съел всю порцию.',
         answer:
           'Записала пасту болоньезе. Порцию, мясной соус и сыр оценила по фото — расчёт приблизительный.',
+        feedback: {
+          title: 'Саша о твоей пасте',
+          strength:
+            'Мясной соус добавляет белок и железо, а паста — углеводы для энергии.',
+          suggestion:
+            'Если готовишь дома, попробуй цельнозерновую пасту с тем же соусом — так в блюде будет больше клетчатки.',
+        },
         items: ['Паста', 'Мясной соус', 'Томаты', 'Тёртый сыр'],
         lookup: [
           'Блюдо и порция — по фото',
@@ -167,6 +181,13 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
         message: 'Поужинал вот этим.',
         answer:
           'Бургер и Cola Zero записала. Состав Bullguer Duplo нашла в интернете. Официальных КБЖУ нет — оценила по ингредиентам.',
+        feedback: {
+          title: 'Саша о твоём заказе',
+          strength:
+            'Мясо даёт белок и железо. Овощей и клетчатки в таком заказе обычно немного.',
+          suggestion:
+            'К следующему заказу я бы добавила овощной салат. Соус можно попросить отдельно и добавить по вкусу.',
+        },
         items: ['Bullguer Duplo', 'Coca-Cola Zero · 330 мл'],
         lookup: [
           'Блюдо и ресторан — со скриншота',
@@ -303,6 +324,13 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
           'I made a smoothie: a mango, half an avocado, two handfuls of spinach and a glass of soy milk.',
         answer:
           'Smoothie logged: mango, avocado, spinach and soy milk. I used typical portions for the fruit and glass of milk.',
+        feedback: {
+          title: 'Sasha on your smoothie',
+          strength:
+            'Mango and spinach provide fibre and vitamins, while avocado adds unsaturated fats.',
+          suggestion:
+            'If this is your whole breakfast, I’d blend in some silken tofu for more protein.',
+        },
         items: [
           'A mango',
           '½ avocado',
@@ -322,6 +350,13 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
         message: 'Here’s my dinner. I ate the whole portion.',
         answer:
           'Pasta bolognese logged. I estimated the portion, meat sauce and cheese from the photo, so the calculation is approximate.',
+        feedback: {
+          title: 'Sasha on your pasta',
+          strength:
+            'The meat sauce provides protein and iron, and the pasta adds carbohydrates for energy.',
+          suggestion:
+            'If you’re cooking at home, try wholewheat pasta with the same sauce for more fibre.',
+        },
         items: ['Pasta', 'Meat sauce', 'Tomatoes', 'Grated cheese'],
         lookup: [
           'Dish and portion — from the photo',
@@ -339,6 +374,13 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
         message: 'This was my dinner.',
         answer:
           'Burger and Cola Zero logged. I found the Bullguer Duplo ingredients online. There’s no official nutrition information, so I estimated it from the ingredients.',
+        feedback: {
+          title: 'Sasha on your order',
+          strength:
+            'The meat provides protein and iron. Orders like this usually have little in the way of vegetables and fibre.',
+          suggestion:
+            'I’d add a vegetable salad to your next order. You can ask for the dressing on the side and add it to taste.',
+        },
         items: ['Bullguer Duplo', 'Coca-Cola Zero · 330 ml'],
         lookup: [
           'Dish and restaurant — from the screenshot',
