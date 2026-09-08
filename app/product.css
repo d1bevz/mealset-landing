@@ -568,6 +568,21 @@
   font-size: 1rem;
   line-height: 1.7;
 }
+.food-demo-reference {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  margin-top: 6px;
+  color: var(--deep-mint);
+  font-size: 0.8125rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.food-demo-reference svg {
+  flex-shrink: 0;
+}
 .food-demo-extras {
   border-top: 1px solid #e5eae1;
   padding-top: 16px;
