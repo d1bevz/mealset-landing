@@ -558,6 +558,23 @@
   line-height: 1.6;
   margin: 18px 0 0;
 }
+.food-demo-feedback {
+  margin-top: 20px;
+  padding: 18px 20px;
+  background: #e8efde;
+  border-radius: 3px 16px 16px;
+}
+.food-demo-feedback > strong {
+  display: block;
+  color: var(--deep-mint);
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+.food-demo-feedback p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 10px 0 0;
+}
 .food-demo-response {
   font-size: 1rem;
   line-height: 1.7;

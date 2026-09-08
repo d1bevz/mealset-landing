@@ -160,6 +160,13 @@ export function FoodDemo({
               </dl>
               <p className="food-demo-estimate">{d.resultLabel}</p>
             </div>
+            {method.feedback && (
+              <div className="food-demo-feedback">
+                <strong>{method.feedback.title}</strong>
+                <p>{method.feedback.strength}</p>
+                <p>{method.feedback.suggestion}</p>
+              </div>
+            )}
             <p className="food-demo-response">
               {half ? d.correction : method.answer}
             </p>

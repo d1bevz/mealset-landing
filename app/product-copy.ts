@@ -6,6 +6,11 @@ export type LoggingMethod = {
   body: string;
   message: string;
   answer: string;
+  feedback?: {
+    title: string;
+    strength: string;
+    suggestion: string;
+  };
   items: string[];
   lookup: string[];
   diaryTitle: string;
@@ -84,6 +89,13 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
           'На завтрак 2 картошки, немного лука, ветчина из индейки и 4 яйца.',
         answer:
           'Завтрак записала. Ветчину помню — взяла данные с твоей этикетки. Картошку и остальные порции оценила. Если жарил на масле — скажи, добавлю.',
+        feedback: {
+          title: 'Саша о твоём завтраке',
+          strength:
+            'По белку — хорошая основа: яйца и индейка. Картошка даёт углеводы для энергии.',
+          suggestion:
+            'Я бы добавила помидор или сладкий перец — будет больше клетчатки и витаминов.',
+        },
         items: ['2 картошки', 'Немного лука', 'Ветчина из индейки', '4 яйца'],
         lookup: [
           'Картошка, лук и яйца — база продуктов',
@@ -239,6 +251,13 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
           'Breakfast: 2 potatoes, a little onion, turkey ham and 4 eggs.',
         answer:
           'Breakfast logged. I remember your turkey ham, so I used the label you shared. I estimated the potatoes and other portions. If you used cooking oil, tell me and I’ll add it.',
+        feedback: {
+          title: 'Sasha on your breakfast',
+          strength:
+            'The eggs and turkey give this breakfast a good protein base. The potatoes provide carbohydrates for energy.',
+          suggestion:
+            'I’d add a tomato or a bell pepper for more fibre and vitamins.',
+        },
         items: ['2 potatoes', 'A little onion', 'Turkey ham', '4 eggs'],
         lookup: [
           'Potatoes, onion and eggs — food database',
