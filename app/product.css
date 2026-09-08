@@ -35,6 +35,7 @@
 }
 .logging-tabs {
   margin-top: 48px;
+  gap: 0;
 }
 .product-section .logging-methods {
   display: grid;
@@ -70,7 +71,7 @@
   grid-template-columns: 1fr 1.1fr;
   gap: clamp(36px, 7vw, 110px);
   align-items: start;
-  padding-top: 44px;
+  padding-top: 32px;
   min-width: 0;
 }
 .product-section .logging-panel[hidden] {
@@ -287,6 +288,9 @@
   .science-principles {
     grid-template-columns: 1fr;
     gap: 32px;
+  }
+  .product-section .logging-panel {
+    padding-top: 20px;
   }
   .logging-search {
     margin-top: 24px;
