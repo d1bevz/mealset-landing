@@ -127,7 +127,7 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
           strength:
             'Манго и шпинат дают клетчатку и витамины, авокадо — ненасыщенные жиры.',
           suggestion:
-            'Если это весь завтрак, я бы добавила в блендер мягкий тофу — так белка будет больше.',
+            'Добавь одну мерную ложку whey-протеина, который я тебе заказала — он уже должен быть у тебя. Так в смузи будет больше белка.',
         },
         items: [
           'Манго',
@@ -310,7 +310,7 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
           strength:
             'Mango and spinach provide fibre and vitamins, while avocado adds unsaturated fats.',
           suggestion:
-            'If this is your whole breakfast, I’d blend in some silken tofu for more protein.',
+            'Add one scoop of the whey protein I ordered for you — it should have arrived by now. That will give the smoothie more protein.',
         },
         items: [
           'A mango',
