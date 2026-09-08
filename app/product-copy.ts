@@ -23,7 +23,6 @@ export type LoggingDemoCopy = {
   correction: string;
   stepLabels: string[];
   working: string;
-  identified: string;
   lookup: string;
   showResult: string;
   resultLabel: string;
@@ -203,8 +202,7 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
       corrected: 'Исправила эту запись',
       correction: 'Учла половину порции. Обновила расчёт в дневнике.',
       stepLabels: ['Ты отправляешь', 'Саша разбирается', 'Готовая запись'],
-      working: 'Саша подбирает продукты…',
-      identified: 'Что нашла Саша',
+      working: 'Саша разбирается…',
       lookup: 'Откуда данные',
       showResult: 'Показать запись',
       resultLabel: 'Пример расчёта · порция оценена',
@@ -360,8 +358,7 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
       correction:
         'Half a portion noted. I’ve updated the calculation in your diary.',
       stepLabels: ['You send it', 'Sasha works it out', 'Your diary entry'],
-      working: 'Sasha is finding the foods…',
-      identified: 'What Sasha found',
+      working: 'Sasha is working it out…',
       lookup: 'Where the data comes from',
       showResult: 'Show the entry',
       resultLabel: 'Example calculation · estimated portion',
