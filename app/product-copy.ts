@@ -2,8 +2,6 @@ import type { Locale } from './copy';
 export type LoggingMethod = {
   id: 'text' | 'voice' | 'photo' | 'delivery';
   label: string;
-  title: string;
-  body: string;
   message: string;
   answer: string;
   feedback: {
@@ -56,7 +54,6 @@ type FeatureCopy = {
   title: string[];
   intro: string;
   choose: string;
-  database: string;
   sasha: string;
   chatLabel: string;
   methods: LoggingMethod[];
@@ -83,16 +80,12 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
     intro:
       'Напиши, что съел, запиши голосовое, отправь фото или скриншот заказа из Uber Eats. Подбор продуктов и расчёт Саша берёт на себя.',
     choose: 'Как записать еду',
-    database:
-      'продуктов в базе. Саша сама найдёт нужные, вспомнит твои этикетки и поищет недостающее в интернете.',
     sasha: 'Саша',
     chatLabel: 'Пример записи еды',
     methods: [
       {
         id: 'text',
         label: 'Текстом',
-        title: 'Просто скажи, что съел.',
-        body: 'Две картошки, немного лука, четыре яйца. Саша понимает обычные порции, сама находит продукты и считает. Если чего-то не хватает — уточнит.',
         message:
           'На завтрак 2 картошки, немного лука, ветчина из индейки и 4 яйца.',
         answer:
@@ -125,8 +118,6 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
       {
         id: 'voice',
         label: 'Голосом',
-        title: 'Расскажи по дороге.',
-        body: 'Запиши обычное голосовое, пока идёшь по делам. Саша разберёт речь и соберёт приём пищи из того, что ты рассказал.',
         message:
           'Сделал смузи: манго, половина авокадо, две горсти шпината и стакан соевого молока.',
         answer:
@@ -152,8 +143,6 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
       {
         id: 'photo',
         label: 'По фото',
-        title: 'Сфотографируй свой ужин.',
-        body: 'Саша узнает блюдо, подберёт ингредиенты и оценит порцию. А если пришлёшь читаемую этикетку — возьмёт данные конкретного продукта.',
         message: 'Вот мой ужин. Съел всю порцию.',
         answer:
           'Записала пасту болоньезе. Порцию, мясной соус и сыр оценила по фото — расчёт приблизительный.',
@@ -176,8 +165,6 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
       {
         id: 'delivery',
         label: 'Скриншотом',
-        title: 'Даже заказ из Uber Eats.',
-        body: 'Скриншот уже содержит название блюда и ресторан. Саша сама поищет состав и пищевую ценность. Тебе остаётся сказать, что съел.',
         message: 'Поужинал вот этим.',
         answer:
           'Бургер и Cola Zero записала. Состав Bullguer Duplo нашла в интернете. Официальных КБЖУ нет — оценила по ингредиентам.',
@@ -275,16 +262,12 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
     intro:
       'Type what you ate, send a voice note, take a photo or share an Uber Eats screenshot. Sasha finds the foods and takes care of the calculation.',
     choose: 'Ways to log your food',
-    database:
-      'foods in the database. Sasha finds the right ones, remembers your labels and searches the web for missing information.',
     sasha: 'Sasha',
     chatLabel: 'Food logging example',
     methods: [
       {
         id: 'text',
         label: 'Text',
-        title: 'Just say what you ate.',
-        body: 'Two potatoes, a little onion, four eggs. Sasha understands everyday portions, finds the foods and does the calculation. She’ll ask if she needs a detail.',
         message:
           'Breakfast: 2 potatoes, a little onion, turkey ham and 4 eggs.',
         answer:
@@ -318,8 +301,6 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
       {
         id: 'voice',
         label: 'Voice',
-        title: 'Tell her on your way.',
-        body: 'Record a voice note while you get on with your day. Sasha transcribes it and puts together the meal from what you said.',
         message:
           'I made a smoothie: a mango, half an avocado, two handfuls of spinach and a glass of soy milk.',
         answer:
@@ -345,8 +326,6 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
       {
         id: 'photo',
         label: 'Photo',
-        title: 'Take a photo of dinner.',
-        body: 'Sasha recognises the dish, finds the ingredients and estimates the portion. Send a legible label and she’ll use the figures for that exact product.',
         message: 'Here’s my dinner. I ate the whole portion.',
         answer:
           'Pasta bolognese logged. I estimated the portion, meat sauce and cheese from the photo, so the calculation is approximate.',
@@ -369,8 +348,6 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
       {
         id: 'delivery',
         label: 'Screenshot',
-        title: 'Even your Uber Eats order.',
-        body: 'The screenshot already has the dish and restaurant. Sasha looks up the ingredients and nutrition herself. Just tell her what you ate.',
         message: 'This was my dinner.',
         answer:
           'Burger and Cola Zero logged. I found the Bullguer Duplo ingredients online. There’s no official nutrition information, so I estimated it from the ingredients.',
