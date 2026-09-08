@@ -11,6 +11,14 @@ export type LoggingMethod = {
     strength: string;
     suggestion: string;
   };
+  followUp?: {
+    message: string;
+    answer: string;
+    portionLabel: string;
+    appliedLabel: string;
+    nutritionDelta: [number, number, number, number];
+    lookup: string;
+  };
   items: string[];
   lookup: string[];
   diaryTitle: string;
@@ -95,6 +103,15 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
             'По белку — хорошая основа: яйца и индейка. Картошка даёт углеводы для энергии.',
           suggestion:
             'Я бы добавила помидор или сладкий перец — будет больше клетчатки и витаминов.',
+        },
+        followUp: {
+          message: 'Да, жарил на масле — из распылителя, сделал пару пшиков.',
+          answer:
+            'Добавила масло в этот завтрак: пока оценила пару пшиков примерно в 1 г. Это +9 ккал и +1 г жиров; у разных распылителей порция отличается.',
+          portionLabel: 'С маслом',
+          appliedLabel: 'Масло учтено в завтраке',
+          nutritionDelta: [9, 0, 1, 0],
+          lookup: 'Масло — база продуктов; количество оценено по описанию',
         },
         items: ['2 картошки', 'Немного лука', 'Ветчина из индейки', '4 яйца'],
         lookup: [
@@ -257,6 +274,16 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
             'The eggs and turkey give this breakfast a good protein base. The potatoes provide carbohydrates for energy.',
           suggestion:
             'I’d add a tomato or a bell pepper for more fibre and vitamins.',
+        },
+        followUp: {
+          message:
+            'Yes, I used oil — a couple of spritzes from a spray bottle.',
+          answer:
+            'I’ve added the oil to this breakfast, estimating the couple of spritzes at about 1 g for now. That adds 9 kcal and 1 g of fat; the amount varies between spray bottles.',
+          portionLabel: 'With oil',
+          appliedLabel: 'Oil included in breakfast',
+          nutritionDelta: [9, 0, 1, 0],
+          lookup: 'Oil — food database; amount estimated from the description',
         },
         items: ['2 potatoes', 'A little onion', 'Turkey ham', '4 eggs'],
         lookup: [
