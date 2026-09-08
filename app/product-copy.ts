@@ -1,14 +1,43 @@
 import type { Locale } from './copy';
-
-type Method = {
+export type LoggingMethod = {
   id: 'text' | 'voice' | 'photo' | 'delivery';
   label: string;
   title: string;
   body: string;
-  attachment: string | null;
   message: string;
   answer: string;
-  result: string | null;
+  items: string[];
+  lookup: string[];
+  diaryTitle: string;
+  extras: string[];
+  nutrition: [number, number, number, number];
+};
+export type LoggingDemoCopy = {
+  instruction: string;
+  send: string;
+  replay: string;
+  half: string;
+  whole: string;
+  saved: string;
+  corrected: string;
+  correction: string;
+  stepLabels: string[];
+  working: string;
+  identified: string;
+  lookup: string;
+  showResult: string;
+  resultLabel: string;
+  calories: string;
+  macroLabels: string[];
+  grams: string;
+  receiptLabel: string;
+  voiceLabel: string;
+  transcript: string;
+  photoAlt: string;
+  originalPortion: string;
+  halfPortion: string;
+  more: string;
+  telegram: string;
 };
 type FeatureCopy = {
   eyebrow: string;
@@ -18,7 +47,8 @@ type FeatureCopy = {
   database: string;
   sasha: string;
   chatLabel: string;
-  methods: Method[];
+  methods: LoggingMethod[];
+  demo: LoggingDemoCopy;
   note: string;
   nutrientsLabel: string;
   nutrientsTitle: string;
@@ -34,7 +64,6 @@ type FeatureCopy = {
     efsa: string;
   };
 };
-
 export const featureCopy: Record<Locale, FeatureCopy> = {
   ru: {
     eyebrow: 'ДНЕВНИК ПИТАНИЯ. ПРЯМО В TELEGRAM.',
@@ -50,52 +79,78 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
       {
         id: 'text',
         label: 'Текстом',
-        title: '«Около 200 граммов» — тоже понятно.',
-        body: 'Пиши обычными словами: граммы на глаз, полчашки молока, четыре яйца. Саша разберёт ингредиенты, рассчитает КБЖУ и сохранит приём пищи. Если нужна деталь — уточнит.',
-        attachment: null,
+        title: 'Просто скажи, что съел.',
+        body: 'Две картошки, немного лука, четыре яйца. Саша понимает обычные порции, сама находит продукты и считает. Если чего-то не хватает — уточнит.',
         message:
-          'На завтрак картошка около 200 г, 10 г лука, 75 г ветчины из индейки и 4 яйца.',
+          'На завтрак 2 картошки, немного лука, ветчина из индейки и 4 яйца.',
         answer:
-          'Нашла всё в базе. Ветчину из индейки помню — возьму данные с твоей этикетки. Завтрак записала. Если жарил на масле, скажи — добавлю.',
-        result: '≈532 ккал · Б 40 г · Ж 21 г · У 44 г\nДиапазон: 419–645 ккал',
+          'Завтрак записала. Ветчину помню — взяла данные с твоей этикетки. Картошку и остальные порции оценила. Если жарил на масле — скажи, добавлю.',
+        items: ['2 картошки', 'Немного лука', 'Ветчина из индейки', '4 яйца'],
+        lookup: [
+          'Картошка, лук и яйца — база продуктов',
+          'Ветчина — твоя сохранённая этикетка',
+        ],
+        diaryTitle: 'Завтрак',
+        extras: ['Клетчатка', 'Калий', 'Витамин B12'],
+        nutrition: [580, 40, 22, 55],
       },
       {
         id: 'voice',
         label: 'Голосом',
-        title: 'Расскажи, пока занят своим днём.',
-        body: 'Не обязательно печатать и заполнять поля. Отправь Саше голосовое в Telegram — она распознает речь и запишет еду так же, как из сообщения.',
-        attachment: 'Голосовое · пример расшифровки',
+        title: 'Расскажи по дороге.',
+        body: 'Запиши обычное голосовое, пока идёшь по делам. Саша разберёт речь и соберёт приём пищи из того, что ты рассказал.',
         message:
-          'На завтрак сделал смузи: манго, половина авокадо, две горсти шпината и примерно 300 граммов соевого молока.',
+          'Сделал смузи: манго, половина авокадо, две горсти шпината и стакан соевого молока.',
         answer:
-          'Поняла: манго, половина авокадо, шпинат и соевое молоко. Подберу продукты и посчитаю завтрак. Вес фруктов возьму примерно — отмечу это в расчёте.',
-        result: null,
+          'Смузи записала: манго, авокадо, шпинат и соевое молоко. Фрукты и стакан молока взяла как обычные порции.',
+        items: [
+          'Манго',
+          '½ авокадо',
+          '2 горсти шпината',
+          'Стакан соевого молока',
+        ],
+        lookup: ['Речь — распознана', 'Ингредиенты — база продуктов'],
+        diaryTitle: 'Смузи на завтрак',
+        extras: ['Клетчатка', 'Фолат', 'Витамин C'],
+        nutrition: [430, 12, 22, 45],
       },
       {
         id: 'photo',
         label: 'По фото',
-        title: 'Фото тарелки. Или этикетки.',
-        body: 'Дома, в ресторане или на ходу. Саша распознает еду на фото, оценит порцию и найдёт ингредиенты. А с читаемой этикетки возьмёт данные конкретного продукта.',
-        attachment: 'Фото ужина · паста с морепродуктами',
-        message: 'Вот мой ужин.',
+        title: 'Сфотографируй свой ужин.',
+        body: 'Саша узнает блюдо, подберёт ингредиенты и оценит порцию. А если пришлёшь читаемую этикетку — возьмёт данные конкретного продукта.',
+        message: 'Вот мой ужин. Съел всю порцию.',
         answer:
-          'Вижу пасту с креветками и мидиями в сливочном соусе. Всю порцию съел? По фото вес и количество соуса приблизительные — расчёт будет с диапазоном.',
-        result: null,
+          'Записала пасту болоньезе. Порцию, мясной соус и сыр оценила по фото — расчёт приблизительный.',
+        items: ['Паста', 'Мясной соус', 'Томаты', 'Тёртый сыр'],
+        lookup: [
+          'Блюдо и порция — по фото',
+          'Состав ингредиентов — база продуктов',
+        ],
+        diaryTitle: 'Паста болоньезе',
+        extras: ['Клетчатка', 'Железо', 'Кальций'],
+        nutrition: [650, 33, 26, 70],
       },
       {
         id: 'delivery',
         label: 'Скриншотом',
         title: 'Даже заказ из Uber Eats.',
-        body: 'Пришли скриншот и скажи, что съел. Саша прочитает название блюда и ресторан, сама поищет состав и пищевую ценность. Если точных данных нет — оценит по ингредиентам.',
-        attachment:
-          'Uber Eats · Bullguer\n1 × Bullguer Duplo\n1 × Coca-Cola Zero, 330 мл',
+        body: 'Скриншот уже содержит название блюда и ресторан. Саша сама поищет состав и пищевую ценность. Тебе остаётся сказать, что съел.',
         message: 'Поужинал вот этим.',
         answer:
-          'Нашла двойной бургер и Cola Zero. Состав бургера проверила, но официальной пищевой ценности нет. Рассчитаю по ингредиентам и отмечу как оценку.',
-        result: null,
+          'Бургер и Cola Zero записала. Состав Bullguer Duplo нашла в интернете. Официальных КБЖУ нет — оценила по ингредиентам.',
+        items: ['Bullguer Duplo', 'Coca-Cola Zero · 330 мл'],
+        lookup: [
+          'Блюдо и ресторан — со скриншота',
+          'Состав — поиск в интернете',
+          'Расчёт — по ингредиентам из базы',
+        ],
+        diaryTitle: 'Ужин из Bullguer',
+        extras: ['Насыщенные жиры', 'Натрий', 'Железо'],
+        nutrition: [1000, 70, 60, 45],
       },
     ],
-    note: 'Иллюстрации работы Саши. Ответы зависят от контекста. При примерных порциях расчёт тоже примерный.',
+    note: 'Интерактивный пример с условными расчётами. В Telegram Саша использует твои продукты и порции, а оценки отмечает как приблизительные.',
     nutrientsLabel: 'БОЛЬШЕ, ЧЕМ КБЖУ',
     nutrientsTitle: 'За калориями — целый рацион.',
     nutrientsBody:
@@ -138,6 +193,33 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
       who: 'ВОЗ · здоровое питание',
       efsa: 'EFSA · нормы потребления нутриентов',
     },
+    demo: {
+      instruction: 'Выбери способ и отправь пример Саше.',
+      send: 'Отправить пример',
+      replay: 'Ещё раз',
+      half: 'Я съел только половину',
+      whole: 'Всё-таки всю порцию',
+      saved: 'Записала в дневник',
+      corrected: 'Исправила эту запись',
+      correction: 'Учла половину порции. Обновила расчёт в дневнике.',
+      stepLabels: ['Ты отправляешь', 'Саша разбирается', 'Готовая запись'],
+      working: 'Саша подбирает продукты…',
+      identified: 'Что нашла Саша',
+      lookup: 'Откуда данные',
+      showResult: 'Показать запись',
+      resultLabel: 'Пример расчёта · порция оценена',
+      calories: 'ккал',
+      macroLabels: ['Белки', 'Жиры', 'Углеводы'],
+      grams: 'г',
+      receiptLabel: 'Пример скриншота заказа',
+      voiceLabel: 'Пример голосового',
+      transcript: 'Текст голосового',
+      photoAlt: 'Пример фото ужина: паста болоньезе на мятной тарелке',
+      originalPortion: 'Вся порция',
+      halfPortion: 'Половина порции',
+      more: 'Ещё в составе',
+      telegram: 'Записать свою еду в Telegram',
+    },
   },
   en: {
     eyebrow: 'YOUR FOOD DIARY. RIGHT IN TELEGRAM.',
@@ -153,53 +235,78 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
       {
         id: 'text',
         label: 'Text',
-        title: '“About 200 grams” works too.',
-        body: 'Use everyday words: approximate weights, half a cup of milk, four eggs. Sasha identifies the ingredients, calculates calories and macros, and saves your meal. She’ll ask if she needs a detail.',
-        attachment: null,
+        title: 'Just say what you ate.',
+        body: 'Two potatoes, a little onion, four eggs. Sasha understands everyday portions, finds the foods and does the calculation. She’ll ask if she needs a detail.',
         message:
-          'Breakfast: about 200 g of potatoes, 10 g of onion, 75 g of turkey ham and 4 eggs.',
+          'Breakfast: 2 potatoes, a little onion, turkey ham and 4 eggs.',
         answer:
-          'Found everything in the database. I remember your turkey ham — I’ll use the label you shared. Breakfast logged. If you cooked with oil, tell me and I’ll add it.',
-        result:
-          '≈532 kcal · P 40 g · F 21 g · C 44 g\nEstimated range: 419–645 kcal',
+          'Breakfast logged. I remember your turkey ham, so I used the label you shared. I estimated the potatoes and other portions. If you used cooking oil, tell me and I’ll add it.',
+        items: ['2 potatoes', 'A little onion', 'Turkey ham', '4 eggs'],
+        lookup: [
+          'Potatoes, onion and eggs — food database',
+          'Turkey ham — your saved label',
+        ],
+        diaryTitle: 'Breakfast',
+        extras: ['Fibre', 'Potassium', 'Vitamin B12'],
+        nutrition: [580, 40, 22, 55],
       },
       {
         id: 'voice',
         label: 'Voice',
-        title: 'Tell her as you go.',
-        body: 'No need to type or fill in fields. Send Sasha a Telegram voice note. She transcribes your words and logs the food just as she would from a message.',
-        attachment: 'Voice note · example transcript',
+        title: 'Tell her on your way.',
+        body: 'Record a voice note while you get on with your day. Sasha transcribes it and puts together the meal from what you said.',
         message:
-          'I made a smoothie for breakfast: a mango, half an avocado, two handfuls of spinach and about 300 grams of soy milk.',
+          'I made a smoothie: a mango, half an avocado, two handfuls of spinach and a glass of soy milk.',
         answer:
-          'Got it: mango, half an avocado, spinach and soy milk. I’ll find the foods and calculate breakfast. I’ll estimate the fruit weights and mark that in the calculation.',
-        result: null,
+          'Smoothie logged: mango, avocado, spinach and soy milk. I used typical portions for the fruit and glass of milk.',
+        items: [
+          'A mango',
+          '½ avocado',
+          '2 handfuls of spinach',
+          'A glass of soy milk',
+        ],
+        lookup: ['Speech — transcribed', 'Ingredients — food database'],
+        diaryTitle: 'Breakfast smoothie',
+        extras: ['Fibre', 'Folate', 'Vitamin C'],
+        nutrition: [430, 12, 22, 45],
       },
       {
         id: 'photo',
         label: 'Photo',
-        title: 'A photo of your plate. Or its label.',
-        body: 'At home, at a restaurant or on the go. Sasha identifies the food, estimates the portion and finds the ingredients. A legible label gives her the figures for your exact product.',
-        attachment: 'Dinner photo · seafood pasta',
-        message: 'Here’s my dinner.',
+        title: 'Take a photo of dinner.',
+        body: 'Sasha recognises the dish, finds the ingredients and estimates the portion. Send a legible label and she’ll use the figures for that exact product.',
+        message: 'Here’s my dinner. I ate the whole portion.',
         answer:
-          'I can see pasta with prawns and mussels in a cream sauce. Did you eat the whole portion? The weight and sauce quantity are approximate from a photo, so I’ll give you an estimated range.',
-        result: null,
+          'Pasta bolognese logged. I estimated the portion, meat sauce and cheese from the photo, so the calculation is approximate.',
+        items: ['Pasta', 'Meat sauce', 'Tomatoes', 'Grated cheese'],
+        lookup: [
+          'Dish and portion — from the photo',
+          'Ingredient composition — food database',
+        ],
+        diaryTitle: 'Pasta bolognese',
+        extras: ['Fibre', 'Iron', 'Calcium'],
+        nutrition: [650, 33, 26, 70],
       },
       {
         id: 'delivery',
         label: 'Screenshot',
         title: 'Even your Uber Eats order.',
-        body: 'Send a screenshot and say what you ate. Sasha reads the dish and restaurant, then looks up ingredients and nutrition herself. If exact figures aren’t available, she estimates from the ingredients.',
-        attachment:
-          'Uber Eats · Bullguer\n1 × Bullguer Duplo\n1 × Coca-Cola Zero, 330 ml',
+        body: 'The screenshot already has the dish and restaurant. Sasha looks up the ingredients and nutrition herself. Just tell her what you ate.',
         message: 'This was my dinner.',
         answer:
-          'Found the double burger and Cola Zero. I checked the burger’s ingredients, but there’s no official nutrition information. I’ll calculate it from the ingredients and mark it as an estimate.',
-        result: null,
+          'Burger and Cola Zero logged. I found the Bullguer Duplo ingredients online. There’s no official nutrition information, so I estimated it from the ingredients.',
+        items: ['Bullguer Duplo', 'Coca-Cola Zero · 330 ml'],
+        lookup: [
+          'Dish and restaurant — from the screenshot',
+          'Ingredients — web search',
+          'Calculation — food database',
+        ],
+        diaryTitle: 'Dinner from Bullguer',
+        extras: ['Saturated fat', 'Sodium', 'Iron'],
+        nutrition: [1000, 70, 60, 45],
       },
     ],
-    note: 'Illustrations of how Sasha works. Replies depend on context. Approximate portions produce approximate calculations.',
+    note: 'Interactive demo with illustrative calculations. In Telegram, Sasha uses your foods and portions and clearly marks estimates.',
     nutrientsLabel: 'BEYOND CALORIES AND MACROS',
     nutrientsTitle: 'There’s more to your food.',
     nutrientsBody:
@@ -241,6 +348,34 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
       sourcesLabel: 'Examples of scientific references',
       who: 'WHO · healthy diet',
       efsa: 'EFSA · dietary reference values',
+    },
+    demo: {
+      instruction: 'Choose a format and send Sasha an example.',
+      send: 'Send example',
+      replay: 'Try again',
+      half: 'I only ate half',
+      whole: 'Actually, the whole portion',
+      saved: 'Added to your food diary',
+      corrected: 'Updated this entry',
+      correction:
+        'Half a portion noted. I’ve updated the calculation in your diary.',
+      stepLabels: ['You send it', 'Sasha works it out', 'Your diary entry'],
+      working: 'Sasha is finding the foods…',
+      identified: 'What Sasha found',
+      lookup: 'Where the data comes from',
+      showResult: 'Show the entry',
+      resultLabel: 'Example calculation · estimated portion',
+      calories: 'kcal',
+      macroLabels: ['Protein', 'Fat', 'Carbs'],
+      grams: 'g',
+      receiptLabel: 'Example order screenshot',
+      voiceLabel: 'Example voice note',
+      transcript: 'Voice note transcript',
+      photoAlt: 'Example dinner photo: pasta bolognese on a mint plate',
+      originalPortion: 'Whole portion',
+      halfPortion: 'Half a portion',
+      more: 'Also in these foods',
+      telegram: 'Log your own food in Telegram',
     },
   },
 };
