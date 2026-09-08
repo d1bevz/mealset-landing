@@ -27,7 +27,7 @@ export function FoodDemo({
   sasha: string;
 }) {
   const [step, setStep] = useState(0);
-  const [corrected, setCorrected] = useState(false);
+  const [continued, setContinued] = useState(false);
   const actionRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -39,12 +39,13 @@ export function FoodDemo({
     return () => window.clearTimeout(timer);
   }, [step]);
 
-  const followUpApplied = corrected && Boolean(method.followUp);
+  const followUpApplied = continued && Boolean(method.followUp);
+  const entryCorrected = continued && method.followUp?.kind !== 'question';
+  const correction =
+    method.followUp?.kind === 'correction' ? method.followUp : null;
   const nutrition = method.nutrition.map((value, index) => {
-    if (!corrected) return value;
-    return method.followUp
-      ? value + method.followUp.nutritionDelta[index]
-      : value * 0.5;
+    if (!entryCorrected) return value;
+    return correction ? value + correction.nutritionDelta[index] : value * 0.5;
   });
   const number = (value: number) =>
     new Intl.NumberFormat(locale, { maximumFractionDigits: 1 }).format(value);
@@ -143,14 +144,14 @@ export function FoodDemo({
           <div className="food-demo-finished">
             <p className="food-demo-saved">
               <Check size={16} aria-hidden="true" />
-              {corrected ? d.corrected : d.saved}
+              {entryCorrected ? d.corrected : d.saved}
             </p>
             <div className="food-demo-receipt">
               <div className="food-demo-receipt-title">
                 <strong>{method.diaryTitle}</strong>
                 <span>
-                  {corrected
-                    ? (method.followUp?.portionLabel ?? d.halfPortion)
+                  {entryCorrected
+                    ? (correction?.portionLabel ?? d.halfPortion)
                     : d.originalPortion}
                 </span>
               </div>
@@ -175,14 +176,29 @@ export function FoodDemo({
               <p>{method.feedback.suggestion}</p>
             </div>
             <p className="food-demo-response">
-              {corrected && !method.followUp ? d.correction : method.answer}
+              {entryCorrected && !method.followUp
+                ? d.correction
+                : method.answer}
             </p>
             {followUpApplied && method.followUp && (
               <div className="food-demo-followup">
                 <p className="food-demo-user-reply">
                   {method.followUp.message}
                 </p>
-                <p className="food-demo-response">{method.followUp.answer}</p>
+                <p className="food-demo-response">
+                  {method.followUp.answer}
+                  {method.followUp.kind === 'question' && (
+                    <a
+                      className="food-demo-reference"
+                      href={method.followUp.source.url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {method.followUp.source.label}
+                      <ArrowUpRight size={15} aria-hidden="true" />
+                    </a>
+                  )}
+                </p>
               </div>
             )}
             <div className="food-demo-extras">
@@ -195,9 +211,7 @@ export function FoodDemo({
                 {method.lookup.map((source) => (
                   <li key={source}>{source}</li>
                 ))}
-                {followUpApplied && method.followUp && (
-                  <li>{method.followUp.lookup}</li>
-                )}
+                {followUpApplied && correction && <li>{correction.lookup}</li>}
               </ul>
             </details>
           </div>
@@ -207,7 +221,7 @@ export function FoodDemo({
         {step === 1
           ? d.working
           : step === 2
-            ? corrected
+            ? continued
               ? (method.followUp?.answer ?? d.corrected)
               : d.saved
             : ''}
@@ -220,14 +234,14 @@ export function FoodDemo({
           aria-disabled={step === 2 && followUpApplied ? true : undefined}
           onClick={() => {
             if (step < 2) setStep(step + 1);
-            else if (!followUpApplied) setCorrected(!corrected);
+            else if (!followUpApplied) setContinued(!continued);
           }}
         >
           {step === 0
             ? d.send
             : step === 1
               ? d.showResult
-              : corrected
+              : continued
                 ? (method.followUp?.appliedLabel ?? d.whole)
                 : (method.followUp?.message ?? d.half)}
           {followUpApplied ? (
@@ -244,7 +258,7 @@ export function FoodDemo({
               type="button"
               onClick={() => {
                 setStep(0);
-                setCorrected(false);
+                setContinued(false);
                 actionRef.current?.focus({ preventScroll: true });
               }}
             >

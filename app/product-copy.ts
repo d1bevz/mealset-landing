@@ -1,4 +1,20 @@
 import type { Locale } from './copy';
+type LoggingFollowUp = {
+  message: string;
+  answer: string;
+  appliedLabel: string;
+} & (
+  | {
+      kind: 'correction';
+      portionLabel: string;
+      nutritionDelta: [number, number, number, number];
+      lookup: string;
+    }
+  | {
+      kind: 'question';
+      source: { label: string; url: string };
+    }
+);
 export type LoggingMethod = {
   id: 'text' | 'voice' | 'photo' | 'delivery';
   label: string;
@@ -9,14 +25,7 @@ export type LoggingMethod = {
     strength: string;
     suggestion: string;
   };
-  followUp?: {
-    message: string;
-    answer: string;
-    portionLabel: string;
-    appliedLabel: string;
-    nutritionDelta: [number, number, number, number];
-    lookup: string;
-  };
+  followUp?: LoggingFollowUp;
   items: string[];
   lookup: string[];
   diaryTitle: string;
@@ -98,6 +107,7 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
             'Я бы добавила помидор или сладкий перец — будет больше клетчатки и витаминов.',
         },
         followUp: {
+          kind: 'correction',
           message: 'Да, жарил на масле — из распылителя, сделал пару пшиков.',
           answer:
             'Добавила масло в этот завтрак: пока оценила пару пшиков примерно в 1 г. Это +9 ккал и +1 г жиров; у разных распылителей порция отличается.',
@@ -152,6 +162,17 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
             'Мясной соус добавляет белок и железо, а паста — углеводы для энергии.',
           suggestion:
             'Если готовишь дома, попробуй цельнозерновую пасту с тем же соусом — так в блюде будет больше клетчатки.',
+        },
+        followUp: {
+          kind: 'question',
+          message: 'А зачем мне клетчатка?',
+          answer:
+            'Ты хочешь похудеть, и еда с клетчаткой может помочь дольше чувствовать сытость после еды. Так бывает легче придерживаться умеренного дефицита калорий. Поэтому я и предложила цельнозерновую пасту с тем же соусом — больше клетчатки в привычном ужине.',
+          appliedLabel: 'Саша ответила',
+          source: {
+            label: 'NHS · клетчатка и сытость',
+            url: 'https://www.nhs.uk/live-well/eat-well/food-types/starchy-foods-and-carbohydrates/',
+          },
         },
         items: ['Паста', 'Мясной соус', 'Томаты', 'Тёртый сыр'],
         lookup: [
@@ -280,6 +301,7 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
             'I’d add a tomato or a bell pepper for more fibre and vitamins.',
         },
         followUp: {
+          kind: 'correction',
           message:
             'Yes, I used oil — a couple of spritzes from a spray bottle.',
           answer:
@@ -335,6 +357,17 @@ export const featureCopy: Record<Locale, FeatureCopy> = {
             'The meat sauce provides protein and iron, and the pasta adds carbohydrates for energy.',
           suggestion:
             'If you’re cooking at home, try wholewheat pasta with the same sauce for more fibre.',
+        },
+        followUp: {
+          kind: 'question',
+          message: 'Why do I need fibre?',
+          answer:
+            'Since you want to lose weight, foods with fibre can help you feel full for longer after a meal. That can make a modest calorie deficit easier to stick to. That’s why I suggested wholewheat pasta with the same sauce — more fibre in a familiar dinner.',
+          appliedLabel: 'Sasha answered',
+          source: {
+            label: 'NHS · fibre and fullness',
+            url: 'https://www.nhs.uk/live-well/eat-well/food-types/starchy-foods-and-carbohydrates/',
+          },
         },
         items: ['Pasta', 'Meat sauce', 'Tomatoes', 'Grated cheese'],
         lookup: [
