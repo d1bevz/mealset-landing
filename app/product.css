@@ -461,37 +461,28 @@
   line-height: 1.7;
   margin: 0 0 22px;
 }
-.food-demo-label {
-  font-size: 0.875rem;
-  color: var(--muted-foreground);
-  margin: 0 0 14px;
-}
-.food-demo-ingredients {
+.food-demo-loading {
+  min-height: 282px;
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0;
-  margin: 0 0 30px;
-}
-.food-demo-ingredients li {
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding: 10px 13px;
-  background: #e8efde;
-  border-radius: 9px;
-  font-size: 0.9375rem;
+  justify-content: center;
+  gap: 18px;
+  text-align: center;
 }
-.food-demo-ingredients svg {
-  flex-shrink: 0;
+.food-demo-loading p {
+  font-size: 1rem;
+  color: var(--muted-foreground);
+  margin: 0;
 }
-.food-demo-lookup,
+.food-demo-spinner {
+  color: var(--deep-mint);
+  animation: food-demo-spin 1s linear infinite;
+}
 .food-demo-sources ul {
   padding-left: 20px;
   margin: 0;
 }
-.food-demo-lookup li,
 .food-demo-sources li {
   font-size: 0.9375rem;
   line-height: 1.7;
@@ -658,6 +649,11 @@
   outline: 2px solid var(--deep-mint);
   outline-offset: 3px;
 }
+@keyframes food-demo-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 @keyframes food-demo-enter {
   from {
     opacity: 0;
@@ -682,6 +678,9 @@
     padding: 20px 18px;
     min-height: 260px;
   }
+  .food-demo-loading {
+    min-height: 220px;
+  }
   .food-demo-actions {
     padding: 0 18px 20px;
   }
@@ -703,7 +702,8 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .food-demo-stage > div {
+  .food-demo-stage > div,
+  .food-demo-spinner {
     animation: none;
   }
 }

@@ -7,6 +7,7 @@ import {
   ArrowUpRight,
   AudioLines,
   Check,
+  LoaderCircle,
   RotateCcw,
   Send,
 } from 'lucide-react';
@@ -124,22 +125,14 @@ export function FoodDemo({
             )}
           </div>
         ) : step === 1 ? (
-          <div className="food-demo-discovery">
-            <p className="food-demo-label">{d.identified}</p>
-            <ul className="food-demo-ingredients">
-              {method.items.map((item) => (
-                <li key={item}>
-                  <Check size={16} aria-hidden="true" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="food-demo-label">{d.lookup}</p>
-            <ul className="food-demo-lookup">
-              {method.lookup.map((source) => (
-                <li key={source}>{source}</li>
-              ))}
-            </ul>
+          <div className="food-demo-loading">
+            <LoaderCircle
+              className="food-demo-spinner"
+              size={36}
+              strokeWidth={1.75}
+              aria-hidden="true"
+            />
+            <p>{d.working}</p>
           </div>
         ) : (
           <div className="food-demo-finished">
