@@ -580,6 +580,16 @@
   line-height: 1.7;
   margin: 20px 0;
 }
+.food-demo-user-reply {
+  width: fit-content;
+  max-width: calc(100% - 24px);
+  margin: 20px 0 20px auto;
+  padding: 14px 18px;
+  border-radius: 16px 16px 3px 16px;
+  background: #e8efde;
+  font-size: 1rem;
+  line-height: 1.7;
+}
 .food-demo-extras {
   border-top: 1px solid #e5eae1;
   padding-top: 16px;
@@ -630,6 +640,11 @@
 }
 .food-demo-correct:hover {
   background: #dce9cc;
+}
+.food-demo-correct[aria-disabled='true'] {
+  cursor: default;
+  background: #f2f6ee;
+  color: var(--deep-mint);
 }
 .food-demo-actions svg {
   flex-shrink: 0;
