@@ -40,6 +40,18 @@ for (const [route, language, text] of routes) {
       );
     }
   }
+  const social = route.includes('v2')
+    ? 'assets/premium/og-premium.jpg'
+    : 'assets/og-default.jpg';
+  for (const tag of [
+    `property="og:title" content="`,
+    `property="og:url" content="${canonical}"`,
+    `property="og:image" content="${origin}${basePath}/${social}"`,
+    `name="twitter:card" content="summary_large_image"`,
+  ]) {
+    assert(html.includes(tag), `${route}: social metadata ${tag}`);
+  }
+  assert(existsSync(join(root, social)), `${route}: missing ${social}`);
   assert(html.includes('https://t.me/mealset_bot'), `${route}: Telegram CTA`);
   assert(
     !html.includes('mealset-mindset.d1bevz.chatgpt.site'),
@@ -66,5 +78,5 @@ for (const asset of [
   assert(existsSync(join(root, asset)), `Missing ${asset}`);
 }
 console.log(
-  'Static export verified: four routes, RU/EN metadata, Telegram links and final images.',
+  'Static export verified: four routes, RU/EN metadata, social cards, Telegram links and final images.',
 );

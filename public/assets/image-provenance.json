@@ -13,6 +13,12 @@
       "file": "mealset-food-hero.png",
       "description": "Landscape editorial still life of salmon, pearl grains, broccoli, tomato and cucumber in a mint ceramic bowl on a cool white tabletop, with cut lime and two loose green leaves. Natural light from the left, bowl center-right.",
       "prompt": "Use case: photorealistic-natural\nAsset type: final landing-page hero photograph for Mealset nutrition companion, landscape 3:2 image, at least 1536 x 1024.\nPrimary request: An art-directed, very natural editorial still life of a wide low mint ceramic bowl containing a simple genuinely appetizing meal: roasted salmon, pearl grains, vivid crunchy green vegetables, tomato, and cucumber.\nScene/backdrop: cool off-white studio tabletop close to #f7f9f5, with a cut lime and a few loose fresh leaves beside the bowl. Sparse deliberate arrangement, every object resting naturally on the tabletop.\nComposition/framing: bowl at center-right, slightly elevated three-quarter camera view, generous calm negative space around it and especially to the left, complete bowl visible with comfortable margins. Sophisticated international food-magazine composition suitable for a premium restrained landing page.\nLighting/mood: soft daylight from the left, long gentle actual shadow, true natural colors and subtle tonal range. Fresh, quiet, inviting.\nMaterials/textures: sharp tactile food textures, natural irregularities, salmon with delicately roasted surface, distinct pearled grains, crisp vegetables, ceramic with a soft matt glaze, realistic physical surfaces.\nColor palette: restrained white, pine green, vivid lime, and soft mint, supported by natural salmon and tomato colors.\nConstraints: one final photograph. No lettering, no interface, no devices, no people, no utensils, no extra props, nothing floating, no branding, no watermark.\nAvoid: plastic CGI, artificial perfection, fake sparkles, over-saturated color, dramatic dark backdrop, glossy stock-photo styling, artificial compositing."
+    },
+    {
+      "name": "og-default",
+      "file": "og-default.jpg",
+      "description": "Open Graph / Twitter card for / and /en: food-hero.jpg cropped to 1200 x 630 (full width, vertically centred), JPEG quality 85. No text: title and description come from page metadata.",
+      "derived_from": "food-hero.jpg"
     }
   ]
 }

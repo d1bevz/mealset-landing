@@ -14,36 +14,62 @@
 Кнопки ведут в [@mealset_bot](https://t.me/mealset_bot). Серверная часть бота,
 его база и секреты в этот репозиторий не входят.
 
-## GitHub Pages — для тестирования
+## Продакшен — https://mealset.tech (GitHub Pages)
 
-Сайт: **https://d1bevz.github.io/mealset-landing/**.
-Русская и английская версии доступны в корне сайта и по `en/`;
-второй вариант — по `v2/` и `en/v2/`.
-
-После каждого изменения в `main` workflow **Publish GitHub Pages** собирает
-лендинг, проверяет страницы и ресурсы, затем публикует его. Результат виден
-во вкладке **Actions**. Workflow также можно запустить вручную через
-**Run workflow** на ветке `main`. Pull request проходит проверку сборки
+Сайт живёт на GitHub Pages с собственным доменом **mealset.tech**; VPS для
+него не нужен. После каждого изменения в `main` workflow **Publish GitHub
+Pages** собирает лендинг, проверяет страницы и ресурсы, затем публикует его.
+Результат виден во вкладке **Actions**. Workflow также можно запустить вручную
+через **Run workflow** на ветке `main`. Pull request проходит проверку сборки
 без публикации.
 
-В **Settings → Pages → Build and deployment → Source** должно быть
-выбрано **GitHub Actions**. Свой домен и VPS для этого режима не нужны.
-
-Адрес и префикс проекта берутся из настроек Pages при сборке.
-Для воспроизведения такой сборки локально:
+В **Settings → Pages** должно быть: **Source — GitHub Actions**, **Custom
+domain — mealset.tech**, **Enforce HTTPS — включено**. Адрес сайта и префикс
+пути берутся из этих настроек при сборке: `SITE_URL=https://mealset.tech`,
+префикс пустой. Для воспроизведения такой сборки локально:
 
 ```bash
-SITE_URL=https://d1bevz.github.io \
-NEXT_PUBLIC_BASE_PATH=/mealset-landing \
+SITE_URL=https://mealset.tech \
 NEXT_PUBLIC_TRAILING_SLASH=true \
 bun run build
 ```
 
-Готовые файлы находятся в `dist/client`. Этот каталог размещается
-под префиксом `/mealset-landing/`; префикс уже учтён в ссылках,
-картинках, шрифте и метаданных.
+Готовые файлы находятся в `dist/client`; `www.mealset.tech` и `http://`
+GitHub сам перенаправляет на `https://mealset.tech`.
 
-## Запуск на VPS
+### DNS (Hostinger hPanel)
+
+| Тип   | Имя   | Значение          |
+| ----- | ----- | ----------------- |
+| A     | `@`   | `185.199.108.153` |
+| A     | `@`   | `185.199.109.153` |
+| A     | `@`   | `185.199.110.153` |
+| A     | `@`   | `185.199.111.153` |
+| CNAME | `www` | `d1bevz.github.io` |
+
+Нужны все четыре A-записи. CNAME `www` должен указывать на `d1bevz.github.io`,
+а не на `mealset.tech`: иначе GitHub не считает `www` пригодным для HTTPS.
+
+### Две ловушки при подключении домена
+
+1. Если custom domain задан раньше, чем DNS стал верным, GitHub может так и не
+   начать выпуск сертификата: `gh api repos/d1bevz/mealset-landing/pages`
+   часами показывает `"https_certificate": null` при зелёном
+   `.../pages/health`. Лечение — снять и заново задать домен:
+   `gh api -X PUT repos/d1bevz/mealset-landing/pages --input - <<< '{"cname":null}'`,
+   затем `gh api -X PUT repos/d1bevz/mealset-landing/pages -f cname=mealset.tech`.
+   Сертификат появляется в течение минуты; GitHub продлевает его сам.
+2. Сборка, запущенная до выпуска сертификата, получает от `configure-pages`
+   origin `http://mealset.tech`, и canonical/hreflang/Open Graph уходят с
+   `http://`. После включения **Enforce HTTPS** перезапустите workflow.
+
+Для проверки: `curl -sI https://mealset.tech/ | head -1`, затем
+`curl -s https://mealset.tech/ | grep -o 'rel="canonical" href="[^"]*"'`.
+
+## Запасной вариант: запуск на VPS
+
+Этот путь не используется, пока сайт живёт на GitHub Pages. Он остаётся на
+случай, если понадобится серверная часть на том же домене.
 
 Нужны Git, Docker Engine и Docker Compose v2. Для Ubuntu:
 [официальная установка Docker](https://docs.docker.com/engine/install/ubuntu/).
@@ -151,7 +177,8 @@ SITE_URL=https://mealset.example bun run build
 ```
 
 `bun run build` автоматически проверяет наличие всех четырёх HTML-страниц,
-локализации, метаданных домена, ссылок на Telegram и актуальных изображений.
+локализации, метаданных домена, Open Graph-карточек, ссылок на Telegram и
+актуальных изображений.
 Проверка запущенного контейнера:
 
 ```bash
@@ -170,7 +197,9 @@ workflow **Publish GitHub Pages**.
 - `app/premium/` — второй дизайн.
 - `public/assets/`, `public/fonts/` — изображения и локальный шрифт Onest.
 - `Dockerfile`, `compose.yaml`, `deploy/` — развёртывание на VPS.
-- `lib/site-url.ts` — проверка адреса сайта для SEO.
+- `lib/site-url.ts` — проверка адреса сайта для SEO; `lib/social-metadata.ts` —
+  Open Graph и Twitter-карточки (картинки `public/assets/og-default.jpg` и
+  `public/assets/premium/og-premium.jpg`, 1200 × 630, кропы hero-фото).
 
 Статическая сборка также подходит для существующего Nginx без Docker:
 разместите содержимое `dist/client` в document root и перенесите правила
