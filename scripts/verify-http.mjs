@@ -25,6 +25,8 @@ const resources = new Set([
   ...pageAssets,
   mountedUrl('/assets/food-bolognese.png').href,
   mountedUrl('/assets/food-hero.jpg').href,
+  mountedUrl('/assets/og-default.jpg').href,
+  mountedUrl('/assets/premium/og-premium.jpg').href,
   mountedUrl('/fonts/onest.ttf').href,
 ]);
 for (const path of resources) {

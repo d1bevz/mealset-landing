@@ -21,5 +21,14 @@
     "description": "Photographic Romanesco crown on a matte dark pine studio background, full crown in frame at right with a restrained side leaf. Detailed pale lime fractal florets, natural upper-left light, grounded subtle shadow, quiet dark negative space at left.",
     "inspection": "Full crown is visible and grounded. Fine floret detail reads crisply; lighting and surface texture are photographic. No unwanted props, text, glowing elements or floating pieces. Crown takes approximately the right 65% at its broadest bottom edge; the upper-left 40% is clear for a heading.",
     "prompt": "Use case: photorealistic-natural\nAsset type: final premium landing-page hero photograph for Mealset nutrition companion, 1536 x 1024 landscape.\nPrimary request: An art-directed luxury food still life, absolutely photographic: a single sculptural fresh Romanesco broccoli crown upright on a dark matt deep pine green seamless studio surface and background, approximately #173B32. Its pale vivid lime fractal florets are distinctly recognizable and intricately botanical.\nComposition/framing: the Romanesco occupies the right 55 percent of the frame. The left 40 percent is extremely calm, nearly solid dark pine negative space reserved for a real HTML heading. Full crown visible with a comfortable upper margin. Low oblique studio camera. Natural asymmetric detail; one restrained side leaf is allowed. Keep the entire crown grounded on the surface.\nLighting/mood: elegant grazing light from upper-left traces tiny florets and honest botanical texture. Slight natural imperfections, subtle actual shadow. Surface and background are the same deep pine color. Preserve vibrant pale lime highlights and readable shadow detail rather than murky black.\nMaterials/textures: real fresh Romanesco, extremely convincing tactile texture, nuanced botanical structure, natural irregularity. It feels like a meticulously photographed and beautifully engineered object, revealing the precision found in nature.\nStyle/medium: exceptionally restrained, elegant photographic still life with the quality of a premium international design magazine or luxury launch campaign. Real food photographed in a real studio, no illustrative rendering.\nConstraints: one final image. No text, no lettering, no labels, no bowls, no props, no hands, no people, no devices, no interface. No glowing or floating elements, no magic particles, no gradient graphics, no CGI or artificial plastic surfaces. Maintain a sophisticated dark pine and pale vivid lime palette."
+  },
+  "social_card": {
+    "file": "public/assets/premium/og-premium.jpg",
+    "derived_from": "public/assets/premium/romanesco-natural.jpg",
+    "dimensions": {
+      "width": 1200,
+      "height": 630
+    },
+    "description": "Open Graph / Twitter card for /v2 and /en/v2: full-width crop, vertically centred, JPEG quality 85. No text: title and description come from page metadata."
   }
 }
