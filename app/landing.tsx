@@ -118,31 +118,7 @@ export function Landing({ locale }: { locale: Locale }) {
           id="food-diary"
           aria-labelledby="diary-title"
         >
-          <div className="m-shell m-diary-grid">
-            <div className="m-diary-copy">
-              <p className="m-eyebrow">{d.demoLabel}</p>
-              <h2 id="diary-title">
-                {d.demoTitle[0]}
-                <br />
-                <span>{d.demoTitle[1]}</span>
-              </h2>
-              <p className="m-lead">{d.demoIntro}</p>
-              <Image
-                unoptimized
-                className="m-diary-photo"
-                src={publicPath('/assets/food-turkey-mushrooms.png')}
-                alt={
-                  locale === 'ru'
-                    ? 'Индейка в томатном соусе с грибами и бататом по рецепту Mealset'
-                    : 'Mealset turkey in tomato sauce with mushrooms and sweet potato'
-                }
-                width={1536}
-                height={1024}
-                loading="lazy"
-              />
-            </div>
-            <PrimaryDemo locale={locale} />
-          </div>
+          <PrimaryDemo locale={locale} />
         </section>
         <section
           className="m-section m-shell"

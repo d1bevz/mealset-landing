@@ -16,6 +16,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { publicPath } from '@/lib/public-path';
 import { primaryCopy } from './primary-copy';
 import { demoContent } from './primary-demo-copy';
+import { demoVisual } from './primary-demo-visuals';
 import type { Locale } from './copy';
 
 const ids = ['calories', 'memory', 'advice', 'plan', 'shopping', 'proactive'];
@@ -400,10 +401,39 @@ function Scenario({ locale, index }: { locale: Locale; index: number }) {
     </>
   );
 }
+function ScenarioVisual({
+  index,
+  locale,
+  mobile = false,
+}: {
+  index: number;
+  locale: Locale;
+  mobile?: boolean;
+}) {
+  const visual = demoVisual(index, locale);
+  return (
+    <figure
+      className={`m-scenario-visual${mobile ? ' m-scenario-visual-mobile' : ''}`}
+    >
+      <Image
+        key={visual.file}
+        unoptimized
+        className="m-diary-photo"
+        src={publicPath(`/assets/${visual.file}`)}
+        alt={visual.alt}
+        width={1050}
+        height={700}
+        loading="lazy"
+      />
+      <figcaption>{visual.caption}</figcaption>
+    </figure>
+  );
+}
 export function PrimaryDemo({ locale }: { locale: Locale }) {
   const d = primaryCopy[locale];
   const c = demoContent(locale);
   const [method, setMethod] = useState(ids[0]);
+  const activeIndex = ids.indexOf(method);
   const demoRef = useRef<HTMLDivElement>(null);
   const returnToStart = useRef(false);
   useLayoutEffect(() => {
@@ -412,43 +442,56 @@ export function PrimaryDemo({ locale }: { locale: Locale }) {
     demoRef.current.scrollIntoView({ block: 'start', behavior: 'instant' });
   }, [method]);
   return (
-    <Tabs
-      ref={demoRef}
-      value={method}
-      onValueChange={(v) => {
-        if (typeof v !== 'string' || v === method) return;
-        const headerHeight = window.matchMedia('(max-width: 760px)').matches
-          ? 70
-          : 82;
-        returnToStart.current =
-          (demoRef.current?.getBoundingClientRect().top ?? 0) < headerHeight;
-        setMethod(v);
-      }}
-      className="m-demo"
-    >
-      <TabsList aria-label={d.choose} className="m-methods">
-        {ids.map((id, i) => {
-          const Icon = icons[i];
-          return (
-            <TabsTrigger key={id} value={id}>
-              <Icon size={16} aria-hidden="true" />
-              {c.tabs[i]}
-            </TabsTrigger>
-          );
-        })}
-      </TabsList>
-      {ids.map((id, index) => (
-        <TabsContent key={id} value={id}>
-          {method === id && (
-            <Scenario key={method} locale={locale} index={index} />
-          )}
-        </TabsContent>
-      ))}
-      <p className="m-demo-note">{d.demoNote}</p>
-      <a className="button m-demo-cta" href="https://t.me/mealset_bot">
-        {d.open}
-        <ArrowUpRight size={17} aria-hidden="true" />
-      </a>
-    </Tabs>
+    <div className="m-shell m-diary-grid">
+      <div className="m-diary-copy">
+        <p className="m-eyebrow">{d.demoLabel}</p>
+        <h2 id="diary-title">
+          {d.demoTitle[0]}
+          <br />
+          <span>{d.demoTitle[1]}</span>
+        </h2>
+        <p className="m-lead">{d.demoIntro}</p>
+        <ScenarioVisual index={activeIndex} locale={locale} />
+      </div>
+      <Tabs
+        ref={demoRef}
+        value={method}
+        onValueChange={(v) => {
+          if (typeof v !== 'string' || v === method) return;
+          const headerHeight = window.matchMedia('(max-width: 760px)').matches
+            ? 70
+            : 82;
+          returnToStart.current =
+            (demoRef.current?.getBoundingClientRect().top ?? 0) < headerHeight;
+          setMethod(v);
+        }}
+        className="m-demo"
+      >
+        <TabsList aria-label={d.choose} className="m-methods">
+          {ids.map((id, i) => {
+            const Icon = icons[i];
+            return (
+              <TabsTrigger key={id} value={id}>
+                <Icon size={16} aria-hidden="true" />
+                {c.tabs[i]}
+              </TabsTrigger>
+            );
+          })}
+        </TabsList>
+        <ScenarioVisual index={activeIndex} locale={locale} mobile />
+        {ids.map((id, index) => (
+          <TabsContent key={id} value={id}>
+            {method === id && (
+              <Scenario key={method} locale={locale} index={index} />
+            )}
+          </TabsContent>
+        ))}
+        <p className="m-demo-note">{d.demoNote}</p>
+        <a className="button m-demo-cta" href="https://t.me/mealset_bot">
+          {d.open}
+          <ArrowUpRight size={17} aria-hidden="true" />
+        </a>
+      </Tabs>
+    </div>
   );
 }
