@@ -47,9 +47,18 @@ for (const [route, language, text] of routes) {
   );
   assert(!html.includes('/_sites/'), `${route}: private Sites runtime`);
   if (!route.includes('v2')) {
+    assert.equal(
+      [...html.matchAll(/role="tab"/g)].length,
+      6,
+      `${route}: six nutritionist scenarios`,
+    );
     assert(
-      html.includes(`${basePath}/assets/food-bolognese.png`),
-      `${route}: final food photo`,
+      html.includes(language === 'ru' ? 'Клетчатка' : 'Fibre'),
+      `${route}: nutrition result is server rendered`,
+    );
+    assert(
+      html.includes(`${basePath}/assets/food-turkey-mushrooms.png`),
+      `${route}: recipe photo`,
     );
     assert(
       html.includes(`${basePath}/assets/food-hero.jpg`),

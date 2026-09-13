@@ -1,12 +1,14 @@
 /* Full document navigation between language root layouts keeps html lang correct. */
 /* oxlint-disable next/no-html-link-for-pages */
 import Image from 'next/image';
+import { ArrowDown, ArrowUpRight, Plus } from 'lucide-react';
 import { pagePath, publicPath } from '@/lib/public-path';
-import { ArrowDown, ArrowUpRight } from 'lucide-react';
-import { Conversation } from './conversation';
-import { FoodLogging } from './food-logging';
-import { Science } from './science';
 import { copy, type Locale } from './copy';
+import { primaryCopy, pricing, formatApproximatePrice } from './primary-copy';
+import { PrimaryDemo } from './primary-demo';
+import { PrimaryLanguageSwitch } from './primary-language-switch';
+import { languageBootstrap } from '@/lib/language-preference';
+import './primary.css';
 const telegram = 'https://t.me/mealset_bot';
 export function Wordmark() {
   return (
@@ -15,27 +17,23 @@ export function Wordmark() {
     </span>
   );
 }
-function Lines({ text }: { text: string[] }) {
-  return (
-    <>
-      {text.map((line, i) => (
-        <span key={line}>
-          {i > 0 && <br />}
-          {line}
-        </span>
-      ))}
-    </>
-  );
-}
 export function Landing({ locale }: { locale: Locale }) {
-  const d = copy[locale];
+  const old = copy[locale];
+  const d = primaryCopy[locale];
   return (
-    <>
+    <div className="mealset-primary">
+      {locale === 'ru' && (
+        <script
+          dangerouslySetInnerHTML={{
+            __html: languageBootstrap(pagePath('/'), pagePath('/en')),
+          }}
+        />
+      )}
       <a className="skip-link" href="#main">
-        {d.skip}
+        {old.skip}
       </a>
       <header className="site-header">
-        <a href={pagePath(locale === 'ru' ? '/' : '/en')} aria-label={d.home}>
+        <a href={pagePath(locale === 'ru' ? '/' : '/en')} aria-label={old.home}>
           <Wordmark />
         </a>
         <nav
@@ -43,202 +41,287 @@ export function Landing({ locale }: { locale: Locale }) {
             locale === 'ru' ? 'Основная навигация' : 'Main navigation'
           }
         >
-          {['mindset', 'how', 'sasha'].map((id, i) => (
+          {['food-diary', 'approach', 'pricing'].map((id, i) => (
             <a key={id} href={`#${id}`}>
               {d.nav[i]}
             </a>
           ))}
         </nav>
         <div className="header-actions">
-          <div
-            className="locale-switch"
-            aria-label={locale === 'ru' ? 'Язык страницы' : 'Page language'}
-          >
-            <a
-              href={pagePath('/')}
-              hrefLang="ru"
-              lang="ru"
-              aria-current={locale === 'ru' ? 'page' : undefined}
-            >
-              RU
-            </a>
-            <span>/</span>
-            <a
-              href={pagePath('/en')}
-              hrefLang="en"
-              lang="en"
-              aria-current={locale === 'en' ? 'page' : undefined}
-            >
-              EN
-            </a>
-          </div>
+          <PrimaryLanguageSwitch locale={locale} />
           <a className="button button-small" href={telegram}>
-            {d.start} <ArrowUpRight size={15} />
+            {old.start}
+            <ArrowUpRight size={15} aria-hidden="true" />
           </a>
         </div>
       </header>
       <main id="main">
-        <section className="hero" aria-labelledby="hero-title">
-          <p className="eyebrow">{d.eyebrow}</p>
-          <h1 id="hero-title">
-            {d.headline[0]}
-            <br />
-            <span>{d.headline[1]}</span>
-          </h1>
-          <p className="hero-description">
-            <Lines text={d.intro} />
+        <section className="m-hero m-shell" aria-labelledby="hero-title">
+          <p className="m-eyebrow">
+            {locale === 'ru'
+              ? 'ТВОЙ ИИ-НУТРИЦИОЛОГ В TELEGRAM'
+              : 'YOUR AI NUTRITIONIST IN TELEGRAM'}
           </p>
-          <div className="hero-actions">
+          <h1 id="hero-title">
+            {old.headline[0]}
+            <br />
+            <span>{old.headline[1]}</span>
+          </h1>
+          <p className="m-hero-body">{d.intro}</p>
+          <div className="m-hero-actions">
             <a className="button" href={telegram}>
-              {d.meet} <ArrowUpRight size={17} />
+              {old.meet}
+              <ArrowUpRight size={17} aria-hidden="true" />
             </a>
-            <a className="text-link" href="#how">
-              {d.nav[1]} <ArrowDown size={16} />
+            <a className="m-text-link" href="#food-diary">
+              {d.see}
+              <ArrowDown size={16} aria-hidden="true" />
             </a>
           </div>
-          <div className="hero-image-wrap">
+          <p className="m-paid-note">{d.paid}</p>
+          <div className="m-hero-scene">
             <Image
               unoptimized
-              className="hero-image"
+              className="m-hero-food"
               src={publicPath('/assets/food-hero.jpg')}
-              alt={d.foodAlt}
+              alt={old.foodAlt}
               width={1536}
               height={1024}
               fetchPriority="high"
             />
-            <div className="hero-note">
-              <span className="note-dot" />
-              <span>
-                {d.note[0]}
-                <br />
-                <strong>{d.note[1]}</strong>
-              </span>
+            <div className="m-hero-conversation">
+              <div className="m-chat-heading">
+                <Image
+                  unoptimized
+                  src={publicPath('/assets/sasha-avatar.png')}
+                  alt=""
+                  width={40}
+                  height={40}
+                />
+                <div>
+                  <strong>{old.sashaName}</strong>
+                  <span>{d.role}</span>
+                </div>
+                <span className="m-example-label">{d.example}</span>
+              </div>
+              <div className="m-message m-user">
+                <p>{d.heroQuestion}</p>
+              </div>
+              <div className="m-message m-sasha">
+                <p>{d.heroAnswer}</p>
+              </div>
             </div>
-            <span className="hero-caption">MEAL + MINDSET</span>
           </div>
         </section>
         <section
-          className="mindset section-shell"
-          id="mindset"
-          aria-labelledby="mindset-title"
+          className="m-section m-diary"
+          id="food-diary"
+          aria-labelledby="diary-title"
         >
-          <div className="section-intro">
-            <p className="eyebrow">{d.mindsetEyebrow}</p>
-            <h2 id="mindset-title">
-              <Lines text={d.mindsetTitle} />
-            </h2>
-            <p>{d.mindsetBody}</p>
+          <div className="m-shell m-diary-grid">
+            <div className="m-diary-copy">
+              <p className="m-eyebrow">{d.demoLabel}</p>
+              <h2 id="diary-title">
+                {d.demoTitle[0]}
+                <br />
+                <span>{d.demoTitle[1]}</span>
+              </h2>
+              <p className="m-lead">{d.demoIntro}</p>
+              <Image
+                unoptimized
+                className="m-diary-photo"
+                src={publicPath('/assets/food-turkey-mushrooms.png')}
+                alt={
+                  locale === 'ru'
+                    ? 'Индейка в томатном соусе с грибами и бататом по рецепту Mealset'
+                    : 'Mealset turkey in tomato sauce with mushrooms and sweet potato'
+                }
+                width={1536}
+                height={1024}
+                loading="lazy"
+              />
+            </div>
+            <PrimaryDemo locale={locale} />
           </div>
-          <div className="values">
-            {d.values.map((value, i) => (
-              <article key={value.label}>
-                <span className="value-number">0{i + 1}</span>
-                <h3>{value.title}</h3>
-                <p>{value.body}</p>
-                <span className="value-label">{value.label}</span>
+        </section>
+        <section
+          className="m-section m-shell"
+          id="how"
+          aria-labelledby="memory-title"
+        >
+          <div className="m-section-heading">
+            <p className="m-eyebrow">{d.memoryLabel}</p>
+            <h2 id="memory-title">
+              {d.memoryTitle[0]}
+              <br />
+              <span>{d.memoryTitle[1]}</span>
+            </h2>
+            <p className="m-lead">{d.memoryIntro}</p>
+          </div>
+          <div className="m-progress">
+            {d.progress.map((p, i) => (
+              <article key={p.title}>
+                <span className="m-progress-number">0{i + 1}</span>
+                <p className="m-progress-time">{p.time}</p>
+                <h3>{p.title}</h3>
+                <p>{p.body}</p>
               </article>
             ))}
           </div>
         </section>
-        <FoodLogging locale={locale} />
-        <section className="how-section" id="how" aria-labelledby="how-title">
-          <div className="section-shell how-grid">
-            <div className="how-copy">
-              <p className="eyebrow">{d.howEyebrow}</p>
-              <h2 id="how-title">
-                {d.howTitle[0]}
-                <br />
-                <span>{d.howTitle[1]}</span>
-              </h2>
-              <p>{d.howBody}</p>
-              <p className="secondary-copy">{d.howNote}</p>
-            </div>
-            <Conversation locale={locale} />
-          </div>
-        </section>
-        <Science locale={locale} />
         <section
-          className="food-story section-shell"
-          aria-labelledby="food-title"
+          className="m-section m-approach"
+          id="approach"
+          aria-labelledby="approach-title"
         >
-          <div className="food-story-title">
-            <p className="eyebrow">{d.foodEyebrow}</p>
-            <h2 id="food-title">
-              {d.foodTitle[0]}
-              <br />
-              {d.foodTitle[1]}
-              <br />
-              <span>{d.foodTitle[2]}</span>
-            </h2>
-          </div>
-          <div className="food-detail">
-            <Image
-              unoptimized
-              src={publicPath('/assets/food-bolognese.png')}
-              alt={d.foodDetailAlt}
-              width={1536}
-              height={1024}
-              loading="lazy"
-            />
-            <p>
-              <Lines text={d.foodCaption} />
-            </p>
-          </div>
-        </section>
-        <section
-          className="sasha-section"
-          id="sasha"
-          aria-labelledby="sasha-title"
-        >
-          <div className="section-shell sasha-grid">
-            <div className="sasha-art">
+          <div className="m-shell">
+            <div className="m-approach-heading">
               <Image
                 unoptimized
                 src={publicPath('/assets/sasha-avatar.png')}
-                alt={d.sashaAlt}
-                width={1254}
-                height={1254}
+                alt={old.sashaAlt}
+                width={220}
+                height={220}
                 loading="lazy"
               />
-              <span className="sasha-signature">{d.sashaName}, Mealset</span>
+              <div>
+                <p className="m-eyebrow">{d.approachLabel}</p>
+                <h2 id="approach-title">
+                  {d.approachTitle[0]}
+                  <br />
+                  <span>{d.approachTitle[1]}</span>
+                </h2>
+                <p className="m-lead">{d.approachBody}</p>
+              </div>
             </div>
-            <div className="sasha-copy">
-              <p className="eyebrow">{d.sashaEyebrow}</p>
-              <h2 id="sasha-title">
-                <Lines text={d.sashaTitle} />
-              </h2>
-              <p>{d.sashaBody}</p>
-              <blockquote>
-                <Lines text={d.quote} />
-              </blockquote>
-              <a className="button" href={telegram}>
-                {d.talk} <ArrowUpRight size={17} />
+            <div className="m-principles">
+              {d.principles.map((p) => (
+                <article key={p.title}>
+                  <h3>{p.title}</h3>
+                  <p>{p.body}</p>
+                </article>
+              ))}
+            </div>
+            <div className="m-sources">
+              <span>{d.sources}</span>
+              <a
+                href="https://www.who.int/news-room/fact-sheets/detail/healthy-diet"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {d.who}
+                <ArrowUpRight size={15} aria-hidden="true" />
               </a>
-              <p className="access-note">
-                <Lines text={d.access} />
-              </p>
+              <a
+                href="https://www.efsa.europa.eu/en/topics/topic/dietary-reference-values"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {d.efsa}
+                <ArrowUpRight size={15} aria-hidden="true" />
+              </a>
             </div>
           </div>
         </section>
-        <section className="closing section-shell" aria-label={d.promise}>
-          <span className="eyebrow">MEALSET</span>
-          <p>
-            {d.closing[0]}
-            <br />
-            <span>{d.closing[1]}</span>
-          </p>
+        <section
+          className="m-section m-shell m-pricing"
+          id="pricing"
+          aria-labelledby="pricing-title"
+        >
+          <div className="m-section-heading">
+            <p className="m-eyebrow">{d.priceLabel}</p>
+            <h2 id="pricing-title">{d.priceTitle}</h2>
+            <p className="m-lead">{d.priceIntro}</p>
+          </div>
+          <div className="m-plans">
+            {[
+              {
+                name: d.week,
+                amount: pricing.week,
+                period: d.weekPeriod,
+                terms: d.weekTerms,
+                description: d.weekDescription,
+                cta: d.weekCta,
+              },
+              {
+                name: d.month,
+                amount: pricing.month,
+                period: d.monthPeriod,
+                terms: d.monthTerms,
+                description: d.monthDescription,
+                cta: d.monthCta,
+              },
+            ].map((p, i) => (
+              <article
+                className={`m-plan${i === 1 ? ' m-plan-month' : ''}`}
+                key={p.name}
+              >
+                <h3>{p.name}</h3>
+                <p className="m-plan-price">
+                  <strong>{formatApproximatePrice(p.amount, locale)}</strong>
+                </p>
+                <p className="m-plan-period">{p.period}</p>
+                <p className="m-plan-description">{p.description}</p>
+                <p className="m-plan-terms">{p.terms}</p>
+                <a
+                  className="button"
+                  href={telegram}
+                  aria-label={`${p.cta} — Telegram`}
+                >
+                  {p.cta}
+                  <ArrowUpRight size={17} aria-hidden="true" />
+                </a>
+              </article>
+            ))}
+          </div>
+          <p className="m-pricing-note">{d.priceNote}</p>
+          <p className="m-pricing-note">{d.cancelNote}</p>
+        </section>
+        <section className="m-section m-faq" aria-labelledby="faq-title">
+          <div className="m-shell m-faq-grid">
+            <h2 id="faq-title">{d.faqTitle}</h2>
+            <div>
+              {d.faq.map((f) => (
+                <details key={f.q}>
+                  <summary>
+                    {f.q}
+                    <Plus size={20} aria-hidden="true" />
+                  </summary>
+                  <p>{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section
+          className="m-section m-shell m-closing"
+          aria-labelledby="closing-title"
+        >
+          <Image
+            unoptimized
+            src={publicPath('/assets/sasha-avatar.png')}
+            alt=""
+            width={76}
+            height={76}
+            loading="lazy"
+          />
+          <h2 id="closing-title">{d.closing}</h2>
+          <p className="m-lead">{d.closingBody}</p>
+          <a className="button" href={telegram}>
+            {old.meet}
+            <ArrowUpRight size={17} aria-hidden="true" />
+          </a>
+          <p className="m-paid-note">{d.paid}</p>
         </section>
       </main>
-      <footer className="site-footer section-shell">
+      <footer className="m-footer m-shell">
         <div>
           <Wordmark />
-          <p>{d.footerValues}</p>
+          <p>{d.footer}</p>
         </div>
-        <p>
-          <Lines text={d.boundary} />
-        </p>
+        <p>{old.boundary.join(' ')}</p>
         <span>© {new Date().getFullYear()} Mealset</span>
       </footer>
-    </>
+    </div>
   );
 }
