@@ -12,6 +12,19 @@ const routes = [
 const origin = new URL(process.env.SITE_URL || 'http://localhost:8080').origin;
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 const trailingSlash = process.env.NEXT_PUBLIC_TRAILING_SLASH === 'true';
+for (const scene of [
+  'breakfast',
+  'smoothie',
+  'containers',
+  'plan',
+  'shopping',
+  'snack',
+]) {
+  assert(
+    existsSync(join(root, 'assets', `demo-${scene}.webp`)),
+    `Missing scenario image: ${scene}`,
+  );
+}
 for (const [route, language, text] of routes) {
   const html = readFileSync(
     join(root, route ? `${route}.html` : 'index.html'),
@@ -57,8 +70,8 @@ for (const [route, language, text] of routes) {
       `${route}: nutrition result is server rendered`,
     );
     assert(
-      html.includes(`${basePath}/assets/food-turkey-mushrooms.png`),
-      `${route}: recipe photo`,
+      html.includes(`${basePath}/assets/demo-breakfast.webp`),
+      `${route}: initial scenario photo`,
     );
     assert(
       html.includes(`${basePath}/assets/food-hero.jpg`),

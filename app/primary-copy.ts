@@ -53,7 +53,7 @@ export const primaryCopy = {
       {
         time: 'Использовать прошлый опыт',
         title: 'Помнит детали.',
-        body: '«Мой обычный смузи» — и рецепт уже знаком. Для куриной нарезки Саша использует этикетку, которую ты присылал раньше.',
+        body: 'Не нужно каждый раз рассказывать о себе заново. Саша учитывает твои вкусы, привычки и прошлые разговоры — и подбирает помощь под тебя.',
       },
       {
         time: 'Облегчить обычный день',
@@ -172,7 +172,7 @@ export const primaryCopy = {
       {
         time: 'Build on past conversations',
         title: 'Remembers the details.',
-        body: '“My usual smoothie” — the recipe is already familiar. For your chicken slices, Sasha uses the label you sent before.',
+        body: 'No need to explain yourself every time. Sasha builds on your tastes, habits and past conversations to make her support more personal.',
       },
       {
         time: 'Make everyday life easier',

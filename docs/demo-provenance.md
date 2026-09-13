@@ -97,3 +97,21 @@ no recipe nutrition is asserted. Combining cooking into one evening and merging
 mushrooms in the shopping list are editorial illustrations of planning, not
 production plan or shopping-list writes. The earlier invented pasta/wrap pairing
 has been replaced by these catalog recipes.
+
+## Scenario photography
+
+Six AI-generated editorial illustrations now follow the selected scenario.
+Breakfast and smoothie use the receipt ingredients; the images are not the
+original user photos or evidence for nutrient estimates. Container imagery
+shows the salmon/rice preparation discussed in advice. The plan uses catalog
+recipes hot:r023 and hot:r028. Shopping shows a subset of listed groceries,
+not the full weekly quantities. Skyr and banana illustrate the proactive snack.
+Assets: public/assets/demo-{breakfast,smoothie,containers,plan,shopping,snack}.webp.
+Generated with built-in image_gen on 2026-09-13; exported at 1050×700 as WebP
+quality 84. Natural window light, ivory tableware and sage linen unify the series.
+Captions and alt text are localized in app/primary-demo-visuals.ts.
+
+Photo revision: breakfast potatoes lightly cooked without dark crust; salmon and
+rice portions varied for natural texture; skyr and banana served together in a bowl;
+pasta bake and turkey photographed with less gloss and more natural cooked textures.
+Ingredients remain consistent with the scenarios. Edited with built-in image_gen.

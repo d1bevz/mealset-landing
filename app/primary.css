@@ -1065,3 +1065,61 @@
     --m-demo-top: 70px;
   }
 }
+
+.mealset-primary .m-scenario-visual {
+  margin: 32px 0 0;
+  max-width: 350px;
+}
+.mealset-primary .m-scenario-visual .m-diary-photo {
+  margin-top: 0;
+  max-height: none;
+  height: auto;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  animation: m-photo-appear 180ms ease-out;
+}
+.mealset-primary .m-scenario-visual figcaption {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--m-quiet);
+}
+.mealset-primary .m-scenario-visual-mobile {
+  display: none;
+}
+@keyframes m-photo-appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mealset-primary .m-scenario-visual .m-diary-photo {
+    animation: none;
+  }
+}
+@media (min-width: 761px) and (min-height: 641px) and (max-height: 800px) {
+  .mealset-primary .m-scenario-visual {
+    margin-top: 22px;
+    max-width: 270px;
+  }
+}
+@media (max-width: 760px) {
+  .mealset-primary .m-diary-copy .m-scenario-visual {
+    display: none;
+  }
+  .mealset-primary .m-scenario-visual-mobile {
+    display: block;
+    max-width: none;
+    margin: 0 0 24px;
+  }
+  .mealset-primary .m-scenario-visual-mobile .m-diary-photo {
+    display: block;
+    max-width: none;
+    height: auto;
+    object-fit: contain;
+  }
+}
