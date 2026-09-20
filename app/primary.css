@@ -1,0 +1,1125 @@
+/* Primary landing only. The /v2 design keeps its own styles and demo. */
+.mealset-primary {
+  --m-quiet: #526c60;
+  color: var(--pine);
+}
+.mealset-primary .m-shell {
+  width: min(100% - 112px, 1168px);
+  margin-inline: auto;
+}
+.mealset-primary h1,
+.mealset-primary h2,
+.mealset-primary h3 {
+  padding: 0;
+  margin: 0;
+  text-wrap: balance;
+}
+.mealset-primary h1 {
+  font-size: clamp(48px, 6.1vw, 82px);
+  font-weight: 580;
+  line-height: 1.07;
+  letter-spacing: -0.042em;
+}
+.mealset-primary h2 {
+  font-size: clamp(34px, 3.6vw, 48px);
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  font-weight: 550;
+}
+.mealset-primary h3 {
+  font-size: 23px;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  font-weight: 550;
+}
+.mealset-primary h1 span,
+.mealset-primary h2 span {
+  color: var(--deep-mint);
+}
+.mealset-primary p {
+  margin: 0;
+}
+.mealset-primary .m-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.1em;
+  margin-bottom: 18px;
+}
+.mealset-primary .m-lead {
+  color: var(--m-quiet);
+  font-size: 18px;
+  line-height: 1.65;
+  max-width: 660px;
+  margin-top: 22px;
+}
+.mealset-primary .m-section {
+  padding-block: 80px;
+  scroll-margin-top: 18px;
+}
+.mealset-primary .button {
+  min-height: 52px;
+  font-size: 15px;
+  gap: 12px;
+}
+.mealset-primary .button-small {
+  min-height: 44px;
+  font-size: 13px;
+}
+.mealset-primary .button svg {
+  flex-shrink: 0;
+}
+.mealset-primary .m-hero {
+  text-align: center;
+  padding-top: 54px;
+  padding-bottom: 52px;
+}
+.mealset-primary .m-hero-body {
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 720px;
+  margin: 24px auto;
+  text-wrap: pretty;
+}
+.mealset-primary .m-hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  flex-wrap: wrap;
+}
+.mealset-primary .m-text-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  font-size: 15px;
+}
+.mealset-primary .m-text-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.mealset-primary .m-paid-note {
+  color: var(--m-quiet);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 16px;
+}
+.mealset-primary .m-hero-scene {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  background: #e9eee5;
+  text-align: left;
+  border-radius: 22px;
+  overflow: hidden;
+}
+.mealset-primary .m-hero-food {
+  width: 100%;
+  height: 100%;
+  min-height: 310px;
+  object-fit: cover;
+}
+.mealset-primary .m-hero-conversation {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.mealset-primary .m-chat-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.mealset-primary .m-chat-heading img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.mealset-primary .m-chat-heading strong {
+  font-size: 15px;
+  font-weight: 600;
+  display: block;
+}
+.mealset-primary .m-chat-heading span {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--m-quiet);
+}
+.mealset-primary .m-chat-heading .m-example-label {
+  margin-left: auto;
+  max-width: 125px;
+  text-align: right;
+}
+.mealset-primary .m-example-label {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--m-quiet);
+}
+.mealset-primary .m-message {
+  border-radius: 16px;
+  padding: 15px 18px;
+  font-size: 16px;
+  line-height: 1.6;
+  width: fit-content;
+  max-width: 94%;
+  margin-bottom: 12px;
+  overflow-wrap: anywhere;
+}
+.mealset-primary .m-message p + p {
+  margin-top: 12px;
+}
+.mealset-primary .m-user {
+  background: #dceacb;
+  border-bottom-right-radius: 4px;
+  margin-left: auto;
+}
+.mealset-primary .m-sasha {
+  background: #fff;
+  border: 1px solid #173b320a;
+  border-bottom-left-radius: 4px;
+}
+.mealset-primary .m-diary {
+  background: #eef3eb;
+}
+.mealset-primary .m-diary-grid {
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: 72px;
+  align-items: start;
+}
+.mealset-primary .m-diary-photo {
+  width: 100%;
+  max-width: 350px;
+  aspect-ratio: 1.4;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-top: 32px;
+}
+.mealset-primary .m-demo {
+  --m-demo-top: 82px;
+  scroll-margin-top: var(--m-demo-top);
+  min-width: 0;
+  display: block;
+}
+.mealset-primary .m-methods {
+  position: sticky;
+  top: var(--m-demo-top);
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin-bottom: 18px;
+  background: #eef3e9;
+  box-shadow: 0 8px 0 #eef3e9;
+  border-radius: 0;
+  gap: 4px;
+}
+.mealset-primary .m-methods button {
+  min-width: 0;
+  min-height: 46px;
+  padding: 10px 8px;
+  border-radius: 99px;
+  font-size: 14px;
+  background: transparent;
+  color: var(--m-quiet);
+  gap: 7px;
+  box-shadow: none;
+  white-space: normal;
+  height: auto;
+  line-height: 1.35;
+}
+.mealset-primary .m-methods button[data-active],
+.mealset-primary .m-methods button[aria-selected='true'] {
+  background: var(--pine);
+  color: #fff;
+}
+.mealset-primary .m-transcript {
+  padding: 22px;
+  border-radius: 20px;
+  background: #e5ece1;
+}
+.mealset-primary .m-message:last-child {
+  margin-bottom: 0;
+}
+.mealset-primary .m-followup:not(:empty) {
+  padding-top: 12px;
+}
+.mealset-primary .m-demo-controls {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #cbd8cb;
+}
+.mealset-primary .m-source {
+  font-size: 14px;
+  color: var(--m-quiet);
+  line-height: 1.6;
+}
+.mealset-primary .m-source summary {
+  cursor: pointer;
+  padding-block: 10px;
+  width: fit-content;
+}
+.mealset-primary .m-source p {
+  padding: 0 0 12px;
+}
+.mealset-primary .m-control-label {
+  font-size: 14px;
+  color: var(--m-quiet);
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+.mealset-primary .m-reply {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  font-size: 15px;
+  line-height: 1.5;
+  border: 1px solid #afc3b4;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--pine);
+  padding: 12px 16px;
+  min-height: 48px;
+  cursor: pointer;
+}
+.mealset-primary .m-reply:hover {
+  background: #dce8d5;
+}
+.mealset-primary .m-reply svg {
+  flex-shrink: 0;
+}
+.mealset-primary .m-demo-note {
+  color: var(--m-quiet);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-block: 18px;
+}
+.mealset-primary .m-meal-photo {
+  width: 210px;
+  border-radius: 9px;
+  margin-bottom: 10px;
+}
+.mealset-primary .m-attachment {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.mealset-primary .m-progress {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 42px;
+}
+.mealset-primary .m-progress article {
+  border-top: 1px solid #cbd8cb;
+  padding-top: 20px;
+}
+.mealset-primary .m-progress-number {
+  font-size: 13px;
+  color: var(--deep-mint);
+}
+.mealset-primary .m-progress-time {
+  font-size: 14px;
+  margin: 14px 0 9px;
+  color: var(--m-quiet);
+}
+.mealset-primary .m-progress article > p:last-child {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--m-quiet);
+  margin-top: 13px;
+}
+.mealset-primary .m-approach {
+  background: var(--pine);
+  color: var(--paper);
+}
+.mealset-primary .m-approach-heading {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.mealset-primary .m-approach-heading img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+}
+.mealset-primary .m-approach h2 span {
+  color: var(--lime);
+}
+.mealset-primary .m-approach .m-lead,
+.mealset-primary .m-principles p {
+  color: #d0ddd3;
+}
+.mealset-primary .m-principles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  margin-top: 40px;
+}
+.mealset-primary .m-principles article {
+  border-top: 1px solid #ffffff24;
+  padding-top: 22px;
+}
+.mealset-primary .m-principles h3 {
+  font-size: 21px;
+}
+.mealset-primary .m-principles p {
+  font-size: 16px;
+  line-height: 1.65;
+  margin-top: 12px;
+}
+.mealset-primary .m-sources {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  margin-top: 32px;
+  font-size: 14px;
+}
+.mealset-primary .m-sources > span {
+  color: #c4d2c9;
+}
+.mealset-primary .m-sources a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.mealset-primary .m-approach a:focus-visible {
+  outline-color: var(--lime);
+}
+.mealset-primary .m-plans {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 880px;
+  margin-top: 36px;
+}
+.mealset-primary .m-plan {
+  padding: 30px;
+  border: 1px solid #cbd8cb;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.mealset-primary .m-plan-month {
+  background: #eaf0df;
+}
+.mealset-primary .m-plan-price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-top: 25px;
+}
+.mealset-primary .m-plan-price strong {
+  font-size: 48px;
+  letter-spacing: -0.04em;
+  font-weight: 550;
+  line-height: 1.1;
+}
+.mealset-primary .m-plan-period {
+  margin-top: 8px;
+  font-size: 16px;
+  color: var(--m-quiet);
+}
+.mealset-primary .m-plan-description {
+  font-size: 17px;
+  line-height: 1.6;
+  margin-top: 24px;
+}
+.mealset-primary .m-plan-terms {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--m-quiet);
+  margin: 12px 0 24px;
+}
+.mealset-primary .m-plan .button {
+  margin-top: auto;
+}
+.mealset-primary .m-pricing-note {
+  max-width: 880px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--m-quiet);
+  margin-top: 20px;
+}
+.mealset-primary .m-pricing-note + .m-pricing-note {
+  margin-top: 10px;
+}
+.mealset-primary .m-faq {
+  padding-block: 60px;
+  background: #eef3eb;
+}
+.mealset-primary .m-faq-grid {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 70px;
+}
+.mealset-primary .m-faq h2 {
+  font-size: 34px;
+}
+.mealset-primary .m-faq details {
+  border-bottom: 1px solid #cbd8cb;
+}
+.mealset-primary .m-faq details:first-child {
+  border-top: 1px solid #cbd8cb;
+}
+.mealset-primary .m-faq summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-block: 19px;
+  font-size: 17px;
+  line-height: 1.5;
+  cursor: pointer;
+  list-style: none;
+}
+.mealset-primary .m-faq summary::-webkit-details-marker {
+  display: none;
+}
+.mealset-primary .m-faq summary svg {
+  flex-shrink: 0;
+  transition: transform 0.15s;
+}
+.mealset-primary .m-faq details[open] summary svg {
+  transform: rotate(45deg);
+}
+.mealset-primary .m-faq details p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--m-quiet);
+  padding-bottom: 20px;
+}
+.mealset-primary summary:focus-visible {
+  outline: 3px solid var(--deep-mint);
+  outline-offset: 3px;
+}
+.mealset-primary .m-closing {
+  text-align: center;
+}
+.mealset-primary .m-closing img {
+  margin: 0 auto 24px;
+  border-radius: 50%;
+}
+.mealset-primary .m-closing h2 {
+  max-width: 680px;
+  margin-inline: auto;
+}
+.mealset-primary .m-closing .m-lead {
+  margin: 20px auto 26px;
+  max-width: 520px;
+}
+.mealset-primary .m-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 32px;
+  border-top: 1px solid #cbd8cb;
+  padding-block: 32px;
+  align-items: start;
+}
+.mealset-primary .m-footer .wordmark {
+  font-size: 25px;
+}
+.mealset-primary .m-footer p,
+.mealset-primary .m-footer > span {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--m-quiet);
+}
+.mealset-primary .m-footer div p {
+  margin-top: 10px;
+}
+@media (max-width: 1050px) {
+  .mealset-primary .m-shell {
+    width: calc(100% - 64px);
+  }
+  .mealset-primary .m-diary-grid {
+    gap: 32px;
+    grid-template-columns: 0.8fr 1.2fr;
+  }
+  .mealset-primary .site-header nav {
+    gap: 20px;
+  }
+  .mealset-primary .m-hero-conversation {
+    padding: 22px;
+  }
+  .mealset-primary .m-faq-grid {
+    gap: 36px;
+  }
+}
+@media (max-width: 760px) {
+  .mealset-primary .m-shell {
+    width: calc(100% - 40px);
+  }
+  .mealset-primary .site-header {
+    padding-inline: 20px;
+  }
+  .mealset-primary .button-small {
+    font-size: 12px;
+    padding: 10px 13px;
+    min-height: 44px;
+  }
+  .mealset-primary .site-header .wordmark {
+    font-size: 26px;
+  }
+  .mealset-primary .header-actions {
+    gap: 12px;
+  }
+  .mealset-primary h1 {
+    font-size: clamp(31px, 8.3vw, 58px);
+    line-height: 1.12;
+    letter-spacing: -0.04em;
+  }
+  .mealset-primary h2 {
+    font-size: clamp(31px, 7.7vw, 40px);
+  }
+  .mealset-primary h3 {
+    font-size: 23px;
+  }
+  .mealset-primary .m-hero {
+    padding-top: 38px;
+    padding-bottom: 36px;
+  }
+  .mealset-primary .m-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.075em;
+    margin-bottom: 15px;
+  }
+  .mealset-primary .m-hero-body {
+    font-size: 16px;
+    line-height: 1.65;
+    margin-block: 22px;
+  }
+  .mealset-primary .m-hero-actions {
+    gap: 8px;
+    flex-direction: column;
+  }
+  .mealset-primary .m-paid-note {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  .mealset-primary .m-hero-scene {
+    grid-template-columns: 1fr;
+    margin-top: 28px;
+    border-radius: 16px;
+  }
+  .mealset-primary .m-hero-food {
+    height: 190px;
+    min-height: 0;
+    object-position: center 56%;
+  }
+  .mealset-primary .m-hero-conversation {
+    padding: 18px;
+  }
+  .mealset-primary .m-message {
+    font-size: 15px;
+    padding: 12px 14px;
+    max-width: 96%;
+  }
+  .mealset-primary .m-chat-heading {
+    margin-bottom: 16px;
+    gap: 8px;
+  }
+  .mealset-primary .m-chat-heading .m-example-label {
+    font-size: 12px;
+    max-width: 90px;
+  }
+  .mealset-primary .m-chat-heading span {
+    font-size: 12px;
+  }
+  .mealset-primary .m-section {
+    padding-block: 48px;
+  }
+  .mealset-primary .m-diary-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .mealset-primary .m-diary-photo {
+    display: none;
+  }
+  .mealset-primary .m-lead {
+    font-size: 16px;
+    margin-top: 17px;
+  }
+  .mealset-primary .m-transcript {
+    padding: 16px;
+  }
+  .mealset-primary .m-methods button {
+    font-size: 14px;
+    padding: 10px 5px;
+    gap: 5px;
+  }
+  .mealset-primary .m-methods svg {
+    width: 16px;
+  }
+  .mealset-primary .m-demo-cta {
+    width: 100%;
+    padding-inline: 16px;
+  }
+  .mealset-primary .m-progress {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 28px;
+  }
+  .mealset-primary .m-progress article {
+    position: relative;
+    padding-top: 20px;
+    padding-left: 37px;
+  }
+  .mealset-primary .m-progress-number {
+    position: absolute;
+    left: 0;
+    top: 22px;
+  }
+  .mealset-primary .m-progress-time {
+    margin: 0 0 8px;
+  }
+  .mealset-primary .m-approach-heading {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .mealset-primary .m-approach-heading img {
+    width: 100px;
+    height: 100px;
+  }
+  .mealset-primary .m-principles {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 28px;
+  }
+  .mealset-primary .m-sources {
+    gap: 4px 12px;
+    margin-top: 24px;
+  }
+  .mealset-primary .m-sources > span {
+    width: 100%;
+  }
+  .mealset-primary .m-plans {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 28px;
+  }
+  .mealset-primary .m-plan {
+    padding: 24px;
+  }
+  .mealset-primary .m-plan .button {
+    width: 100%;
+  }
+  .mealset-primary .m-plan-price {
+    margin-top: 18px;
+  }
+  .mealset-primary .m-plan-price strong {
+    font-size: 44px;
+  }
+  .mealset-primary .m-plan-terms {
+    margin-block: 18px;
+  }
+  .mealset-primary .m-faq-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .mealset-primary .m-faq h2 {
+    font-size: 32px;
+  }
+  .mealset-primary .m-faq summary {
+    font-size: 16px;
+    gap: 16px;
+    padding-block: 16px;
+  }
+  .mealset-primary .m-footer {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+@media (max-width: 359px) {
+  .mealset-primary .m-shell {
+    width: calc(100% - 32px);
+  }
+  .mealset-primary .site-header {
+    padding-inline: 12px;
+  }
+  .mealset-primary .site-header .wordmark {
+    font-size: 24px;
+  }
+  .mealset-primary .header-actions {
+    gap: 8px;
+  }
+  .mealset-primary .button-small {
+    padding-inline: 10px;
+  }
+  .mealset-primary .m-hero-conversation,
+  .mealset-primary .m-transcript {
+    padding: 12px;
+  }
+  .mealset-primary .m-methods button {
+    gap: 4px;
+    font-size: 13px;
+  }
+  .mealset-primary h1 {
+    font-size: 31px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mealset-primary *,
+  .mealset-primary *::before,
+  .mealset-primary *::after {
+    scroll-behavior: auto;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Primary nutritionist scenarios: messages retain the bot's useful detail. */
+.mealset-primary .m-demo-pain {
+  margin: 0 0 16px;
+  color: var(--m-quiet);
+  font-size: 15px;
+  line-height: 1.5;
+}
+.mealset-primary .m-food-lines {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0;
+}
+.mealset-primary .m-food-lines li {
+  margin: 4px 0;
+}
+.mealset-primary .m-nutrition {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid #dce4dc;
+}
+.mealset-primary .m-nutrition > strong {
+  font-size: 23px;
+  letter-spacing: -0.02em;
+}
+.mealset-primary .m-nutrition small {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--m-quiet);
+}
+.mealset-primary .m-nutrition dl {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+.mealset-primary .m-nutrition dt {
+  color: var(--m-quiet);
+  font-size: 12px;
+}
+.mealset-primary .m-nutrition dd {
+  margin: 3px 0 0;
+  font-weight: 550;
+}
+.mealset-primary .m-day-progress {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid #dce4dc;
+  font-size: 14px;
+}
+.mealset-primary .m-day-progress progress {
+  display: block;
+  width: 100%;
+  height: 5px;
+  margin: 12px 0;
+  border: 0;
+  border-radius: 10px;
+  background: #e6ecdf;
+  color: var(--deep-mint);
+}
+.mealset-primary .m-day-progress progress::-webkit-progress-bar {
+  background: #e6ecdf;
+  border-radius: 10px;
+}
+.mealset-primary .m-day-progress progress::-webkit-progress-value {
+  background: var(--deep-mint);
+  border-radius: 10px;
+}
+.mealset-primary .m-day-progress progress::-moz-progress-bar {
+  background: var(--deep-mint);
+  border-radius: 10px;
+}
+.mealset-primary .m-demo-small {
+  font-size: 13px;
+  color: var(--m-quiet);
+}
+.mealset-primary .m-plan-changes {
+  padding-left: 20px;
+  margin: 8px 0;
+}
+.mealset-primary .m-plan-changes li {
+  margin: 8px 0;
+}
+.mealset-primary .m-demo-provenance {
+  margin-top: 8px;
+}
+.mealset-primary .m-plan-budget {
+  margin: 14px 0;
+  padding-block: 12px;
+  border-block: 1px solid #dce4dc;
+}
+.mealset-primary .m-plan-budget p {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 5px 0;
+}
+.mealset-primary .m-plan-meal {
+  padding: 13px 0;
+  border-bottom: 1px solid #e6ebe3;
+}
+.mealset-primary .m-plan-meal > span {
+  display: block;
+  font-size: 12px;
+  color: var(--m-quiet);
+}
+.mealset-primary .m-plan-meal > strong {
+  display: block;
+  margin-top: 3px;
+}
+.mealset-primary .m-plan-meal > p {
+  font-size: 14px;
+  margin-top: 5px;
+}
+.mealset-primary .m-plan-meal summary {
+  font-size: 13px;
+  padding-bottom: 0;
+}
+.mealset-primary .m-plan-day-total {
+  margin-top: 14px;
+}
+.mealset-primary .m-next-day > summary {
+  font-size: 16px;
+  font-weight: 550;
+  color: var(--pine);
+}
+.mealset-primary .m-inline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.mealset-primary .m-inline-link svg {
+  flex-shrink: 0;
+}
+.mealset-primary .m-shopping-count {
+  display: block;
+  font-size: 13px;
+  color: var(--m-quiet);
+  margin: 5px 0 14px;
+}
+.mealset-primary .m-shopping-item {
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  margin-top: 5px;
+  background: #edf2e8;
+  color: var(--pine);
+  border: 1px solid #d7e1d1;
+  border-radius: 7px;
+  display: flex;
+  gap: 9px;
+  align-items: start;
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 44px;
+  cursor: pointer;
+}
+.mealset-primary .m-shopping-item > span:first-child {
+  flex-shrink: 0;
+}
+.mealset-primary .m-shopping-item[aria-pressed='true'] {
+  background: #dfebd5;
+}
+.mealset-primary .m-shopping-item:hover {
+  background: #dfebd5;
+}
+.mealset-primary .m-shopping-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 12px;
+}
+.mealset-primary .m-shopping-actions button,
+.mealset-primary .m-shopping-actions a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  flex: 1 1 140px;
+  min-height: 44px;
+  padding: 9px;
+  border: 1px solid #cbd8cb;
+  border-radius: 7px;
+  background: #edf2e8;
+  font-size: 13px;
+  cursor: pointer;
+  color: var(--pine);
+}
+.mealset-primary .m-shopping-actions button:last-child {
+  flex-basis: 100%;
+}
+.mealset-primary .m-shopping-text {
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 1.65;
+}
+.mealset-primary .m-shopping-text li {
+  margin: 5px 0;
+}
+.mealset-primary .m-shopping-reset {
+  margin-top: 14px;
+}
+.mealset-primary .m-shopping-item:focus-visible,
+.mealset-primary .m-shopping-actions button:focus-visible,
+.mealset-primary .m-shopping-actions a:focus-visible {
+  outline: 2px solid var(--deep-mint);
+  outline-offset: 2px;
+}
+@media (max-width: 420px) {
+  .mealset-primary .m-nutrition dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 12px;
+  }
+  .mealset-primary .m-nutrition > strong {
+    font-size: 21px;
+  }
+}
+
+.mealset-primary .m-plan-target {
+  padding-block: 12px;
+  border-block: 1px solid #dce4dc;
+  font-size: 14px;
+}
+.mealset-primary .m-plan-summary {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+.mealset-primary .m-plan-summary li + li {
+  margin-top: 16px;
+}
+.mealset-primary .m-plan-summary li > p {
+  margin-top: 5px;
+}
+
+.mealset-primary .m-proactive-context {
+  color: var(--m-quiet);
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.mealset-primary .m-proactive-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  color: var(--deep-mint);
+  margin-bottom: 10px;
+}
+.mealset-primary .m-proactive-label svg {
+  flex-shrink: 0;
+}
+
+/* Keep the section introduction alongside longer conversations. */
+@media (min-width: 761px) and (min-height: 641px) {
+  .mealset-primary .m-diary-copy {
+    position: sticky;
+    top: 96px;
+    align-self: start;
+  }
+}
+@media (min-width: 761px) and (min-height: 641px) and (max-height: 800px) {
+  .mealset-primary .m-diary-copy h2 {
+    font-size: 32px;
+  }
+  .mealset-primary .m-diary-copy .m-lead {
+    font-size: 16px;
+    margin-top: 18px;
+  }
+  .mealset-primary .m-diary-photo {
+    max-height: 150px;
+    margin-top: 22px;
+  }
+}
+
+@media (max-width: 760px) {
+  .mealset-primary .m-demo {
+    --m-demo-top: 70px;
+  }
+}
+
+.mealset-primary .m-scenario-visual {
+  margin: 32px 0 0;
+  max-width: 350px;
+}
+.mealset-primary .m-scenario-visual .m-diary-photo {
+  margin-top: 0;
+  max-height: none;
+  height: auto;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  animation: m-photo-appear 180ms ease-out;
+}
+.mealset-primary .m-scenario-visual figcaption {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--m-quiet);
+}
+.mealset-primary .m-scenario-visual-mobile {
+  display: none;
+}
+@keyframes m-photo-appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mealset-primary .m-scenario-visual .m-diary-photo {
+    animation: none;
+  }
+}
+@media (min-width: 761px) and (min-height: 641px) and (max-height: 800px) {
+  .mealset-primary .m-scenario-visual {
+    margin-top: 22px;
+    max-width: 270px;
+  }
+}
+@media (max-width: 760px) {
+  .mealset-primary .m-diary-copy .m-scenario-visual {
+    display: none;
+  }
+  .mealset-primary .m-scenario-visual-mobile {
+    display: block;
+    max-width: none;
+    margin: 0 0 24px;
+  }
+  .mealset-primary .m-scenario-visual-mobile .m-diary-photo {
+    display: block;
+    max-width: none;
+    height: auto;
+    object-fit: contain;
+  }
+}

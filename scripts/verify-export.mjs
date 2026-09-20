@@ -12,6 +12,19 @@ const routes = [
 const origin = new URL(process.env.SITE_URL || 'http://localhost:8080').origin;
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 const trailingSlash = process.env.NEXT_PUBLIC_TRAILING_SLASH === 'true';
+for (const scene of [
+  'breakfast',
+  'smoothie',
+  'containers',
+  'plan',
+  'shopping',
+  'snack',
+]) {
+  assert(
+    existsSync(join(root, 'assets', `demo-${scene}.webp`)),
+    `Missing scenario image: ${scene}`,
+  );
+}
 for (const [route, language, text] of routes) {
   const html = readFileSync(
     join(root, route ? `${route}.html` : 'index.html'),
@@ -47,9 +60,32 @@ for (const [route, language, text] of routes) {
   );
   assert(!html.includes('/_sites/'), `${route}: private Sites runtime`);
   if (!route.includes('v2')) {
+    const cover = `assets/og-sasha-${language}.png`;
+    assert(existsSync(join(root, cover)), `${route}: social cover exists`);
     assert(
-      html.includes(`${basePath}/assets/food-bolognese.png`),
-      `${route}: final food photo`,
+      html.includes(`property="og:image" content="${origin}${basePath}/${cover}"`),
+      `${route}: localized absolute social image URL`,
+    );
+    assert(
+      html.includes(`property="og:url" content="${canonical}"`),
+      `${route}: social URL matches canonical`,
+    );
+    assert(
+      html.includes('name="twitter:card" content="summary_large_image"'),
+      `${route}: large social preview`,
+    );
+    assert.equal(
+      [...html.matchAll(/role="tab"/g)].length,
+      6,
+      `${route}: six nutritionist scenarios`,
+    );
+    assert(
+      html.includes(language === 'ru' ? 'Клетчатка' : 'Fibre'),
+      `${route}: nutrition result is server rendered`,
+    );
+    assert(
+      html.includes(`${basePath}/assets/demo-breakfast.webp`),
+      `${route}: initial scenario photo`,
     );
     assert(
       html.includes(`${basePath}/assets/food-hero.jpg`),

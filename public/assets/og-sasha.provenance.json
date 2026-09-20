@@ -1,0 +1,9 @@
+{
+  "tool": "Built-in image_gen",
+  "reference": "public/assets/sasha-avatar.png",
+  "size": "1200x630",
+  "prompts": {
+    "ru": "Use case: ads-marketing. Create a premium minimal social sharing cover, landscape EXACT aspect 1200:630. Reference image is the existing Sasha brand avatar: preserve its recognizable smiling bowl of greens tomato and wheat exactly, set it inside a large circular lime badge on the RIGHT third. Solid dark forest green #163c34 backdrop, no gradients outside avatar. LEFT two thirds: small 'mealset.' brand at upper left in ivory, main headline very large bold clean Onest-like sans serif in ivory, line breaks intentional. Subheading below in pale sage, readable even in social preview. Generous margins 72px, elegant precise flat graphic layout, no mockup, no shadows, no extra icons. Text verbatim in Russian: headline 'Саша — питание\\nпод контролем'; subheading 'Считает калории. Помнит тебя.\\nПомогает каждый день.' Footer small 'Твой ИИ-нутрициолог в Telegram'. All text within safe margins, excellent Cyrillic typography.",
+    "en": "Use case: text-localization. Edit this social cover into English. Preserve exact background, avatar identity, circle placement, brand mealset., typography style and landscape aspect ratio. Replace headline with 'Sasha — nutrition\\nmade personal'. Replace subheading with 'Tracks calories. Remembers you.\\nHelps every day.' Replace footer with 'Your AI nutritionist in Telegram'. Elegant clean sans serif, fit all text comfortably LEFT of avatar with generous margins. No Russian text. No other changes."
+  }
+}

@@ -6,7 +6,7 @@ import '../globals.css';
 export const metadata: Metadata = {
   title: 'Mealset — хорошее питание. Привычное дело.',
   description:
-    'Саша — ИИ-нутрициолог в Telegram. Записывает еду текстом, голосом, по фото и скриншоту Uber Eats. Помнит твои вкусы и разговоры. Рекомендации на основе науки.',
+    'Саша — твой ИИ-нутрициолог в Telegram. Помогает наладить питание с учётом твоих целей, вкусов и образа жизни. Научный подход и изменения, которые вписываются в твой день.',
   icons: { icon: publicPath('/assets/mealset-mark.svg') },
   alternates: {
     canonical: siteUrl('/'),
