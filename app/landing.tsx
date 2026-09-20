@@ -122,31 +122,6 @@ export function Landing({ locale }: { locale: Locale }) {
           <PrimaryDemo locale={locale} />
         </section>
         <section
-          className="m-section m-shell"
-          id="how"
-          aria-labelledby="memory-title"
-        >
-          <div className="m-section-heading">
-            <p className="m-eyebrow">{d.memoryLabel}</p>
-            <h2 id="memory-title">
-              {d.memoryTitle[0]}
-              <br />
-              <span>{d.memoryTitle[1]}</span>
-            </h2>
-            <p className="m-lead">{d.memoryIntro}</p>
-          </div>
-          <div className="m-progress">
-            {d.progress.map((p, i) => (
-              <article key={p.title}>
-                <span className="m-progress-number">0{i + 1}</span>
-                <p className="m-progress-time">{p.time}</p>
-                <h3>{p.title}</h3>
-                <p>{p.body}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-        <section
           className="m-section m-approach"
           id="approach"
           aria-labelledby="approach-title"

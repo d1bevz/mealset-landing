@@ -1,17 +1,18 @@
 import type { Locale } from './copy';
 import './pricing.css';
 
-// Monthly prices: mealset PR #330, decisions dated 2026-09-20.
+// Monthly subscription: 1500 Telegram Stars, updated 2026-09-20.
 // Approximate purchase costs checked 2026-09-20 against App Store listings:
-// RU: 2 × 500 Stars at RUB 1060 ≈ RUB 2100; PT: 1000 Stars at EUR 21.99 ≈ EUR 22.
+// RU: 3 × 500 Stars at RUB 1060 = RUB 3180 ≈ RUB 3200.
+// PT: 1000 + 500 Stars at EUR 21.99 + EUR 10.99 = EUR 32.98 ≈ EUR 33.
 export const pricingCopy = {
   ru: {
     label: 'ПОДПИСКА MEALSET',
-    title: 'Забота о питании. Каждый месяц.',
+    title: 'Забота о питании. Каждый день, 24/7.',
     body: 'Разговоры с Сашей, дневник питания и план меню от Шефа на неделю — в одной подписке.',
     stars: 'Telegram Stars',
-    starsPrice: '1000 ⭐',
-    estimate: '≈ 2100 ₽ в месяц',
+    starsPrice: '1500 ⭐',
+    estimate: '≈ 3200 ₽ в месяц',
     estimateNote:
       'Ориентир по цене звёзд в App Store. Стоимость зависит от страны и места покупки звёзд.',
     estimateSource:
@@ -23,11 +24,11 @@ export const pricingCopy = {
   },
   en: {
     label: 'MEALSET MEMBERSHIP',
-    title: 'Nutrition support. Every month.',
+    title: 'Nutrition support. Every day, 24/7.',
     body: 'Conversations with Sasha, a food diary and a weekly meal plan from Chef — in one subscription.',
     stars: 'Telegram Stars',
-    starsPrice: '1000 ⭐',
-    estimate: '≈ €22 per month',
+    starsPrice: '1500 ⭐',
+    estimate: '≈ €33 per month',
     estimateNote:
       'Estimate based on App Store Stars prices. Cost varies by country and where you buy Stars.',
     estimateSource:

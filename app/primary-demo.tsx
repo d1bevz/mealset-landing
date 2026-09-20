@@ -1,5 +1,5 @@
 'use client';
-import { useLayoutEffect, useRef, useState, type ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import Image from 'next/image';
 import {
   ArrowUpRight,
@@ -236,7 +236,6 @@ function Scenario({ locale, index }: { locale: Locale; index: number }) {
   const followupId = `primary-followup-${ids[index]}`;
   return (
     <>
-      <p className="m-demo-pain">{c.pains[index]}</p>
       <div className="m-transcript">
         <div className="m-chat-heading">
           <Image
@@ -431,66 +430,60 @@ function ScenarioVisual({
 }
 export function PrimaryDemo({ locale }: { locale: Locale }) {
   const d = primaryCopy[locale];
-  const c = demoContent(locale);
   const [method, setMethod] = useState(ids[0]);
-  const activeIndex = ids.indexOf(method);
-  const demoRef = useRef<HTMLDivElement>(null);
-  const returnToStart = useRef(false);
-  useLayoutEffect(() => {
-    if (!returnToStart.current || !demoRef.current) return;
-    returnToStart.current = false;
-    demoRef.current.scrollIntoView({ block: 'start', behavior: 'instant' });
-  }, [method]);
   return (
-    <div className="m-shell m-diary-grid">
-      <div className="m-diary-copy">
-        <p className="m-eyebrow">{d.demoLabel}</p>
-        <h2 id="diary-title">
-          {d.demoTitle[0]}
-          <br />
-          <span>{d.demoTitle[1]}</span>
-        </h2>
-        <p className="m-lead">{d.demoIntro}</p>
-        <ScenarioVisual index={activeIndex} locale={locale} />
-      </div>
+    <div className="m-shell" id="how">
+      <h2 className="m-scenarios-heading" id="diary-title">
+        {d.demoTitle[0]}
+        <br />
+        <span>{d.demoTitle[1]}</span>
+      </h2>
       <Tabs
-        ref={demoRef}
         value={method}
-        onValueChange={(v) => {
-          if (typeof v !== 'string' || v === method) return;
-          const headerHeight = window.matchMedia('(max-width: 760px)').matches
-            ? 70
-            : 82;
-          returnToStart.current =
-            (demoRef.current?.getBoundingClientRect().top ?? 0) < headerHeight;
-          setMethod(v);
+        onValueChange={(value) => {
+          if (typeof value === 'string') setMethod(value);
         }}
-        className="m-demo"
+        className="m-demo m-scenarios"
+        id="sasha-examples"
       >
-        <TabsList aria-label={d.choose} className="m-methods">
+        <TabsList aria-label={d.choose} className="m-scenario-choices">
           {ids.map((id, i) => {
             const Icon = icons[i];
             return (
               <TabsTrigger key={id} value={id}>
-                <Icon size={16} aria-hidden="true" />
-                {c.tabs[i]}
+                <Icon size={22} aria-hidden="true" />
+                <span className="m-scenario-message">
+                  <span>{d.stories[i][0]}</span>
+                  <strong>{d.stories[i][1]}</strong>
+                </span>
               </TabsTrigger>
             );
           })}
         </TabsList>
-        <ScenarioVisual index={activeIndex} locale={locale} mobile />
         {ids.map((id, index) => (
           <TabsContent key={id} value={id}>
             {method === id && (
-              <Scenario key={method} locale={locale} index={index} />
+              <div className="m-diary-grid">
+                <div className="m-diary-copy">
+                  <p className="m-lead">{d.stories[index][2]}</p>
+                  <ScenarioVisual index={index} locale={locale} />
+                  <ScenarioVisual index={index} locale={locale} mobile />
+                </div>
+                <div>
+                  <Scenario key={method} locale={locale} index={index} />
+                  <p className="m-demo-note">{d.demoNote}</p>
+                  <a
+                    className="button m-demo-cta"
+                    href="https://t.me/mealset_bot"
+                  >
+                    {d.open}
+                    <ArrowUpRight size={17} aria-hidden="true" />
+                  </a>
+                </div>
+              </div>
             )}
           </TabsContent>
         ))}
-        <p className="m-demo-note">{d.demoNote}</p>
-        <a className="button m-demo-cta" href="https://t.me/mealset_bot">
-          {d.open}
-          <ArrowUpRight size={17} aria-hidden="true" />
-        </a>
       </Tabs>
     </div>
   );

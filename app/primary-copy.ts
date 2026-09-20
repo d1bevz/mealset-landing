@@ -12,37 +12,45 @@ export const primaryCopy = {
     heroQuestion: 'Хочу питаться лучше, но отказываться от пасты не готов.',
     heroAnswer:
       'Начнём с того, что тебе нравится. Пасту оставим — подберём, чем её дополнить, с учётом твоей цели.',
-    demoLabel: 'ПОДДЕРЖКА В ОБЫЧНОМ ДНЕ',
-    demoTitle: ['Ты ешь.', 'Саша помогает разобраться.'],
-    demoIntro:
-      'Фото, голосовое или пара слов о еде — Саша считает калории, помнит твои привычки и помогает с питанием, планом и покупками.',
+    demoTitle: ['Ты живёшь.', 'Саша помогает с питанием.'],
+    stories: [
+      [
+        'Ты ешь и наслаждаешься.',
+        'Саша считает калории.',
+        'Саша посчитает калории и нутриенты, покажет остаток до цели и подскажет, чем дополнить рацион.',
+      ],
+      [
+        'Ты занят.',
+        'Саша помнит детали.',
+        'Саша помнит состав привычных блюд. Если сегодня что-то изменилось, достаточно уточнить.',
+      ],
+      [
+        'Ты ставишь цели.',
+        'Саша даёт рекомендации.',
+        'Учитывает продукты дома и время на готовку. Помогает сделать следующий приём пищи проще.',
+      ],
+      [
+        'Ты живёшь в своём ритме.',
+        'Саша планирует меню.',
+        'Любимые блюда, твои цели и дни, когда некогда готовить, — в одном плане, который можно менять.',
+      ],
+      [
+        'Ты занимаешься делами.',
+        'Саша готовит список покупок.',
+        'Список продуктов из плана уже готов. Отмечай купленное прямо в разговоре.',
+      ],
+      [
+        'Ты не думаешь о еде.',
+        'Саша сама напишет.',
+        'Если обед не записан, сама уточнит, удалось ли поесть, и поможет подобрать перекус.',
+      ],
+    ],
     demoNote:
       'Иллюстрация работы Саши, не скриншот Telegram. Диалоги адаптированы; расчёты — из отдельных сохранённых примеров. В твоём чате Саша учитывает твои продукты и цели.',
     choose: 'Выбрать пример',
     try: 'Попробуй продолжить разговор',
     reset: 'К исходному примеру',
     open: 'Открыть Сашу в Telegram',
-    memoryLabel: 'ОТ ПЕРВОЙ ЗАПИСИ К ПРИВЫЧКЕ',
-    memoryTitle: ['Ты живёшь свою жизнь.', 'Саша помогает с питанием.'],
-    memoryIntro:
-      'Сначала — понятные цифры за день. Затем — меньше повторных объяснений, готовки и решений о еде.',
-    progress: [
-      {
-        time: 'Записать еду',
-        title: 'Считает за тебя.',
-        body: 'Описываешь завтрак — Саша считает калории, БЖУ и клетчатку. Показывает, сколько осталось до твоей цели.',
-      },
-      {
-        time: 'Использовать прошлый опыт',
-        title: 'Помнит детали.',
-        body: 'Не нужно каждый раз рассказывать о себе заново. Саша учитывает твои вкусы, привычки и прошлые разговоры — и подбирает помощь под тебя.',
-      },
-      {
-        time: 'Облегчить обычный день',
-        title: 'Помогает вовремя.',
-        body: 'Объединяет готовку на два дня и собирает покупки. Если обед не записан — сама уточняет, удалось ли поесть, и помогает с перекусом.',
-      },
-    ],
     approachLabel: 'ПОДХОД САШИ',
     approachTitle: ['На твоей стороне.', 'С опорой на науку.'],
     approachBody:
@@ -68,7 +76,7 @@ export const primaryCopy = {
     faq: [
       {
         q: 'Как начать?',
-        a: 'Открой @mealset_bot в Telegram, прочитай условия месячной подписки за 1000 Stars. После оплаты расскажи Саше о своих целях и привычках. Сервис предназначен для пользователей от 18 лет.',
+        a: 'Открой @mealset_bot в Telegram, прочитай условия месячной подписки за 1500 Telegram Stars. После оплаты расскажи Саше о своих целях и привычках. Сервис предназначен для пользователей от 18 лет.',
       },
       {
         q: 'Насколько точны расчёты по фото?',
@@ -111,37 +119,45 @@ export const primaryCopy = {
     heroQuestion: 'I want to eat better, but I’m not giving up pasta.',
     heroAnswer:
       'Let’s start with what you enjoy. We’ll keep the pasta and find ways to build a meal around it that works towards your goal.',
-    demoLabel: 'SUPPORT FOR EVERYDAY LIFE',
-    demoTitle: ['You eat.', 'Sasha helps you understand.'],
-    demoIntro:
-      'A photo, a voice note or a few words about your food — Sasha counts calories, remembers your habits and helps with nutrition, meal planning and groceries.',
+    demoTitle: ['Live your life.', 'Let Sasha help with food.'],
+    stories: [
+      [
+        'You enjoy your food.',
+        'Sasha counts the calories.',
+        'Sasha calculates calories and nutrients, shows what’s left towards your goal and suggests what to add.',
+      ],
+      [
+        'You’re busy.',
+        'Sasha remembers the details.',
+        'Sasha remembers your familiar meals. If something is different today, just let her know.',
+      ],
+      [
+        'You set your goals.',
+        'Sasha helps you get there.',
+        'She considers the food you have and the time you can spare. Your next meal gets a little easier.',
+      ],
+      [
+        'You live at your own pace.',
+        'Sasha plans your meals.',
+        'Favourite dishes, your goals and busy days — in one plan you can adjust as life changes.',
+      ],
+      [
+        'You get on with your day.',
+        'Sasha sorts your shopping list.',
+        'Your ingredients are gathered into a list. Tick off what you’ve bought right in the conversation.',
+      ],
+      [
+        'Food slips your mind.',
+        'Sasha checks in.',
+        'If lunch isn’t logged, she asks whether you’ve eaten and helps you find a snack.',
+      ],
+    ],
     demoNote:
       'An illustration of Sasha at work, not a Telegram screenshot. Dialogues are adapted; calculations come from separate saved examples. In your chat, Sasha uses your foods and goals.',
     choose: 'Choose an example',
     try: 'Try continuing the conversation',
     reset: 'Back to the original example',
     open: 'Open Sasha in Telegram',
-    memoryLabel: 'FROM YOUR FIRST ENTRY TO A HABIT',
-    memoryTitle: ['You live your life.', 'Sasha helps with food.'],
-    memoryIntro:
-      'First, a clear picture of your day’s nutrition. Then, less explaining yourself, less cooking and fewer food decisions.',
-    progress: [
-      {
-        time: 'Log a meal',
-        title: 'Does the counting.',
-        body: 'Describe breakfast and Sasha calculates calories, macros and fibre. She shows how much is left towards your daily target.',
-      },
-      {
-        time: 'Build on past conversations',
-        title: 'Remembers the details.',
-        body: 'No need to explain yourself every time. Sasha builds on your tastes, habits and past conversations to make her support more personal.',
-      },
-      {
-        time: 'Make everyday life easier',
-        title: 'Helps at the right moment.',
-        body: 'Combines cooking for two days and builds your shopping list. If lunch isn’t logged, she checks whether you’ve eaten and helps you find a snack.',
-      },
-    ],
     approachLabel: 'SASHA’S APPROACH',
     approachTitle: ['On your side.', 'Grounded in science.'],
     approachBody:
@@ -167,7 +183,7 @@ export const primaryCopy = {
     faq: [
       {
         q: 'How do I get started?',
-        a: 'Open @mealset_bot in Telegram, read the terms for the monthly subscription at 1000 Stars. After paying, tell Sasha about your goals and habits. The service is for people aged 18 and over.',
+        a: 'Open @mealset_bot in Telegram, read the terms for the monthly subscription at 1500 Telegram Stars. After paying, tell Sasha about your goals and habits. The service is for people aged 18 and over.',
       },
       {
         q: 'How accurate are photo estimates?',

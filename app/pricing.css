@@ -10,15 +10,15 @@
   font-weight: 600;
   letter-spacing: 0.12em;
 }
-.pricing h2 {
+.mealset-primary .pricing h2 {
   margin: 20px 0;
   font-size: clamp(32px, 4vw, 52px);
   font-weight: 500;
   line-height: 1.12;
   letter-spacing: -0.04em;
 }
-.pricing-intro,
-.pricing-terms {
+.pricing .pricing-intro,
+.pricing .pricing-terms {
   max-width: 640px;
   margin: 0 auto;
   color: var(--muted-foreground);
@@ -36,30 +36,30 @@
   border-radius: 24px;
   background: var(--card);
 }
-.pricing-option h3 {
+.pricing .pricing-option h3 {
   margin: 0 0 24px;
   font-size: 18px;
   font-weight: 500;
 }
-.pricing-amount {
+.pricing .pricing-amount {
   margin: 0;
   font-size: clamp(28px, 3.5vw, 40px);
   font-weight: 600;
   letter-spacing: -0.04em;
 }
-.pricing-period,
-.pricing-method-note {
+.pricing .pricing-period,
+.pricing .pricing-method-note {
   color: var(--muted-foreground);
   font-size: 14px;
   line-height: 1.5;
 }
-.pricing-period {
+.pricing .pricing-period {
   margin: 4px 0 24px;
 }
-.pricing-method-note {
+.pricing .pricing-method-note {
   margin: 0;
 }
-.pricing-estimate {
+.pricing .pricing-estimate {
   margin: 0 0 12px;
   font-size: 22px;
   font-weight: 500;
@@ -72,7 +72,7 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-.pricing-terms {
+.pricing .pricing-terms {
   font-size: 13px;
 }
 .pricing-cta {
