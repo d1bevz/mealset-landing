@@ -13,7 +13,7 @@ export const primaryCopy = {
       detail: 'Поиск продуктов, дневник и расчёты она берёт на себя.',
     },
     intro:
-      'Отправь фото или расскажи, что ел. Саша запишет еду, посчитает нутриенты и подскажет следующий шаг. А ещё поможет с меню и покупками — прямо в Telegram.',
+      'Хочешь похудеть или набрать мышцы, но сложно сохранять постоянство, а записывать каждый приём пищи вручную утомляет? Саша возьмёт учёт на себя, поможет лучше понять свои пищевые привычки и постепенно изменить их — так, чтобы тебе было легко продолжать.',
     see: 'Посмотреть, как это работает',
     paid: `${pricingCopy.ru.starsPrice} в месяц · ${pricingCopy.ru.estimate}`,
     example: 'Пример диалога',
@@ -240,7 +240,7 @@ export const primaryCopy = {
       detail: 'She takes care of food lookup, logging and calculations.',
     },
     intro:
-      'Send a photo or tell Sasha what you ate. She logs your meal, calculates nutrients and suggests a next step. She also helps with meal plans and shopping — right in Telegram.',
+      'Want to lose weight or build muscle, but struggle to stay consistent and find logging every meal a chore? Sasha takes care of tracking, helps you understand your eating habits and supports gradual changes that feel easy to stick with.',
     see: 'See how it works',
     paid: `${pricingCopy.en.starsPrice} per month · ${pricingCopy.en.estimate}`,
     example: 'Example conversation',
