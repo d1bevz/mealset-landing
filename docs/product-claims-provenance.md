@@ -30,3 +30,7 @@ The user supplied newer product information after the dataset review:
 Recount these sources before updating the numerical claims. Food and recipe counts were computed by parsing CSV/JSON records and checking distinct IDs, not by counting file lines.
 
 The knowledge scenario now describes concrete applications of the reference domains: energy needs and weight plateaus, nutrient balance, exercise/recovery/hydration, and eating behaviour. The seven-domain count was removed from public copy at the user’s request.
+
+## Hero positioning
+
+The hero now emphasizes reducing manual food-logging work. Research basis: “Barriers to and Facilitators for Using Nutrition Apps: Systematic Review and Conceptual Framework” (2021), 28 publications, https://pmc.ncbi.nlm.nih.gov/articles/PMC8409150/ . It identifies usability and effort barriers; it does not establish that all users reject nutrition apps or measure Mealset's speed. The hero panel links to this review and illustrates manual lookup, portion entry and repeated logging. No measured performance claim is made.

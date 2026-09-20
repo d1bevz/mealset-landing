@@ -4,8 +4,8 @@ import { join } from 'node:path';
 
 const root = 'dist/client';
 const routes = [
-  ['', 'ru', 'Хорошее питание.'],
-  ['en', 'en', 'Good food.'],
+  ['', 'ru', 'Наслаждайся жизнью.'],
+  ['en', 'en', 'Enjoy your life.'],
   ['v2', 'ru', 'Mealset'],
   ['en/v2', 'en', 'Mealset'],
 ];
@@ -63,7 +63,9 @@ for (const [route, language, text] of routes) {
     const cover = `assets/og-mealset-effort-${language}-v1.png`;
     assert(existsSync(join(root, cover)), `${route}: social cover exists`);
     assert(
-      html.includes(`property="og:image" content="${origin}${basePath}/${cover}"`),
+      html.includes(
+        `property="og:image" content="${origin}${basePath}/${cover}"`,
+      ),
       `${route}: localized absolute social image URL`,
     );
     assert(

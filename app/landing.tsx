@@ -1,7 +1,14 @@
 /* Full document navigation between language root layouts keeps html lang correct. */
 /* oxlint-disable next/no-html-link-for-pages */
 import Image from 'next/image';
-import { ArrowDown, ArrowUpRight, Plus } from 'lucide-react';
+import {
+  ArrowDown,
+  ArrowUpRight,
+  Search,
+  SlidersHorizontal,
+  Repeat2,
+  Plus,
+} from 'lucide-react';
 import { pagePath, publicPath } from '@/lib/public-path';
 import { copy, type Locale } from './copy';
 import { primaryCopy } from './primary-copy';
@@ -64,9 +71,9 @@ export function Landing({ locale }: { locale: Locale }) {
               : 'YOUR AI NUTRITIONIST IN TELEGRAM'}
           </p>
           <h1 id="hero-title">
-            {old.headline[0]}
+            {d.headline[0]}
             <br />
-            <span>{old.headline[1]}</span>
+            <span>{d.headline[1]}</span>
           </h1>
           <p className="m-hero-body">{d.intro}</p>
           <div className="m-hero-actions">
@@ -90,26 +97,29 @@ export function Landing({ locale }: { locale: Locale }) {
               height={1024}
               fetchPriority="high"
             />
-            <div className="m-hero-conversation">
-              <div className="m-chat-heading">
-                <Image
-                  unoptimized
-                  src={publicPath('/assets/sasha-avatar.png')}
-                  alt=""
-                  width={40}
-                  height={40}
-                />
-                <div>
-                  <strong>{old.sashaName}</strong>
-                  <span>{d.role}</span>
-                </div>
-                <span className="m-example-label">{d.example}</span>
+            <div className="m-hero-research">
+              <a
+                className="m-research-source"
+                href="https://mhealth.jmir.org/2021/6/e20037/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {d.research.source}{' '}
+                <ArrowUpRight size={14} aria-hidden="true" />
+              </a>
+              <h2>{d.research.title}</h2>
+              <p>{d.research.body}</p>
+              <div className="m-research-steps">
+                {[Search, SlidersHorizontal, Repeat2].map((Icon, index) => (
+                  <div key={d.research.steps[index]}>
+                    <Icon size={22} aria-hidden="true" />
+                    <span>{d.research.steps[index]}</span>
+                  </div>
+                ))}
               </div>
-              <div className="m-message m-user">
-                <p>{d.heroQuestion}</p>
-              </div>
-              <div className="m-message m-sasha">
-                <p>{d.heroAnswer}</p>
+              <div className="m-research-solution">
+                <strong>{d.research.solution}</strong>
+                <span>{d.research.detail}</span>
               </div>
             </div>
           </div>

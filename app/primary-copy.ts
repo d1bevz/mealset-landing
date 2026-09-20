@@ -3,15 +3,24 @@ import { pricingCopy } from './pricing';
 export const primaryCopy = {
   ru: {
     nav: ['Как это работает', 'Подход', 'Стоимость'],
+    headline: ['Наслаждайся жизнью.', 'Саша разберётся с едой.'],
+    research: {
+      source: 'Обзор 28 публикаций · JMIR, 2021',
+      title: 'Слишком сложно. Слишком долго.',
+      body: 'Сложность и затраты времени — среди причин, по которым люди не начинают или перестают пользоваться приложениями для питания.',
+      steps: ['Найти продукт', 'Ввести порцию', 'Повторять каждый день'],
+      solution: 'С Сашей — фото или сообщение.',
+      detail: 'Поиск продуктов, дневник и расчёты она берёт на себя.',
+    },
     intro:
-      'Саша — твой ИИ-нутрициолог в Telegram. Помогает наладить питание с учётом твоих целей, вкусов и образа жизни. Опирается на науку и предлагает изменения, которые вписываются в твой день.',
+      'Отправь фото или расскажи, что ел. Саша запишет еду, посчитает нутриенты и подскажет следующий шаг. А ещё поможет с меню и покупками — прямо в Telegram.',
     see: 'Посмотреть, как это работает',
     paid: `${pricingCopy.ru.starsPrice} в месяц · ${pricingCopy.ru.estimate}`,
     example: 'Пример диалога',
     role: 'ИИ-нутрициолог',
-    heroQuestion: 'Хочу питаться лучше, но отказываться от пасты не готов.',
+    heroQuestion: 'Запиши этот обед. Масла — чайная ложка.',
     heroAnswer:
-      'Начнём с того, что тебе нравится. Пасту оставим — подберём, чем её дополнить, с учётом твоей цели.',
+      'Лосось, крупу и овощи записала, масло учла. Калории и нутриенты добавила в итог дня. Порции оценила по фото — можешь поправить.',
     demoTitle: ['Ты живёшь.', 'Саша помогает с питанием.'],
     stories: [
       {
@@ -221,15 +230,24 @@ export const primaryCopy = {
   },
   en: {
     nav: ['How it works', 'Our approach', 'Pricing'],
+    headline: ['Enjoy your life.', 'Sasha handles the food.'],
+    research: {
+      source: 'Review of 28 publications · JMIR, 2021',
+      title: 'Too complicated. Too time-consuming.',
+      body: 'Complexity and time demands are among the reasons people avoid or stop using nutrition apps.',
+      steps: ['Find the food', 'Enter the portion', 'Repeat every day'],
+      solution: 'With Sasha, send a photo or a message.',
+      detail: 'She takes care of food lookup, logging and calculations.',
+    },
     intro:
-      'Sasha is your AI nutritionist in Telegram. She helps you build better eating habits around your goals, tastes and lifestyle. Her guidance draws on science, with changes that fit your day.',
+      'Send a photo or tell Sasha what you ate. She logs your meal, calculates nutrients and suggests a next step. She also helps with meal plans and shopping — right in Telegram.',
     see: 'See how it works',
     paid: `${pricingCopy.en.starsPrice} per month · ${pricingCopy.en.estimate}`,
     example: 'Example conversation',
     role: 'AI nutritionist',
-    heroQuestion: 'I want to eat better, but I’m not giving up pasta.',
+    heroQuestion: 'Log this lunch. I used a teaspoon of oil.',
     heroAnswer:
-      'Let’s start with what you enjoy. We’ll keep the pasta and find ways to build a meal around it that works towards your goal.',
+      'Salmon, grains and vegetables logged, including the oil. Calories and nutrients added to your daily totals. I estimated portions from the photo — you can adjust them.',
     demoTitle: ['Live your life.', 'Let Sasha help with food.'],
     stories: [
       {
