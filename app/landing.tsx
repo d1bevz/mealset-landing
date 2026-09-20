@@ -6,6 +6,7 @@ import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { Conversation } from './conversation';
 import { FoodLogging } from './food-logging';
 import { Science } from './science';
+import { Pricing } from './pricing';
 import { copy, type Locale } from './copy';
 const telegram = 'https://t.me/mealset_bot';
 export function Wordmark() {
@@ -48,6 +49,7 @@ export function Landing({ locale }: { locale: Locale }) {
               {d.nav[i]}
             </a>
           ))}
+          <a href="#pricing">{locale === 'ru' ? 'Стоимость' : 'Pricing'}</a>
         </nav>
         <div className="header-actions">
           <div
@@ -216,10 +218,17 @@ export function Landing({ locale }: { locale: Locale }) {
               </a>
               <p className="access-note">
                 <Lines text={d.access} />
+                <br />
+                <a href="#pricing">
+                  {locale === 'ru'
+                    ? 'Стоимость подписки'
+                    : 'Subscription pricing'}
+                </a>
               </p>
             </div>
           </div>
         </section>
+        <Pricing locale={locale} />
         <section className="closing section-shell" aria-label={d.promise}>
           <span className="eyebrow">MEALSET</span>
           <p>
