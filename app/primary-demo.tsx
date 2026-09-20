@@ -1,5 +1,5 @@
 'use client';
-import { useState, type ReactNode } from 'react';
+import { useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import Image from 'next/image';
 import {
   ArrowUpRight,
@@ -431,6 +431,22 @@ function ScenarioVisual({
 export function PrimaryDemo({ locale }: { locale: Locale }) {
   const d = primaryCopy[locale];
   const [method, setMethod] = useState(ids[0]);
+  const scenariosRef = useRef<HTMLDivElement>(null);
+  const returnToStart = useRef(false);
+  const compactLabels =
+    locale === 'ru'
+      ? ['Калории', 'Память', 'Советы', 'Меню', 'Покупки', 'Забота']
+      : ['Calories', 'Memory', 'Advice', 'Meals', 'Shopping', 'Check-ins'];
+  useLayoutEffect(() => {
+    if (!returnToStart.current) return;
+    returnToStart.current = false;
+    if (!scenariosRef.current) return;
+    window.scrollTo({
+      top:
+        window.scrollY + scenariosRef.current.getBoundingClientRect().top - 70,
+      behavior: 'instant',
+    });
+  }, [method]);
   return (
     <div className="m-shell" id="how">
       <h2 className="m-scenarios-heading" id="diary-title">
@@ -439,9 +455,14 @@ export function PrimaryDemo({ locale }: { locale: Locale }) {
         <span>{d.demoTitle[1]}</span>
       </h2>
       <Tabs
+        ref={scenariosRef}
         value={method}
         onValueChange={(value) => {
-          if (typeof value === 'string') setMethod(value);
+          if (typeof value !== 'string' || value === method) return;
+          returnToStart.current =
+            window.matchMedia('(max-width: 760px)').matches &&
+            (scenariosRef.current?.getBoundingClientRect().top ?? 0) < 70;
+          setMethod(value);
         }}
         className="m-demo m-scenarios"
         id="sasha-examples"
@@ -452,9 +473,10 @@ export function PrimaryDemo({ locale }: { locale: Locale }) {
             return (
               <TabsTrigger key={id} value={id}>
                 <Icon size={22} aria-hidden="true" />
+                <span className="m-scenario-compact">{compactLabels[i]}</span>
                 <span className="m-scenario-message">
-                  <span>{d.stories[i][0]}</span>
-                  <strong>{d.stories[i][1]}</strong>
+                  <span>{d.stories[i].situation}</span>
+                  <strong>{d.stories[i].action}</strong>
                 </span>
               </TabsTrigger>
             );
@@ -465,7 +487,22 @@ export function PrimaryDemo({ locale }: { locale: Locale }) {
             {method === id && (
               <div className="m-diary-grid">
                 <div className="m-diary-copy">
-                  <p className="m-lead">{d.stories[index][2]}</p>
+                  <h3 className="m-scenario-headline">
+                    <span>{d.stories[index].headline}</span>
+                    {d.stories[index].promise}
+                  </h3>
+                  <p className="m-scenario-intro">{d.stories[index].intro}</p>
+                  <ul className="m-scenario-points">
+                    {d.stories[index].points.map((point) => (
+                      <li key={point.title}>
+                        <strong>{point.title}</strong>
+                        <p>{point.body}</p>
+                      </li>
+                    ))}
+                  </ul>
+                  {d.stories[index].soon && (
+                    <p className="m-scenario-coming">{d.stories[index].soon}</p>
+                  )}
                   <ScenarioVisual index={index} locale={locale} />
                   <ScenarioVisual index={index} locale={locale} mobile />
                 </div>
