@@ -1,30 +1,12 @@
-// Public plan terms verified against mealset/src/billing/plan-pricing.ts and
-// checkout-copy.ts on 2026-09-13. Keep in sync when billing terms change.
-export const pricing = { week: 500, month: 2000, weekDays: 7, monthDays: 30 };
-// Buyer-price reference from Mealset, not a guaranteed Stars purchase rate.
-// USD/RUB: CBR 84.2569, effective 2026-09-12, rounded to 85 for display.
-// Source: https://www.cbr.ru/currency_base/daily/
-// Refresh this editorial estimate when pricing is reviewed; no live FX request.
-const moneyReference = { usdPerStar: 0.02, rubPerUsd: 85 };
-export function formatApproximatePrice(stars: number, locale: 'ru' | 'en') {
-  const usd = stars * moneyReference.usdPerStar;
-  const amount =
-    locale === 'ru'
-      ? Math.round((usd * moneyReference.rubPerUsd) / 10) * 10
-      : usd;
-  return `≈ ${new Intl.NumberFormat(locale === 'ru' ? 'ru-RU' : 'en-US', {
-    style: 'currency',
-    currency: locale === 'ru' ? 'RUB' : 'USD',
-    maximumFractionDigits: 0,
-  }).format(amount)}`;
-}
+import { pricingCopy } from './pricing';
+
 export const primaryCopy = {
   ru: {
     nav: ['Как это работает', 'Подход', 'Стоимость'],
     intro:
       'Саша — твой ИИ-нутрициолог в Telegram. Помогает наладить питание с учётом твоих целей, вкусов и образа жизни. Опирается на науку и предлагает изменения, которые вписываются в твой день.',
     see: 'Посмотреть, как это работает',
-    paid: `${formatApproximatePrice(pricing.week, 'ru')} за 7 дней · Без бесплатного периода`,
+    paid: `${pricingCopy.ru.starsPrice} в месяц · ${pricingCopy.ru.estimate}`,
     example: 'Пример диалога',
     role: 'ИИ-нутрициолог',
     heroQuestion: 'Хочу питаться лучше, но отказываться от пасты не готов.',
@@ -82,31 +64,11 @@ export const primaryCopy = {
     sources: 'Научные ориентиры',
     who: 'ВОЗ · здоровое питание',
     efsa: 'EFSA · нормы нутриентов',
-    priceLabel: 'РАБОТА С САШЕЙ',
-    priceTitle: 'Выбери свой темп.',
-    priceIntro:
-      'В обоих вариантах — поддержка по питанию, дневник текстом, голосом и по фото, помощь с выбором еды с учётом твоего контекста.',
-    week: 'Познакомиться с Сашей',
-    month: 'Узнать себя лучше',
-    weekDescription:
-      'Неделя, чтобы попробовать поддержку Саши и понять, как она помогает тебе в обычной жизни.',
-    monthDescription:
-      '30 дней, чтобы вместе с Сашей разобраться в своём питании и сделать первые шаги к новым привычкам.',
-    weekPeriod: 'за 7 дней',
-    monthPeriod: 'каждые 30 дней',
-    weekTerms: 'Один платёж. Без автопродления.',
-    monthTerms: 'Подписка с автоматическим продлением до отмены.',
-    weekCta: 'Попробовать неделю',
-    monthCta: 'Начать изменения',
-    priceNote:
-      'Цены в рублях — примерный эквивалент. Оплата в Telegram: 500 Stars за 7 дней или 2000 Stars каждые 30 дней. Стоимость покупки Stars зависит от региона и способа оплаты. Бесплатного пробного периода нет; действует дневной лимит. Условия — в боте до оплаты.',
-    cancelNote:
-      'Отменить продление можно через /cancel в боте или настройки подписок Telegram. Доступ сохранится до конца оплаченного периода.',
     faqTitle: 'Перед первым разговором',
     faq: [
       {
         q: 'Как начать?',
-        a: 'Открой @mealset_bot в Telegram, прочитай условия и выбери доступ на 7 или 30 дней. После оплаты расскажи Саше о своих целях и привычках. Сервис предназначен для пользователей от 18 лет.',
+        a: 'Открой @mealset_bot в Telegram, прочитай условия месячной подписки за 1000 Stars. После оплаты расскажи Саше о своих целях и привычках. Сервис предназначен для пользователей от 18 лет.',
       },
       {
         q: 'Насколько точны расчёты по фото?',
@@ -118,11 +80,11 @@ export const primaryCopy = {
       },
       {
         q: 'Есть ли лимиты использования?',
-        a: 'Да, действует дневной лимит. При его достижении обработка приостанавливается до полуночи в твоём часовом поясе. После этого Саша обрабатывает очередь, пока доступ активен.',
+        a: 'Да, действуют дневной лимит и отдельные лимиты на диалоги и составление меню Шефом. Срок возобновления доступа при достижении лимита подскажет Саша. При достижении дневного лимита обработка приостанавливается до полуночи в твоём часовом поясе. После этого Саша обрабатывает очередь, пока доступ активен.',
       },
       {
         q: 'Как отменить подписку?',
-        a: 'Отправь /cancel в боте или открой управление подписками в Telegram до следующего списания. Доступ останется до конца оплаченного периода. У недельного доступа автопродления нет. Вопросы по платежам и возвратам — /paysupport.',
+        a: 'Отправь /cancel в боте или открой управление подписками в Telegram до следующего списания. Доступ останется до конца оплаченного периода. Вопросы по платежам и возвратам — /paysupport.',
       },
       {
         q: 'Где прочитать об условиях и моих данных?',
@@ -143,7 +105,7 @@ export const primaryCopy = {
     intro:
       'Sasha is your AI nutritionist in Telegram. She helps you build better eating habits around your goals, tastes and lifestyle. Her guidance draws on science, with changes that fit your day.',
     see: 'See how it works',
-    paid: `${formatApproximatePrice(pricing.week, 'en')} for 7 days · No free trial`,
+    paid: `${pricingCopy.en.starsPrice} per month · ${pricingCopy.en.estimate}`,
     example: 'Example conversation',
     role: 'AI nutritionist',
     heroQuestion: 'I want to eat better, but I’m not giving up pasta.',
@@ -201,31 +163,11 @@ export const primaryCopy = {
     sources: 'Scientific references',
     who: 'WHO · healthy diet',
     efsa: 'EFSA · nutrient reference values',
-    priceLabel: 'WORKING WITH SASHA',
-    priceTitle: 'Choose your pace.',
-    priceIntro:
-      'Both options include nutrition support, food logging by text, voice and photo, and help with food choices based on your context.',
-    week: 'Get to know Sasha',
-    month: 'Get to know yourself',
-    weekDescription:
-      'A week to try Sasha’s support and see how she helps with everyday food decisions.',
-    monthDescription:
-      '30 days to understand your eating patterns with Sasha and take your first steps towards new habits.',
-    weekPeriod: 'for 7 days',
-    monthPeriod: 'every 30 days',
-    weekTerms: 'One payment. No automatic renewal.',
-    monthTerms: 'Renews automatically every 30 days until cancelled.',
-    weekCta: 'Try a week',
-    monthCta: 'Start making changes',
-    priceNote:
-      'USD prices are approximate equivalents. Pay in Telegram: 500 Stars for 7 days or 2,000 Stars every 30 days. The cost of buying Stars varies by region and payment method. No free trial; a daily usage limit applies. Read the terms in the bot before paying.',
-    cancelNote:
-      'Cancel renewal with /cancel in the bot or in Telegram subscription settings. Access continues until the end of the paid period.',
     faqTitle: 'Before your first conversation',
     faq: [
       {
         q: 'How do I get started?',
-        a: 'Open @mealset_bot in Telegram, read the terms and choose 7 or 30 days of access. After paying, tell Sasha about your goals and habits. The service is for people aged 18 and over.',
+        a: 'Open @mealset_bot in Telegram, read the terms for the monthly subscription at 1000 Stars. After paying, tell Sasha about your goals and habits. The service is for people aged 18 and over.',
       },
       {
         q: 'How accurate are photo estimates?',
@@ -237,11 +179,11 @@ export const primaryCopy = {
       },
       {
         q: 'Are there usage limits?',
-        a: 'Yes, a daily limit applies. At the limit, processing pauses until midnight in your time zone. Sasha then processes queued messages while your access remains active.',
+        a: 'Yes, there is a daily limit, with separate limits for conversations and Chef meal planning. Sasha will tell you when access resumes if you reach a limit. At the daily limit, processing pauses until midnight in your time zone. Sasha then processes queued messages while your access remains active.',
       },
       {
         q: 'How do I cancel my subscription?',
-        a: 'Send /cancel in the bot or open Telegram subscription settings before the next charge. Access continues until the paid period ends. The one-week pass does not renew automatically. For payment and refund questions, use /paysupport.',
+        a: 'Send /cancel in the bot or open Telegram subscription settings before the next charge. Access continues until the paid period ends. For payment and refund questions, use /paysupport.',
       },
       {
         q: 'Where can I read about the terms and my data?',

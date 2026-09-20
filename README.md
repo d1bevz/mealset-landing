@@ -15,6 +15,19 @@
 Кнопки ведут в [@mealset_bot](https://t.me/mealset_bot). Серверная часть бота,
 его база и секреты в этот репозиторий не входят.
 
+На основных страницах `/` и `/en` блок подписки (`app/pricing.tsx`):
+1000 Telegram Stars в месяц. Источник цены подписки —
+[решения от 20.09.2026 в mealset PR #330](https://github.com/d1bevz/mealset/pull/330).
+Ориентир покупки звёзд: ≈ 2100 ₽ (RU) и ≈ €22 (EN). Проверено 20.09.2026:
+[App Store RU](https://apps.apple.com/ru/app/telegram-messenger/id686449807)
+показывает 1060 ₽ за 500 Stars (два пакета ≈ 2100 ₽),
+[App Store PT](https://apps.apple.com/pt/app/telegram-messenger/id686449807)
+— €21,99 за 1000 Stars. Это приблизительная стоимость покупки звёзд,
+которая зависит от страны и способа покупки, а не отдельный тариф Mealset.
+Окончательные условия пользователь проверяет в боте.
+Второй дизайн не меняется. Численные внутренние бюджеты не публикуются,
+а недельный пасс не показан: в спецификации он остаётся открытым вопросом.
+
 ## GitHub Pages — для тестирования
 
 Сайт: **https://d1bevz.github.io/mealset-landing/**.
@@ -166,9 +179,9 @@ workflow **Publish GitHub Pages**.
 
 ## Файлы
 
-- `app/primary-copy.ts` — тексты основного варианта RU/EN и тарифы. Условия
-  сверены 13 сентября 2026 с `src/billing/plan-pricing.ts` и `checkout-copy.ts`
-  репозитория Mealset; при изменении тарифов в боте обновить и этот файл.
+- `app/primary-copy.ts` — тексты основного варианта RU/EN и FAQ.
+- `app/pricing.tsx`, `app/pricing.css` — месячный тариф Stars, локальные
+  ориентиры стоимости и блок подписки. При изменении тарифов обновить этот файл.
 - `app/landing.tsx`, `app/primary.css`, `app/primary-demo.tsx` — основной дизайн
   и интерактивные иллюстрации переписки.
 - `app/primary-demo-copy.ts` — шесть сценариев RU/EN: калории, память,

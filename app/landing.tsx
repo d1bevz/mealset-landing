@@ -4,7 +4,8 @@ import Image from 'next/image';
 import { ArrowDown, ArrowUpRight, Plus } from 'lucide-react';
 import { pagePath, publicPath } from '@/lib/public-path';
 import { copy, type Locale } from './copy';
-import { primaryCopy, pricing, formatApproximatePrice } from './primary-copy';
+import { primaryCopy } from './primary-copy';
+import { Pricing } from './pricing';
 import { PrimaryDemo } from './primary-demo';
 import { PrimaryLanguageSwitch } from './primary-language-switch';
 import { languageBootstrap } from '@/lib/language-preference';
@@ -199,60 +200,7 @@ export function Landing({ locale }: { locale: Locale }) {
             </div>
           </div>
         </section>
-        <section
-          className="m-section m-shell m-pricing"
-          id="pricing"
-          aria-labelledby="pricing-title"
-        >
-          <div className="m-section-heading">
-            <p className="m-eyebrow">{d.priceLabel}</p>
-            <h2 id="pricing-title">{d.priceTitle}</h2>
-            <p className="m-lead">{d.priceIntro}</p>
-          </div>
-          <div className="m-plans">
-            {[
-              {
-                name: d.week,
-                amount: pricing.week,
-                period: d.weekPeriod,
-                terms: d.weekTerms,
-                description: d.weekDescription,
-                cta: d.weekCta,
-              },
-              {
-                name: d.month,
-                amount: pricing.month,
-                period: d.monthPeriod,
-                terms: d.monthTerms,
-                description: d.monthDescription,
-                cta: d.monthCta,
-              },
-            ].map((p, i) => (
-              <article
-                className={`m-plan${i === 1 ? ' m-plan-month' : ''}`}
-                key={p.name}
-              >
-                <h3>{p.name}</h3>
-                <p className="m-plan-price">
-                  <strong>{formatApproximatePrice(p.amount, locale)}</strong>
-                </p>
-                <p className="m-plan-period">{p.period}</p>
-                <p className="m-plan-description">{p.description}</p>
-                <p className="m-plan-terms">{p.terms}</p>
-                <a
-                  className="button"
-                  href={telegram}
-                  aria-label={`${p.cta} — Telegram`}
-                >
-                  {p.cta}
-                  <ArrowUpRight size={17} aria-hidden="true" />
-                </a>
-              </article>
-            ))}
-          </div>
-          <p className="m-pricing-note">{d.priceNote}</p>
-          <p className="m-pricing-note">{d.cancelNote}</p>
-        </section>
+        <Pricing locale={locale} />
         <section className="m-section m-faq" aria-labelledby="faq-title">
           <div className="m-shell m-faq-grid">
             <h2 id="faq-title">{d.faqTitle}</h2>
