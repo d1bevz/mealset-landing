@@ -4,7 +4,7 @@ import './pricing.css';
 // Monthly prices: mealset PR #330, decisions dated 2026-09-20.
 // Approximate purchase costs checked 2026-09-20 against App Store listings:
 // RU: 2 × 500 Stars at RUB 1060 ≈ RUB 2100; PT: 1000 Stars at EUR 21.99 ≈ EUR 22.
-const pricingCopy = {
+export const pricingCopy = {
   ru: {
     label: 'ПОДПИСКА MEALSET',
     title: 'Забота о питании. Каждый месяц.',

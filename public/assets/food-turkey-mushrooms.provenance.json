@@ -1,0 +1,10 @@
+{
+  "file": "food-turkey-mushrooms.png",
+  "mode": "built-in image_gen",
+  "recipe": {
+    "uid": "hot:r028",
+    "title": "Индейка в томатном соусе с грибами",
+    "source": "Mealset src/recipes/data/low-calorie-recipes.json"
+  },
+  "prompt": "Use case: photorealistic-natural. Create a landscape 3:2 editorial food photograph for Mealset. Subject is the actual recipe turkey in tomato sauce with mushrooms, served with boiled sweet potato, garlic and parsley. One modest appetizing serving on a simple matte ivory ceramic dinner plate: a few uneven tender turkey pieces with clearly visible natural meat grain and light browning, sliced ordinary brown button mushrooms, a small amount of rustic tomato sauce clinging to the turkey rather than a pool, and several softly cooked orange sweet potato pieces to one side. A little chopped flat-leaf parsley, no elaborate garnish. Make it feel like an excellent real photograph of a carefully cooked meal in a calm modern home, art-directed with restraint for a premium food publication. Soft indirect window daylight from the side, neutral white balance, gentle real shadows, muted pale sage and warm off-white environment. Full plate visible on a lightly textured off-white table with comfortable margins, medium distance at 45-degree angle, 50mm lens f/5.6, no dramatic close-up. Honest subtle imperfections: irregular cuts and placement, matte potato surfaces, delicate slightly fibrous turkey, varying mushroom sizes. Understated, fresh and appetizing, not a luxury restaurant tasting menu. No wet lacquer finish, no oily shine, no uniform golden crust, no symmetrical food arrangement, no oversaturated orange, no exaggerated texture or sharpening, no CGI or 3D render look, no garnish confetti, no extra dishes, no utensils, no text, no watermark. Natural photographic realism is more important than decorative perfection."
+}
