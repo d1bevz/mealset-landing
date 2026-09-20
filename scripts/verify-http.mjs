@@ -6,7 +6,7 @@ const mount = new URL(base);
 mount.pathname = `${mount.pathname.replace(/\/$/, '')}/`;
 const mountedUrl = (path) => new URL(path.replace(/^\//, ''), mount);
 const pageAssets = new Set();
-for (const path of ['/', '/en', '/v2', '/en/v2']) {
+for (const path of ['/', '/en', '/v2', '/en/v2', '/preview', '/en/preview']) {
   const response = await fetch(
     mountedUrl(path + (staticHost && path !== '/' ? '/' : '')),
   );
@@ -27,6 +27,10 @@ const resources = new Set([
   mountedUrl('/assets/food-hero.jpg').href,
   mountedUrl('/assets/og-sasha-ru.png').href,
   mountedUrl('/assets/og-sasha-en.png').href,
+  mountedUrl('/assets/og-mealset-effort-ru-v1.png').href,
+  mountedUrl('/assets/og-mealset-effort-en-v1.png').href,
+  mountedUrl('/assets/mealset-icon-32.png').href,
+  mountedUrl('/assets/mealset-apple-touch-icon.png').href,
   mountedUrl('/fonts/onest.ttf').href,
 ]);
 for (const path of resources) {
