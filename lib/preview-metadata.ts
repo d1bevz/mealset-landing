@@ -4,18 +4,18 @@ import { siteUrl } from './site-url';
 
 export const previewMetaCopy = {
   ru: {
-    title: 'Mealset — питаться лучше с меньшими усилиями',
+    title: 'Mealset — наслаждайся жизнью. Саша разберётся с едой.',
     description:
-      'Саша поможет с ежедневными заботами о питании: запишет еду, даст понятный совет и составит меню под твои вкусы, привычки и продукты дома. Всё в Telegram.',
+      'Хочешь похудеть или набрать мышцы? Саша возьмёт учёт еды на себя и поможет выстроить полезные привычки в питании, которые легко поддерживать. В Telegram.',
     imageAlt:
-      'Mealset. Питаться лучше. С меньшими усилиями. Саша поможет с питанием, меню и ежедневными заботами.',
+      'Mealset. Наслаждайся жизнью. Саша разберётся с едой. Полезные привычки в питании. Меньше ручной рутины.',
   },
   en: {
-    title: 'Mealset — Eat better with less effort',
+    title: 'Mealset — Enjoy your life. Sasha handles the food.',
     description:
-      'Sasha helps with everyday nutrition: log meals, get practical advice and plan food around your tastes, routines and ingredients at home. All in Telegram.',
+      'Want to lose weight or build muscle? Sasha takes care of food tracking and helps you build healthier eating habits that feel easy to stick with. In Telegram.',
     imageAlt:
-      'Mealset. Eat better. With less effort. Sasha helps with meals, planning and everyday details.',
+      'Mealset. Enjoy your life. Sasha handles the food. Healthier eating habits. Less manual tracking.',
   },
 };
 
@@ -24,7 +24,7 @@ export function previewMetadata(locale: 'ru' | 'en'): Metadata {
   const route = locale === 'ru' ? '/preview' : '/en/preview';
   // Use the configured origin and asset prefix without applying page trailing slashes.
   const imageUrl = new URL(
-    publicPath(`/assets/og-mealset-effort-${locale}-v1.png`),
+    publicPath(`/assets/og-mealset-life-${locale}-v2.png`),
     siteUrl('/'),
   ).href;
   const image = {

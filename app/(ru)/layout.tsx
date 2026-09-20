@@ -1,12 +1,12 @@
+import { previewMetaCopy } from '@/lib/preview-metadata';
 import { publicPath } from '@/lib/public-path';
 import { siteUrl } from '@/lib/site-url';
 import type { Metadata } from 'next';
 import '../globals.css';
 
 export const metadata: Metadata = {
-  title: 'Mealset — хорошее питание. Привычное дело.',
-  description:
-    'Саша — твой ИИ-нутрициолог в Telegram. Помогает наладить питание с учётом твоих целей, вкусов и образа жизни. Научный подход и изменения, которые вписываются в твой день.',
+  title: previewMetaCopy.ru.title,
+  description: previewMetaCopy.ru.description,
   icons: { icon: publicPath('/assets/mealset-mark.svg') },
   alternates: {
     canonical: siteUrl('/'),

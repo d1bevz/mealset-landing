@@ -64,7 +64,7 @@ for (const [route, locale] of [
   }
   const image = new URL(meta('og:image'));
   assert.equal(image.origin, origin);
-  assert(image.pathname.endsWith(`og-mealset-effort-${locale}-v1.png`));
+  assert(image.pathname.endsWith(`og-mealset-life-${locale}-v2.png`));
   assert.equal(meta('twitter:image'), image.href);
   assert(meta('og:image:alt').length > 20);
   assert.equal(meta('og:image:width'), '1200');

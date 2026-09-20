@@ -6,7 +6,7 @@ export function socialMetadata(locale: 'ru' | 'en'): Metadata {
   const ru = locale === 'ru';
   const { title, description, imageAlt } = previewMetaCopy[locale];
   const image = {
-    url: assetUrl(`/assets/og-mealset-effort-${locale}-v1.png`),
+    url: assetUrl(`/assets/og-mealset-life-${locale}-v2.png`),
     width: 1200,
     height: 630,
     alt: imageAlt,

@@ -1,0 +1,18 @@
+{
+  "tool": "Built-in image_gen.imagegen",
+  "outputDimensions": {
+    "width": 1200,
+    "height": 630
+  },
+  "assets": [
+    {
+      "path": "public/assets/og-mealset-life-ru-v2.png",
+      "prompt": "Use case: text-localization. Edit target: supplied Mealset social preview cover. Preserve forest green background, mealset. wordmark, Sasha smiling vegetable bowl illustration inside lime circle on right, overall polished minimal design. Replace all marketing text. Landscape 1200x630 output. Left large ivory headline exactly: 'Наслаждайся жизнью.' then 'Саша разберётся' then 'с едой.' Keep text comfortably left of illustration, generous margins, no overlaps. Below smaller sage text exactly two lines: 'Полезные привычки в питании.' and 'Меньше ручной рутины.' Footer exactly 'Твой ИИ-нутрициолог в Telegram'. Clear accurate Cyrillic. No other text."
+    },
+    {
+      "path": "public/assets/og-mealset-life-en-v2.png",
+      "prompt": "Use case: text-localization. Edit target: supplied Mealset cover. Preserve forest green background, mealset. wordmark, Sasha smiling vegetable bowl inside lime circle right, margins and layout. Landscape 1200x630. Replace ALL Russian text with English. Large ivory headline on left exactly three lines: 'Enjoy your life.' then 'Sasha handles' then 'the food.' Smaller sage subheading exactly two lines: 'Healthier eating habits.' then 'Less manual tracking.' Footer exactly 'Your AI nutritionist in Telegram'. Clear typography, generous margins, no text overlapping circle. No other text."
+    }
+  ],
+  "postprocessing": "Resized to 1200 × 630 PNG using sips."
+}
