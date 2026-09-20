@@ -60,7 +60,7 @@ for (const [route, language, text] of routes) {
   );
   assert(!html.includes('/_sites/'), `${route}: private Sites runtime`);
   if (!route.includes('v2')) {
-    const cover = `assets/og-sasha-${language}.png`;
+    const cover = `assets/og-mealset-effort-${language}-v1.png`;
     assert(existsSync(join(root, cover)), `${route}: social cover exists`);
     assert(
       html.includes(`property="og:image" content="${origin}${basePath}/${cover}"`),
