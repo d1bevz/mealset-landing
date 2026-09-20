@@ -68,3 +68,5 @@ for (const asset of [
 console.log(
   'Static export verified: four routes, RU/EN metadata, Telegram links and final images.',
 );
+
+await import('./verify-preview-artifacts.mjs');

@@ -1,0 +1,19 @@
+{
+  "tool": "Built-in image_gen.imagegen",
+  "reference": "Existing Mealset social covers from git commit 32859c6",
+  "outputDimensions": {
+    "width": 1200,
+    "height": 630
+  },
+  "assets": [
+    {
+      "path": "public/assets/og-mealset-effort-ru-v1.png",
+      "prompt": "Use case: text-localization. Edit supplied Mealset social sharing cover. Preserve exactly the recognizable Sasha smiling bowl avatar, lime circular badge on right, dark forest green background, mealset. wordmark, clean typography and generous margins. Output landscape 1200x630. Replace ALL marketing text, do not keep any old slogan. LEFT headline in large ivory type exactly two lines: 'Питаться лучше.' then 'С меньшими усилиями.' Fit entirely left of circle, reduce font size as needed. Below in sage, two lines: 'Саша поможет с питанием,' then 'меню и ежедневными заботами.' Footer: 'Твой ИИ-нутрициолог в Telegram'. Excellent Cyrillic, no added elements. Save resulting file."
+    },
+    {
+      "path": "public/assets/og-mealset-effort-en-v1.png",
+      "prompt": "Use case: text-localization. Edit supplied Mealset social sharing cover. Preserve exactly the recognizable Sasha smiling bowl avatar, lime circular badge on right, dark forest green background, mealset. wordmark, clean typography and generous margins. Output landscape 1200x630. Replace ALL marketing text, do not keep any old slogan. LEFT headline in large ivory type exactly two lines: 'Eat better.' then 'With less effort.' Below in sage, two lines: 'Sasha helps with meals,' then 'planning and everyday details.' Footer: 'Your AI nutrition companion in Telegram'. All text fits comfortably left of circle. No added elements. Save resulting file."
+    }
+  ],
+  "postprocessing": "Resized to 1200 × 630 PNG using Sharp."
+}

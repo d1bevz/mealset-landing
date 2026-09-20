@@ -1,4 +1,10 @@
-import { copyFileSync, mkdirSync, renameSync, writeFileSync } from 'node:fs';
+import {
+  copyFileSync,
+  existsSync,
+  mkdirSync,
+  renameSync,
+  writeFileSync,
+} from 'node:fs';
 import { join } from 'node:path';
 
 // Vinext includes a path assetPrefix on disk. Pages mounts the artifact at
@@ -24,3 +30,13 @@ if (process.env.NEXT_PUBLIC_TRAILING_SLASH === 'true') {
   }
 }
 writeFileSync('dist/client/.nojekyll', '');
+
+// Preview language links also work with a simple local static server.
+for (const route of ['preview', 'en/preview']) {
+  const source = join('dist/client', `${route}.html`);
+  if (existsSync(source)) {
+    const directory = join('dist/client', route);
+    mkdirSync(directory, { recursive: true });
+    copyFileSync(source, join(directory, 'index.html'));
+  }
+}

@@ -1,0 +1,49 @@
+.cx-inline {
+  margin-top: 25px;
+  padding: 22px 0 0;
+  border-top: 1px solid #cbd8cc;
+  scroll-margin-top: 110px;
+}
+.cx-inline .cx-promise {
+  margin: 0;
+  font-size: clamp(17px, 2vw, 22px);
+  line-height: 1.5;
+  color: var(--pine);
+  letter-spacing: -0.02em;
+}
+.cx-research {
+  max-width: 760px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #557067;
+  line-height: 1.75;
+}
+.cx-research summary {
+  cursor: pointer;
+}
+.cx-research p {
+  font-size: 12px;
+  line-height: 1.75;
+  margin: 12px 0 0;
+}
+.cx-research a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.preview-value-hero h1 {
+  max-width: 1000px;
+  margin-inline: auto;
+  font-size: clamp(36px, 5.4vw, 70px);
+  line-height: 1.08;
+  padding-inline: 24px;
+}
+.preview-value-hero .hero-description {
+  max-width: 740px;
+  padding-inline: 24px;
+}
+@media (max-width: 700px) {
+  .preview-value-hero h1 {
+    font-size: clamp(34px, 8.5vw, 48px);
+  }
+}
