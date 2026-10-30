@@ -66,13 +66,13 @@
 
 ---
 
-### Задача 0: Базовая линия (без коммита)
+### Task 0: Базовая линия (без коммита)
 
 - [ ] **Шаг 1:** `bun install --frozen-lockfile` (нужна сеть, создаёт `node_modules`).
 - [ ] **Шаг 2:** `bun run typecheck && bun run lint && bun test tests`. Ожидание: код выхода 0, `5 pass, 0 fail`.
 - [ ] **Шаг 3:** `SITE_URL=https://mealset.example bun run build`. Ожидание: код выхода 0, есть `dist/client/index.html` и `dist/client/en.html`. Если что-то падает, остановитесь и сообщите: план рассчитан на зелёную базу.
 
-### Задача 1: Реестр языков и скрипт выбора языка
+### Task 1: Реестр языков и скрипт выбора языка
 
 **Файлы:**
 - Создать: `lib/primary-locales.ts`, `lib/language-bootstrap.ts`, `tests/language-bootstrap.test.ts`
@@ -115,7 +115,7 @@ export function languageBootstrap(paths: Record<PrimaryLocale, string>): string;
 - [ ] **Шаг 5:** Добавить `"test": "bun test tests"` в `package.json` и шаг `- run: bun run test` после линта в оба workflow. `bun run typecheck && bun run lint && bun run test`: всё зелёное (старые 5 тестов тоже проходят).
 - [ ] **Шаг 6: Коммит** `git add lib/primary-locales.ts lib/language-bootstrap.ts tests/language-bootstrap.test.ts package.json .github/workflows` → `feat: add locale registry and three-language bootstrap script`.
 
-### Задача 2: Тексты страницы, тарифы и метаданные на pt-PT
+### Task 2: Тексты страницы, тарифы и метаданные на pt-PT
 
 **Файлы:**
 - Создать: `app/pricing-copy.ts`, `tests/primary-copy.test.ts`
@@ -135,7 +135,7 @@ export function languageBootstrap(paths: Record<PrimaryLocale, string>): string;
 - [ ] **Шаг 4:** `bun test tests/primary-copy.test.ts` → pass. `bun run typecheck && bun run lint && bun run test`.
 - [ ] **Шаг 5: Коммит** `feat(pt): translate primary copy, pricing and preview metadata`.
 
-### Задача 3: Диалоги Саши и подписи к иллюстрациям на pt-PT
+### Task 3: Диалоги Саши и подписи к иллюстрациям на pt-PT
 
 **Файлы:**
 - Создать: `tests/primary-demo-copy.test.ts`
@@ -155,7 +155,7 @@ export function languageBootstrap(paths: Record<PrimaryLocale, string>): string;
 - [ ] **Шаг 4:** тесты проходят; `bun run typecheck && bun run lint && bun run test`.
 - [ ] **Шаг 5: Коммит** `feat(pt): translate Sasha demo conversations and visual captions`.
 
-### Задача 4: Карточка для соцсетей
+### Task 4: Карточка для соцсетей
 
 **Файлы:** создать `public/assets/og-mealset-life-pt-v2.png`; изменить `docs/preview-cover-life-provenance.json`.
 
@@ -165,7 +165,7 @@ export function languageBootstrap(paths: Record<PrimaryLocale, string>): string;
 - [ ] **Шаг 4:** В `docs/preview-cover-life-provenance.json` добавьте запись для нового файла: `path`, `method` («recomposed from og-mealset-life-en-v2.png: text re-typeset with Onest using Pillow; logo and illustration unchanged»), строки текста.
 - [ ] **Шаг 5: Коммит** `feat(pt): add Portuguese social preview card`.
 
-### Задача 5: Маршруты, метаданные, переключатель и сборка
+### Task 5: Маршруты, метаданные, переключатель и сборка
 
 **Файлы:**
 - Создать: `app/(pt)/layout.tsx`, `app/(pt)/pt/page.tsx`, `scripts/legacy-en-stub.mjs`, `scripts/legacy-en-stub.d.mts`, `tests/social-metadata.test.ts`, `tests/legacy-en-stub.test.ts`
@@ -201,7 +201,7 @@ legacyEnglishStub(args: { target: string; canonical: string }): string
 - [ ] **Шаг 10: README.** Таблица адресов: `/` английский (по умолчанию), `/ru`, `/pt`, `/en` → `/?lang=en` (старый адрес), `/v2`, `/en/v2` как есть; новый короткий раздел «Выбор языка» (порядок из спеки); обновить «четырёх HTML-страниц», описание файлов с «RU/EN» и строку про Pages (`en/` → `ru/`, `pt/`).
 - [ ] **Шаг 11: Коммит** `feat(pt): serve English at /, Russian at /ru and Portuguese at /pt`.
 
-### Задача 6: Nginx и HTTP-проверки
+### Task 6: Nginx и HTTP-проверки
 
 **Файлы:** изменить `deploy/nginx.conf`, `scripts/verify-http.mjs`, `README.md` (раздел про Nginx без Docker, строки про `en.html`).
 
@@ -211,7 +211,7 @@ legacyEnglishStub(args: { target: string; canonical: string }): string
 - [ ] **Шаг 4: README.** Раздел про Nginx без Docker: пути `/ru`, `/pt`, `/v2`, `/en/v2` — это `ru.html`, `pt.html`, `v2.html`, `en/v2.html`; корень `index.html` теперь английский; `/en` отдаётся правилом `return 301 /?lang=en`.
 - [ ] **Шаг 5: Коммит** `feat(pt): redirect legacy /en and cover new routes in HTTP checks`.
 
-### Задача 7: Итоговая проверка (коммит только если найдены исправления)
+### Task 7: Итоговая проверка (коммит только если найдены исправления)
 
 - [ ] **Шаг 1: Полный прогон.** `bun run typecheck && bun run lint && bun run test`, обе сборки из Задачи 5 (шаг 9), проверка статического хоста из Задачи 6 (шаг 2). Всё должно быть зелёным.
 - [ ] **Шаг 2: Поведение в браузере.** Раздать `dist/client` обычной сборки (без префикса): `python3 -m http.server 48190 --directory dist/client`, открыть встроенный браузер. Проверить: (a) в консоли страницы `localStorage.setItem('mealset.language','pt')`, открыть `/` → адрес становится `/pt`, `document.documentElement.lang === 'pt-PT'`; (b) на `/ru` нажать «EN» → остаётся `/`, `localStorage['mealset.language'] === 'en'`, после перезагрузки английский; (c) `/en.html` (так отдаёт `python3 -m http.server`) приводит на `/` без `?lang=en` в адресе; (d) `/?lang=ru` → `/ru`; (e) с очищенным `localStorage` `/pt` остаётся на `/pt`. Остановить сервер.
