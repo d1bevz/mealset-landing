@@ -506,7 +506,7 @@ export const primaryCopy = {
       detail: 'Ela trata da pesquisa de alimentos, do registo e dos cálculos.',
     },
     intro:
-      'Queres perder peso ou ganhar massa muscular, mas tens dificuldade em manter a consistência e registar cada refeição é uma maçada? A Sasha trata do registo, ajuda-te a perceber os teus hábitos alimentares e apoia mudanças graduais que são fáceis de manter.',
+      'Queres perder peso ou ganhar massa muscular, mas tens dificuldade em ser constante e achas uma maçada registar cada refeição? A Sasha trata do registo, ajuda-te a perceber os teus hábitos alimentares e apoia mudanças graduais que são fáceis de manter.',
     see: 'Ver como funciona',
     paid: `${pricingCopy.pt.starsPrice} por mês · ${pricingCopy.pt.estimate}`,
     example: 'Exemplo de conversa',
@@ -523,7 +523,7 @@ export const primaryCopy = {
       'A Sasha é inteligência artificial.',
       'Apoio à alimentação do dia a dia, não substitui os cuidados médicos.',
     ],
-    eyebrow: 'O TEU NUTRICIONISTA COM IA NO TELEGRAM',
+    eyebrow: 'A TUA NUTRICIONISTA COM IA NO TELEGRAM',
     mainNav: 'Navegação principal',
     languageLabel: 'Idioma da página',
     dayRange: 'Intervalo do total do dia',
@@ -540,7 +540,7 @@ export const primaryCopy = {
     demoTitle: ['Vive a tua vida.', 'Deixa a Sasha ajudar com a comida.'],
     stories: [
       {
-        situation: 'Aproveitas a tua comida.',
+        situation: 'Desfrutas da tua comida.',
         action: 'A Sasha conta as calorias.',
         headline: 'Mais de 8000 alimentos.',
         promise: 'Dos números à ação.',
@@ -666,7 +666,7 @@ export const primaryCopy = {
         points: [
           {
             title: 'Ajusta-se ao teu dia.',
-            body: 'O teu horário e as horas das refeições orientam quando e porquê a Sasha te contacta.',
+            body: 'O teu horário e as horas das refeições orientam quando e porque é que a Sasha te contacta.',
           },
           {
             title: 'Aprende com as tuas respostas.',
@@ -696,7 +696,7 @@ export const primaryCopy = {
         body: 'Pergunta pela fonte e pelo raciocínio por trás de uma sugestão. A Sasha baseia-se em investigação e diretrizes de nutrição.',
       },
       {
-        title: 'Tornar tudo possível.',
+        title: 'Ao teu alcance.',
         body: 'Ajuda-te a adaptar a alimentação aos teus gostos, objetivos e horários. Não se espera perfeição.',
       },
       {

@@ -74,6 +74,14 @@ if (staticHost) {
     legacy.headers.get('location'),
     `${mountedUrl('/').pathname}?lang=en`,
   );
+  const tagged = await fetch(mountedUrl('/en?utm_source=check'), {
+    redirect: 'manual',
+  });
+  assert.equal(tagged.status, 301);
+  assert.equal(
+    tagged.headers.get('location'),
+    `${mountedUrl('/').pathname}?lang=en&utm_source=check`,
+  );
 }
 for (const path of [
   '/missing-mealset-page',

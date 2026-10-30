@@ -43,3 +43,9 @@ test('demoVisual returns alt and caption for all six scenarios in pt', () => {
     assert.notEqual(visual.alt, demoVisual(index, 'en').alt);
   }
 });
+
+test('plural agreement in the swapped-breakfast note', () => {
+  const texts = [...pt.values()];
+  assert.ok(texts.some((text) => text.includes('já comidos')));
+  assert.ok(!texts.some((text) => text.includes('já comido.')));
+});

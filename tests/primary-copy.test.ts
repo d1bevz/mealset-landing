@@ -48,6 +48,20 @@ test('fixed pt values', () => {
     'Aproveita a vida.',
     'A Sasha trata da comida.',
   ]);
+  assert.equal(
+    primaryCopy.pt.eyebrow,
+    'A TUA NUTRICIONISTA COM IA NO TELEGRAM',
+  );
+  assert.equal(primaryCopy.pt.stories[0].situation, 'Desfrutas da tua comida.');
+  assert.equal(primaryCopy.pt.principles[1].title, 'Ao teu alcance.');
+  assert.ok(
+    primaryCopy.pt.intro.includes('achas uma maçada registar cada refeição'),
+  );
+  assert.ok(
+    primaryCopy.pt.stories[5].points[0].body.includes(
+      'quando e porque é que a Sasha te contacta',
+    ),
+  );
   assert.equal(pricingCopy.pt.starsPrice, '1500 ⭐');
   assert.equal(pricingCopy.pt.estimate, '≈ 33 € por mês');
   assert.equal(pricingCopy.pt.estimateSource, pricingCopy.en.estimateSource);

@@ -1,5 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { runInNewContext } from 'node:vm';
 import { legacyEnglishStub } from '../scripts/legacy-en-stub.mjs';
 
 const target = '/mealset-landing/?lang=en';
@@ -21,4 +22,26 @@ test('the stub escapes its values', () => {
   assert.ok(!html.includes('<script>alert(1)'));
   assert.ok(html.includes('&quot;'));
   assert.ok(html.includes('&lt;script&gt;'));
+});
+
+test('the stub script keeps the query string and the hash', () => {
+  const html = legacyEnglishStub({ target, canonical });
+  const script = html.match(/<script>([\s\S]*?)<\/script>/)![1];
+  let redirect: string | undefined;
+  runInNewContext(script, {
+    URL,
+    URLSearchParams,
+    location: {
+      href: 'https://mealset.example/mealset-landing/en/?utm_source=newsletter&lang=ru#pricing',
+      search: '?utm_source=newsletter&lang=ru',
+      hash: '#pricing',
+      replace: (url: string) => {
+        redirect = url;
+      },
+    },
+  });
+  assert.equal(
+    redirect,
+    'https://mealset.example/mealset-landing/?lang=en&utm_source=newsletter#pricing',
+  );
 });

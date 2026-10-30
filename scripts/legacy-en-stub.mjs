@@ -9,7 +9,16 @@ const escapeHtml = (value) =>
 
 export function legacyEnglishStub({ target, canonical }) {
   const href = escapeHtml(target);
-  const script = JSON.stringify(target).replace(/</g, '\\u003c');
+  const targetJson = JSON.stringify(target).replace(/</g, '\\u003c');
+  // Carries the original query string (minus lang) and the hash over.
+  const script = `(function () {
+  var t = new URL(${targetJson}, location.href);
+  new URLSearchParams(location.search).forEach(function (v, k) {
+    if (k !== 'lang') t.searchParams.append(k, v);
+  });
+  t.hash = location.hash;
+  location.replace(t.href);
+})();`;
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -21,7 +30,7 @@ export function legacyEnglishStub({ target, canonical }) {
 </head>
 <body>
 <p><a href="${href}">Continue to Mealset</a></p>
-<script>location.replace(${script});</script>
+<script>${script}</script>
 </body>
 </html>
 `;

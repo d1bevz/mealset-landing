@@ -259,7 +259,7 @@ export function demoContent(locale: PrimaryLocale) {
       t(
         'Сегодня: смузи → картошка с яйцами и куриной нарезкой, уже съедено.',
         'Today: smoothie → potatoes, eggs and chicken slices, already eaten.',
-        'Hoje: batido → batatas, ovos e fatias de frango, já comido.',
+        'Hoje: batido → batatas, ovos e fatias de frango, já comidos.',
       ),
       t(
         'Завтра: сэндвич с нарезкой → сегодняшний запланированный смузи.',
