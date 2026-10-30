@@ -12,6 +12,7 @@
     "lint": "oxlint app lib components/ui/tabs.tsx",
     "format": "oxfmt",
     "typecheck": "tsc --noEmit",
+    "test": "bun test tests",
     "verify:export": "node scripts/verify-export.mjs",
     "verify:http": "node scripts/verify-http.mjs"
   },

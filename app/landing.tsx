@@ -10,12 +10,12 @@ import {
   Plus,
 } from 'lucide-react';
 import { pagePath, publicPath } from '@/lib/public-path';
-import { copy, type Locale } from './copy';
+import { localeInfo, type PrimaryLocale } from '@/lib/primary-locales';
 import { primaryCopy } from './primary-copy';
 import { Pricing } from './pricing';
 import { PrimaryDemo } from './primary-demo';
 import { PrimaryLanguageSwitch } from './primary-language-switch';
-import { languageBootstrap } from '@/lib/language-preference';
+import { languageBootstrap } from '@/lib/language-bootstrap';
 import './primary.css';
 const telegram = 'https://t.me/mealset_bot';
 export function Wordmark() {
@@ -25,30 +25,29 @@ export function Wordmark() {
     </span>
   );
 }
-export function Landing({ locale }: { locale: Locale }) {
-  const old = copy[locale];
+export function Landing({ locale }: { locale: PrimaryLocale }) {
   const d = primaryCopy[locale];
   return (
     <div className="mealset-primary">
-      {locale === 'ru' && (
+      {locale === 'en' && (
         <script
           dangerouslySetInnerHTML={{
-            __html: languageBootstrap(pagePath('/'), pagePath('/en')),
+            __html: languageBootstrap({
+              en: pagePath('/'),
+              ru: pagePath('/ru'),
+              pt: pagePath('/pt'),
+            }),
           }}
         />
       )}
       <a className="skip-link" href="#main">
-        {old.skip}
+        {d.skip}
       </a>
       <header className="site-header">
-        <a href={pagePath(locale === 'ru' ? '/' : '/en')} aria-label={old.home}>
+        <a href={pagePath(localeInfo[locale].route)} aria-label={d.home}>
           <Wordmark />
         </a>
-        <nav
-          aria-label={
-            locale === 'ru' ? 'Основная навигация' : 'Main navigation'
-          }
-        >
+        <nav aria-label={d.mainNav}>
           {['food-diary', 'approach', 'pricing'].map((id, i) => (
             <a key={id} href={`#${id}`}>
               {d.nav[i]}
@@ -58,18 +57,14 @@ export function Landing({ locale }: { locale: Locale }) {
         <div className="header-actions">
           <PrimaryLanguageSwitch locale={locale} />
           <a className="button button-small" href={telegram}>
-            {old.start}
+            {d.start}
             <ArrowUpRight size={15} aria-hidden="true" />
           </a>
         </div>
       </header>
       <main id="main">
         <section className="m-hero m-shell" aria-labelledby="hero-title">
-          <p className="m-eyebrow">
-            {locale === 'ru'
-              ? 'ТВОЙ ИИ-НУТРИЦИОЛОГ В TELEGRAM'
-              : 'YOUR AI NUTRITIONIST IN TELEGRAM'}
-          </p>
+          <p className="m-eyebrow">{d.eyebrow}</p>
           <h1 id="hero-title">
             {d.headline[0]}
             <br />
@@ -78,7 +73,7 @@ export function Landing({ locale }: { locale: Locale }) {
           <p className="m-hero-body">{d.intro}</p>
           <div className="m-hero-actions">
             <a className="button" href={telegram}>
-              {old.meet}
+              {d.meet}
               <ArrowUpRight size={17} aria-hidden="true" />
             </a>
             <a className="m-text-link" href="#food-diary">
@@ -92,7 +87,7 @@ export function Landing({ locale }: { locale: Locale }) {
               unoptimized
               className="m-hero-food"
               src={publicPath('/assets/food-hero.jpg')}
-              alt={old.foodAlt}
+              alt={d.foodAlt}
               width={1536}
               height={1024}
               fetchPriority="high"
@@ -141,7 +136,7 @@ export function Landing({ locale }: { locale: Locale }) {
               <Image
                 unoptimized
                 src={publicPath('/assets/sasha-avatar.png')}
-                alt={old.sashaAlt}
+                alt={d.sashaAlt}
                 width={220}
                 height={220}
                 loading="lazy"
@@ -217,7 +212,7 @@ export function Landing({ locale }: { locale: Locale }) {
           <h2 id="closing-title">{d.closing}</h2>
           <p className="m-lead">{d.closingBody}</p>
           <a className="button" href={telegram}>
-            {old.meet}
+            {d.meet}
             <ArrowUpRight size={17} aria-hidden="true" />
           </a>
           <p className="m-paid-note">{d.paid}</p>
@@ -228,7 +223,7 @@ export function Landing({ locale }: { locale: Locale }) {
           <Wordmark />
           <p>{d.footer}</p>
         </div>
-        <p>{old.boundary.join(' ')}</p>
+        <p>{d.boundary.join(' ')}</p>
         <span>© {new Date().getFullYear()} Mealset</span>
       </footer>
     </div>

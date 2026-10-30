@@ -1,4 +1,4 @@
-import type { Locale } from './copy';
+import type { PrimaryLocale } from '@/lib/primary-locales';
 
 export const demoVisuals = [
   {
@@ -7,6 +7,10 @@ export const demoVisuals = [
     en: [
       'Scrambled eggs, potatoes and chicken slices on a plate',
       'The breakfast in this example',
+    ],
+    pt: [
+      'Ovos mexidos, batatas e fatias de frango num prato',
+      'O pequeno-almoço deste exemplo',
     ],
   },
   {
@@ -19,6 +23,10 @@ export const demoVisuals = [
       'Green smoothie with mango, avocado and spinach alongside',
       'Your familiar smoothie',
     ],
+    pt: [
+      'Batido verde com manga, abacate e espinafres ao lado',
+      'O teu batido habitual',
+    ],
   },
   {
     file: 'demo-containers.webp',
@@ -29,6 +37,10 @@ export const demoVisuals = [
     en: [
       'Two portions of salmon and rice in food containers',
       'Cook once, lunch twice',
+    ],
+    pt: [
+      'Duas porções de salmão e arroz em recipientes',
+      'Cozinha uma vez, almoça duas',
     ],
   },
   {
@@ -41,6 +53,10 @@ export const demoVisuals = [
       'Pasta and mince bake beside turkey with mushrooms and sweet potato',
       'Two different dinners from the plan',
     ],
+    pt: [
+      'Gratinado de massa e carne picada ao lado de peru com cogumelos e batata-doce',
+      'Dois jantares diferentes do plano',
+    ],
   },
   {
     file: 'demo-shopping.webp',
@@ -51,6 +67,10 @@ export const demoVisuals = [
     en: [
       'Bananas, eggs, rice, potatoes, bread and vegetables after shopping',
       'A few items from your shopping list',
+    ],
+    pt: [
+      'Bananas, ovos, arroz, batatas, pão e legumes depois das compras',
+      'Alguns itens da tua lista de compras',
     ],
   },
   {
@@ -63,10 +83,14 @@ export const demoVisuals = [
       'A bowl of skyr with sliced banana beside a laptop',
       'A snack before your next call',
     ],
+    pt: [
+      'Uma taça de skyr com banana às rodelas ao lado de um portátil',
+      'Um lanche antes da próxima chamada',
+    ],
   },
 ] as const;
 
-export function demoVisual(index: number, locale: Locale) {
+export function demoVisual(index: number, locale: PrimaryLocale) {
   const visual = demoVisuals[index] ?? demoVisuals[0];
   return {
     file: visual.file,

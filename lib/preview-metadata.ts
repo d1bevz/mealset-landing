@@ -17,6 +17,13 @@ export const previewMetaCopy = {
     imageAlt:
       'Mealset. Enjoy your life. Sasha handles the food. Healthier eating habits. Less manual tracking.',
   },
+  pt: {
+    title: 'Mealset — Aproveita a vida. A Sasha trata da comida.',
+    description:
+      'Queres perder peso ou ganhar massa muscular? A Sasha trata do registo da alimentação e ajuda-te a criar hábitos alimentares mais saudáveis e fáceis de manter. No Telegram.',
+    imageAlt:
+      'Mealset. Aproveita a vida. A Sasha trata da comida. Hábitos alimentares saudáveis. Menos registo manual.',
+  },
 };
 
 export function previewMetadata(locale: 'ru' | 'en'): Metadata {

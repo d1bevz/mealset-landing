@@ -1,4 +1,4 @@
-import { Landing } from '../landing';
+import { Landing } from '../../landing';
 import { socialMetadata } from '@/lib/social-metadata';
 
 export const metadata = socialMetadata('ru');

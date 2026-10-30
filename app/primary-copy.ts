@@ -1,4 +1,4 @@
-import { pricingCopy } from './pricing';
+import { pricingCopy } from './pricing-copy';
 
 export const primaryCopy = {
   ru: {
@@ -18,9 +18,23 @@ export const primaryCopy = {
     paid: `${pricingCopy.ru.starsPrice} в месяц · ${pricingCopy.ru.estimate}`,
     example: 'Пример диалога',
     role: 'ИИ-нутрициолог',
-    heroQuestion: 'Запиши этот обед. Масла — чайная ложка.',
-    heroAnswer:
-      'Лосось, крупу и овощи записала, масло учла. Калории и нутриенты добавила в итог дня. Порции оценила по фото — можешь поправить.',
+    skip: 'К содержимому',
+    home: 'Mealset — на главную',
+    start: 'Начать с Сашей',
+    meet: 'Познакомиться с Сашей',
+    foodAlt: 'Лосось, крупа и свежие овощи в мятной керамической миске',
+    sashaAlt: 'Саша — дружелюбная мятная миска со свежими продуктами',
+    boundary: [
+      'Саша — искусственный интеллект.',
+      'Помогает с повседневным питанием и не заменяет врача.',
+    ],
+    eyebrow: 'ТВОЙ ИИ-НУТРИЦИОЛОГ В TELEGRAM',
+    mainNav: 'Основная навигация',
+    languageLabel: 'Язык страницы',
+    dayRange: 'Диапазон итога дня',
+    sasha: 'Саша',
+    aboutExample: 'О примере и расчётах',
+    compactLabels: ['Калории', 'Память', 'Советы', 'Меню', 'Покупки', 'Забота'],
     demoTitle: ['Ты живёшь.', 'Саша помогает с питанием.'],
     stories: [
       {
@@ -245,9 +259,30 @@ export const primaryCopy = {
     paid: `${pricingCopy.en.starsPrice} per month · ${pricingCopy.en.estimate}`,
     example: 'Example conversation',
     role: 'AI nutritionist',
-    heroQuestion: 'Log this lunch. I used a teaspoon of oil.',
-    heroAnswer:
-      'Salmon, grains and vegetables logged, including the oil. Calories and nutrients added to your daily totals. I estimated portions from the photo — you can adjust them.',
+    skip: 'Skip to content',
+    home: 'Mealset home',
+    start: 'Start with Sasha',
+    meet: 'Meet Sasha',
+    foodAlt: 'Salmon, grains and fresh vegetables in a mint ceramic bowl',
+    sashaAlt: 'Sasha, a friendly mint bowl filled with fresh food',
+    boundary: [
+      'Sasha is artificial intelligence.',
+      'Everyday nutrition support, not a substitute for medical care.',
+    ],
+    eyebrow: 'YOUR AI NUTRITIONIST IN TELEGRAM',
+    mainNav: 'Main navigation',
+    languageLabel: 'Page language',
+    dayRange: 'Day total range',
+    sasha: 'Sasha',
+    aboutExample: 'About this example and its calculations',
+    compactLabels: [
+      'Calories',
+      'Memory',
+      'Advice',
+      'Meals',
+      'Shopping',
+      'Check-ins',
+    ],
     demoTitle: ['Live your life.', 'Let Sasha help with food.'],
     stories: [
       {
@@ -454,5 +489,258 @@ export const primaryCopy = {
     closingBody:
       'Tell Sasha about yourself. Find an approach to food that fits your life.',
     footer: 'Awareness. Discipline. Self-care.',
+  },
+  pt: {
+    nav: ['Como funciona', 'Abordagem', 'Preço'],
+    headline: ['Aproveita a vida.', 'A Sasha trata da comida.'],
+    research: {
+      source: 'Revisão de 28 publicações · JMIR, 2021',
+      title: 'Demasiado complicado. Demasiado demorado.',
+      body: 'A complexidade e o tempo exigido estão entre os motivos pelos quais as pessoas evitam ou deixam de usar aplicações de nutrição.',
+      steps: [
+        'Encontrar o alimento',
+        'Indicar a porção',
+        'Repetir todos os dias',
+      ],
+      solution: 'Com a Sasha, basta uma foto ou uma mensagem.',
+      detail: 'Ela trata da pesquisa de alimentos, do registo e dos cálculos.',
+    },
+    intro:
+      'Queres perder peso ou ganhar massa muscular, mas tens dificuldade em ser constante e achas uma maçada registar cada refeição? A Sasha trata do registo, ajuda-te a perceber os teus hábitos alimentares e apoia mudanças graduais que são fáceis de manter.',
+    see: 'Ver como funciona',
+    paid: `${pricingCopy.pt.starsPrice} por mês · ${pricingCopy.pt.estimate}`,
+    example: 'Exemplo de conversa',
+    role: 'Nutricionista com IA',
+    skip: 'Saltar para o conteúdo',
+    home: 'Mealset — página inicial',
+    start: 'Falar com a Sasha',
+    meet: 'Conhecer a Sasha',
+    foodAlt:
+      'Salmão, cereais e legumes frescos numa taça de cerâmica cor de menta',
+    sashaAlt:
+      'A Sasha, uma taça simpática cor de menta cheia de alimentos frescos',
+    boundary: [
+      'A Sasha é inteligência artificial.',
+      'Apoio à alimentação do dia a dia, não substitui os cuidados médicos.',
+    ],
+    eyebrow: 'A TUA NUTRICIONISTA COM IA NO TELEGRAM',
+    mainNav: 'Navegação principal',
+    languageLabel: 'Idioma da página',
+    dayRange: 'Intervalo do total do dia',
+    sasha: 'Sasha',
+    aboutExample: 'Sobre este exemplo e os cálculos',
+    compactLabels: [
+      'Calorias',
+      'Memória',
+      'Conselhos',
+      'Ementa',
+      'Compras',
+      'Apoio',
+    ],
+    demoTitle: ['Vive a tua vida.', 'Deixa a Sasha ajudar com a comida.'],
+    stories: [
+      {
+        situation: 'Desfrutas da tua comida.',
+        action: 'A Sasha conta as calorias.',
+        headline: 'Mais de 8000 alimentos.',
+        promise: 'Dos números à ação.',
+        intro:
+          'Envia uma foto, uma nota de voz ou algumas palavras. Recebe uma análise nutricional e passos práticos para melhorar a tua alimentação.',
+        points: [
+          {
+            title: 'USDA + EFSA.',
+            body: 'Mais de 8000 alimentos no catálogo baseado na USDA. O catálogo continua a crescer e está prevista a Base de Dados Europeia de Composição de Alimentos da EFSA (EU FCDB) como fonte adicional.',
+          },
+          {
+            title: 'Não está no catálogo? A Sasha pesquisa.',
+            body: 'Para alimentos fora do catálogo, a Sasha procura ingredientes e dados nutricionais para os incluir no teu dia.',
+          },
+          {
+            title: 'Passos práticos rumo ao teu objetivo.',
+            body: 'A Sasha mostra o total do teu dia e sugere o que acrescentar, trocar ou ajustar na próxima refeição.',
+          },
+        ],
+        soon: '',
+      },
+      {
+        situation: 'Tens a agenda cheia.',
+        action: 'A Sasha lembra-se dos detalhes.',
+        headline: 'Lembra-se de ti.',
+        promise: 'Planeia a pensar em ti.',
+        intro:
+          'O nosso sistema de memória próprio permite-te retomar de onde ficaste.',
+        points: [
+          {
+            title: 'Os teus gostos e hábitos.',
+            body: 'Os conselhos partem do que já partilhaste.',
+          },
+          {
+            title: 'A tua despensa e os prazos de validade.',
+            body: 'A Sasha regista o que sobra e os respetivos prazos de validade, e planeia as refeições em função das tuas provisões e do que convém usar primeiro.',
+          },
+          {
+            title: 'Planos para todos lá em casa.',
+            body: 'Lembra-se de quantas pessoas há na tua família e de quem partilha as refeições contigo. Usa isto para planear as porções, a cozinha e as quantidades da lista de compras.',
+          },
+        ],
+        soon: '',
+      },
+      {
+        situation: 'Defines os teus objetivos.',
+        action: 'A Sasha ajuda-te a lá chegar.',
+        headline: 'Quanto comer.',
+        promise: 'O que mudar.',
+        intro:
+          'A Sasha percebe como se relacionam a alimentação, o peso, o exercício e os hábitos alimentares, e explica o que isso significa para ti.',
+        points: [
+          {
+            title: 'Perder, ganhar ou manter peso.',
+            body: 'Ajuda-te a perceber as tuas necessidades energéticas e a ajustar a alimentação quando o progresso estagna.',
+          },
+          {
+            title: 'Equilibrar o que já comes.',
+            body: 'Aprende a obter proteína, fibra, vitaminas e minerais a partir de alimentos do dia a dia.',
+          },
+          {
+            title: 'Comer em função dos treinos.',
+            body: 'Recebe sugestões de refeições antes e depois do exercício, para a recuperação e a hidratação.',
+          },
+          {
+            title: 'Perceber a fome e o excesso de comida.',
+            body: 'Explora como o stress e os hábitos influenciam o que comes e encontra mudanças possíveis, sem regras alimentares rígidas.',
+          },
+        ],
+        soon: '',
+      },
+      {
+        situation: 'Vives ao teu ritmo.',
+        action: 'A Sasha planeia as tuas refeições.',
+        headline: 'Mais de 500 receitas.',
+        promise: 'Um plano só teu.',
+        intro:
+          'Mais de 500 receitas para uma ementa à medida dos teus objetivos e gostos. A coleção continua a crescer.',
+        points: [
+          {
+            title: 'Cozinha que se ajusta ao teu horário.',
+            body: 'A Sasha escolhe pratos do catálogo de acordo com o tempo que queres dedicar a cozinhar.',
+          },
+          {
+            title: 'Assente na ciência da nutrição.',
+            body: 'O nosso método de planeamento baseia-se nas recomendações atuais de nutrição.',
+          },
+          {
+            title: 'Feito à medida da tua vida.',
+            body: 'Os teus objetivos, gostos, ingredientes e tempo moldam a ementa.',
+          },
+        ],
+        soon: '',
+      },
+      {
+        situation: 'Segues com o teu dia.',
+        action: 'A Sasha trata da lista de compras.',
+        headline: 'Refeições planeadas.',
+        promise: 'Compras bem pensadas.',
+        intro: 'Abre a lista. O que falta ao teu plano já lá está.',
+        points: [
+          {
+            title: 'Verifica o que tens.',
+            body: 'A Sasha compara a tua ementa com a comida que tens em casa.',
+          },
+          {
+            title: 'Lista o que precisas.',
+            body: 'Uma única lista de compras para as refeições escolhidas.',
+          },
+          {
+            title: 'Prática na loja.',
+            body: 'Assinala o que compraste diretamente na conversa.',
+          },
+        ],
+        soon: 'Em breve: a Sasha poderá montar um cesto em qualquer loja online de supermercado — escolhe a tua preferida.',
+      },
+      {
+        situation: 'Esqueces-te da comida.',
+        action: 'A Sasha vem ter contigo.',
+        headline: 'No momento certo.',
+        promise: 'O apoio de que precisas.',
+        intro: 'Atenção pessoal que se adapta ao teu ritmo.',
+        points: [
+          {
+            title: 'Ajusta-se ao teu dia.',
+            body: 'O teu horário e as horas das refeições orientam quando e porque é que a Sasha te contacta.',
+          },
+          {
+            title: 'Aprende com as tuas respostas.',
+            body: 'A IA adapta a abordagem à forma como reages.',
+          },
+          {
+            title: 'Podes ajustá-lo.',
+            body: 'Escolhe a frequência e o tipo de apoio que mais te convêm.',
+          },
+        ],
+        soon: '',
+      },
+    ],
+    demoNote:
+      'Uma ilustração da Sasha em ação, não uma captura de ecrã do Telegram. Os diálogos são adaptados; os cálculos vêm de exemplos guardados à parte. No teu chat, a Sasha usa os teus alimentos e objetivos.',
+    choose: 'Escolher um exemplo',
+    try: 'Experimenta continuar a conversa',
+    reset: 'Voltar ao exemplo original',
+    open: 'Abrir a Sasha no Telegram',
+    approachLabel: 'ABORDAGEM DA SASHA',
+    approachTitle: ['Do teu lado.', 'Com base na ciência.'],
+    approachBody:
+      'Ela explica as suas recomendações, deixa espaço para a comida de que gostas e tem em conta a vida real. Se não houver evidência suficiente, diz isso mesmo.',
+    principles: [
+      {
+        title: 'Perceber o porquê.',
+        body: 'Pergunta pela fonte e pelo raciocínio por trás de uma sugestão. A Sasha baseia-se em investigação e diretrizes de nutrição.',
+      },
+      {
+        title: 'Ao teu alcance.',
+        body: 'Ajuda-te a adaptar a alimentação aos teus gostos, objetivos e horários. Não se espera perfeição.',
+      },
+      {
+        title: 'Conhecer os limites.',
+        body: 'Indica quando as estimativas são aproximadas. Apoia a alimentação do dia a dia e não substitui um médico.',
+      },
+    ],
+    sources: 'Referências científicas',
+    who: 'OMS · alimentação saudável',
+    efsa: 'EFSA · valores nutricionais de referência',
+    faqTitle: 'Antes da tua primeira conversa',
+    faq: [
+      {
+        q: 'Como começo?',
+        a: 'Abre o @mealset_bot no Telegram e lê as condições da subscrição mensal de 1500 Telegram Stars. Depois de pagares, conta à Sasha os teus objetivos e hábitos. O serviço destina-se a pessoas com 18 anos ou mais.',
+      },
+      {
+        q: 'Quão exatas são as estimativas por foto?',
+        a: 'São aproximadas: numa foto pode não ser visível o peso da porção, o óleo de cozinha ou os ingredientes do molho. Envia um esclarecimento e a Sasha atualiza o registo. A demonstração do site usa valores ilustrativos.',
+      },
+      {
+        q: 'Como sabe a Sasha que alimentos tenho em casa?',
+        a: 'A Sasha guarda os registos anteriores, o que já cozinharam juntos e os ingredientes que sobram. Usa isso para sugerir as próximas refeições, por isso não precisas de fazer uma lista nova de cada vez. Se algo mudar fora das vossas conversas, basta uma breve atualização.',
+      },
+      {
+        q: 'Existem limites de utilização?',
+        a: 'Sim, há um limite diário, com limites separados para conversas e para o planeamento de ementas pelo Chef. Se atingires um limite, a Sasha diz-te quando o acesso é retomado. No limite diário, o processamento fica em pausa até à meia-noite no teu fuso horário. Depois, a Sasha processa as mensagens em fila enquanto o teu acesso estiver ativo.',
+      },
+      {
+        q: 'Como cancelo a subscrição?',
+        a: 'Envia /cancel no bot ou abre as definições de subscrições do Telegram antes da próxima cobrança. O acesso continua até ao fim do período pago. Para questões de pagamento e reembolso, usa /paysupport.',
+      },
+      {
+        q: 'Onde posso ler as condições e o tratamento dos meus dados?',
+        a: 'Usa /terms no bot para os termos de utilização e /privacy para a informação de privacidade. Lê-os antes de pagares e de partilhares informação pessoal.',
+      },
+      {
+        q: 'A Sasha substitui um médico?',
+        a: 'Não. A Sasha é uma IA de apoio à alimentação do dia a dia. Não diagnostica doenças nem prescreve tratamentos. Fala dos assuntos médicos com um médico.',
+      },
+    ],
+    closing: 'Vamos começar pelo que gostas de comer.',
+    closingBody:
+      'Fala de ti à Sasha. Encontra uma abordagem à comida que caiba na tua vida.',
+    footer: 'Consciência. Disciplina. Autocuidado.',
   },
 };

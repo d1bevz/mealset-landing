@@ -6,7 +6,15 @@ const mount = new URL(base);
 mount.pathname = `${mount.pathname.replace(/\/$/, '')}/`;
 const mountedUrl = (path) => new URL(path.replace(/^\//, ''), mount);
 const pageAssets = new Set();
-for (const path of ['/', '/en', '/v2', '/en/v2', '/preview', '/en/preview']) {
+for (const path of [
+  '/',
+  '/ru',
+  '/pt',
+  '/v2',
+  '/en/v2',
+  '/preview',
+  '/en/preview',
+]) {
   const response = await fetch(
     mountedUrl(path + (staticHost && path !== '/' ? '/' : '')),
   );
@@ -29,6 +37,7 @@ const resources = new Set([
   mountedUrl('/assets/og-sasha-en.png').href,
   mountedUrl('/assets/og-mealset-life-ru-v2.png').href,
   mountedUrl('/assets/og-mealset-life-en-v2.png').href,
+  mountedUrl('/assets/og-mealset-life-pt-v2.png').href,
   mountedUrl('/assets/mealset-icon-32.png').href,
   mountedUrl('/assets/mealset-apple-touch-icon.png').href,
   mountedUrl('/fonts/onest.ttf').href,
@@ -48,10 +57,31 @@ for (const path of resources) {
     }
   }
 }
-if (!staticHost) {
+// The retired /en address sends old links to the English root.
+if (staticHost) {
+  const stub = await fetch(mountedUrl('/en/'));
+  assert.equal(stub.status, 200, '/en stub');
+  const html = await stub.text();
+  assert(html.includes('http-equiv="refresh"'), '/en: refresh redirect');
+  assert(html.includes('?lang=en'), '/en: English target');
+} else {
   const redirect = await fetch(mountedUrl('/en/'), { redirect: 'manual' });
   assert.equal(redirect.status, 301);
   assert.equal(redirect.headers.get('location'), mountedUrl('/en').pathname);
+  const legacy = await fetch(mountedUrl('/en'), { redirect: 'manual' });
+  assert.equal(legacy.status, 301);
+  assert.equal(
+    legacy.headers.get('location'),
+    `${mountedUrl('/').pathname}?lang=en`,
+  );
+  const tagged = await fetch(mountedUrl('/en?utm_source=check'), {
+    redirect: 'manual',
+  });
+  assert.equal(tagged.status, 301);
+  assert.equal(
+    tagged.headers.get('location'),
+    `${mountedUrl('/').pathname}?lang=en&utm_source=check`,
+  );
 }
 for (const path of [
   '/missing-mealset-page',

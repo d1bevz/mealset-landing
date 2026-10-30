@@ -1,6 +1,6 @@
 # Primary landing: nutritionist demo provenance
 
-Reviewed 2026-09-13. Only `/` and `/en` use these fixtures. The owner authorized
+Reviewed 2026-09-13. Only `/`, `/ru` and `/pt` use these fixtures. The owner authorized
 using their food scenarios. No account IDs, raw conversation dumps, secrets,
 identity details or body measurements are included here or in the fixtures.
 
@@ -9,6 +9,11 @@ bot replies or screenshots. UI interactions never write to a real diary, plan or
 shopping list. Telegram links open the bot; they do not submit a message/order.
 Each tab is an independent adapted example. Its targets are example values,
 not advice to a website visitor. No live production mutations were performed.
+
+The European Portuguese (pt-PT) fixtures added 2026-10-30 are translations of
+the English adapted examples: products, quantities, calorie and macro values,
+targets and ranges are identical to the other languages. Nothing was adapted to
+local cuisine, and no new claims were added.
 
 ## Nutrition receipts
 

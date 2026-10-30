@@ -14,10 +14,10 @@ import {
 } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { publicPath } from '@/lib/public-path';
+import { localeInfo, type PrimaryLocale } from '@/lib/primary-locales';
 import { primaryCopy } from './primary-copy';
 import { demoContent } from './primary-demo-copy';
 import { demoVisual } from './primary-demo-visuals';
-import type { Locale } from './copy';
 
 const ids = ['calories', 'memory', 'advice', 'plan', 'shopping', 'proactive'];
 const icons = [
@@ -47,11 +47,10 @@ function Nutrition({
 }: {
   c: Copy;
   index: number;
-  locale: Locale;
+  locale: PrimaryLocale;
 }) {
   const n = c.nutrition[index];
-  const fmt = (v: number) =>
-    v.toLocaleString(locale === 'ru' ? 'ru-RU' : 'en-GB');
+  const fmt = (v: number) => v.toLocaleString(localeInfo[locale].intl);
   const labels = [c.protein, c.fat, c.carbs, c.fibre];
   return (
     <>
@@ -83,8 +82,7 @@ function Nutrition({
         <details className="m-source">
           <summary>{c.dayDetails}</summary>
           <p>
-            {locale === 'ru' ? 'Диапазон итога дня' : 'Day total range'}:{' '}
-            {n.range} {c.kcal}.
+            {primaryCopy[locale].dayRange}: {n.range} {c.kcal}.
           </p>
           {n.dayMacros.map((v, i) => (
             <p key={labels[i]}>
@@ -104,7 +102,7 @@ function FoodResponse({
 }: {
   c: Copy;
   index: number;
-  locale: Locale;
+  locale: PrimaryLocale;
 }) {
   return (
     <>
@@ -227,7 +225,7 @@ function Shopping({ c }: { c: Copy }) {
     </Message>
   );
 }
-function Scenario({ locale, index }: { locale: Locale; index: number }) {
+function Scenario({ locale, index }: { locale: PrimaryLocale; index: number }) {
   const d = primaryCopy[locale];
   const c = demoContent(locale);
   const [step, setStep] = useState(0);
@@ -246,7 +244,7 @@ function Scenario({ locale, index }: { locale: Locale; index: number }) {
             height={40}
           />
           <div>
-            <strong>{locale === 'ru' ? 'Саша' : 'Sasha'}</strong>
+            <strong>{d.sasha}</strong>
             <span>{d.role}</span>
           </div>
           <span className="m-example-label">{d.example}</span>
@@ -387,11 +385,7 @@ function Scenario({ locale, index }: { locale: Locale; index: number }) {
             </button>
           )}
           <details className="m-source m-demo-provenance">
-            <summary>
-              {locale === 'ru'
-                ? 'О примере и расчётах'
-                : 'About this example and its calculations'}
-            </summary>
+            <summary>{d.aboutExample}</summary>
             <p>{c.sources[index]}</p>
             {[0, 1].includes(index) && <p>{c.historyNote}</p>}
           </details>
@@ -406,7 +400,7 @@ function ScenarioVisual({
   mobile = false,
 }: {
   index: number;
-  locale: Locale;
+  locale: PrimaryLocale;
   mobile?: boolean;
 }) {
   const visual = demoVisual(index, locale);
@@ -428,15 +422,12 @@ function ScenarioVisual({
     </figure>
   );
 }
-export function PrimaryDemo({ locale }: { locale: Locale }) {
+export function PrimaryDemo({ locale }: { locale: PrimaryLocale }) {
   const d = primaryCopy[locale];
   const [method, setMethod] = useState(ids[0]);
   const scenariosRef = useRef<HTMLDivElement>(null);
   const returnToStart = useRef(false);
-  const compactLabels =
-    locale === 'ru'
-      ? ['Калории', 'Память', 'Советы', 'Меню', 'Покупки', 'Забота']
-      : ['Calories', 'Memory', 'Advice', 'Meals', 'Shopping', 'Check-ins'];
+  const compactLabels = d.compactLabels;
   useLayoutEffect(() => {
     if (!returnToStart.current) return;
     returnToStart.current = false;
