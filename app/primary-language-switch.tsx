@@ -1,42 +1,52 @@
 'use client';
+import { Fragment } from 'react';
 /* Full navigation switches root layouts and the document language. */
 /* oxlint-disable next/no-html-link-for-pages */
 import { pagePath } from '@/lib/public-path';
 import { languagePreferenceKey } from '@/lib/language-preference';
-import type { Locale } from './copy';
+import { localeInfo, type PrimaryLocale } from '@/lib/primary-locales';
+import { primaryCopy } from './primary-copy';
 
-export function PrimaryLanguageSwitch({ locale }: { locale: Locale }) {
-  function remember(language: Locale) {
+const options: { locale: PrimaryLocale; label: string }[] = [
+  { locale: 'ru', label: 'RU' },
+  { locale: 'en', label: 'EN' },
+  { locale: 'pt', label: 'PT' },
+];
+
+// The English root runs the language bootstrap, so an explicit English choice
+// travels with the link.
+function hrefFor(locale: PrimaryLocale) {
+  const route = pagePath(localeInfo[locale].route);
+  return locale === 'en' ? `${route}?lang=en` : route;
+}
+
+export function PrimaryLanguageSwitch({ locale }: { locale: PrimaryLocale }) {
+  function remember(language: PrimaryLocale) {
     try {
       window.localStorage.setItem(languagePreferenceKey, language);
     } catch {
-      // The explicit RU URL also works when browser storage is unavailable.
+      // The explicit URL also works when browser storage is unavailable.
     }
   }
   return (
     <div
       className="locale-switch"
-      aria-label={locale === 'ru' ? 'Язык страницы' : 'Page language'}
+      aria-label={primaryCopy[locale].languageLabel}
     >
-      <a
-        href={`${pagePath('/')}?lang=ru`}
-        hrefLang="ru"
-        lang="ru"
-        aria-current={locale === 'ru' ? 'page' : undefined}
-        onClick={() => remember('ru')}
-      >
-        RU
-      </a>
-      <span>/</span>
-      <a
-        href={pagePath('/en')}
-        hrefLang="en"
-        lang="en"
-        aria-current={locale === 'en' ? 'page' : undefined}
-        onClick={() => remember('en')}
-      >
-        EN
-      </a>
+      {options.map((option, index) => (
+        <Fragment key={option.locale}>
+          {index > 0 && <span>/</span>}
+          <a
+            href={hrefFor(option.locale)}
+            hrefLang={localeInfo[option.locale].htmlLang}
+            lang={localeInfo[option.locale].htmlLang}
+            aria-current={locale === option.locale ? 'page' : undefined}
+            onClick={() => remember(option.locale)}
+          >
+            {option.label}
+          </a>
+        </Fragment>
+      ))}
     </div>
   );
 }

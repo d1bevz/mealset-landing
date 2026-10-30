@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import { assetUrl, siteUrl } from './site-url';
 import { previewMetaCopy } from './preview-metadata';
+import { localeInfo, type PrimaryLocale } from './primary-locales';
 
-export function socialMetadata(locale: 'ru' | 'en'): Metadata {
-  const ru = locale === 'ru';
+export function socialMetadata(locale: PrimaryLocale): Metadata {
   const { title, description, imageAlt } = previewMetaCopy[locale];
+  const { ogLocale, route } = localeInfo[locale];
   const image = {
     url: assetUrl(`/assets/og-mealset-life-${locale}-v2.png`),
     width: 1200,
@@ -15,11 +16,23 @@ export function socialMetadata(locale: 'ru' | 'en'): Metadata {
   return {
     title,
     description,
+    alternates: {
+      canonical: siteUrl(route),
+      languages: {
+        ...Object.fromEntries(
+          Object.values(localeInfo).map((info) => [
+            info.htmlLang,
+            siteUrl(info.route),
+          ]),
+        ),
+        'x-default': siteUrl(localeInfo.en.route),
+      },
+    },
     openGraph: {
       type: 'website',
       siteName: 'Mealset',
-      locale: ru ? 'ru_RU' : 'en_US',
-      url: siteUrl(ru ? '/' : '/en'),
+      locale: ogLocale,
+      url: siteUrl(route),
       title,
       description,
       images: [image],

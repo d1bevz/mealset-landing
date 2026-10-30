@@ -1,8 +1,8 @@
-import type { Locale } from './copy';
+import type { PrimaryLocale } from '@/lib/primary-locales';
 import './pricing.css';
 import { pricingCopy } from './pricing-copy';
 
-export function Pricing({ locale }: { locale: Locale }) {
+export function Pricing({ locale }: { locale: PrimaryLocale }) {
   const d = pricingCopy[locale];
   return (
     <section className="pricing" id="pricing" aria-labelledby="pricing-title">

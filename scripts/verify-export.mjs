@@ -3,12 +3,15 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const root = 'dist/client';
+// [route, html lang, language key (social cover, fibre label), server text]
 const routes = [
-  ['', 'ru', 'Наслаждайся жизнью.'],
-  ['en', 'en', 'Enjoy your life.'],
-  ['v2', 'ru', 'Mealset'],
-  ['en/v2', 'en', 'Mealset'],
+  ['', 'en', 'en', 'Enjoy your life.'],
+  ['ru', 'ru', 'ru', 'Наслаждайся жизнью.'],
+  ['pt', 'pt-PT', 'pt', 'Aproveita a vida.'],
+  ['v2', 'ru', 'ru', 'Mealset'],
+  ['en/v2', 'en', 'en', 'Mealset'],
 ];
+const fibre = { ru: 'Клетчатка', en: 'Fibre', pt: 'Fibra' };
 const origin = new URL(process.env.SITE_URL || 'http://localhost:8080').origin;
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 const trailingSlash = process.env.NEXT_PUBLIC_TRAILING_SLASH === 'true';
@@ -25,12 +28,15 @@ for (const scene of [
     `Missing scenario image: ${scene}`,
   );
 }
-for (const [route, language, text] of routes) {
+for (const [route, language, key, text] of routes) {
   const html = readFileSync(
     join(root, route ? `${route}.html` : 'index.html'),
     'utf8',
   );
-  assert(html.includes(`lang="${language}"`), `${route}: document language`);
+  assert(
+    new RegExp(`<html[^>]*\\slang="${language}"`).test(html),
+    `${route}: document language`,
+  );
   assert(html.includes(text), `${route}: server-rendered content`);
   const canonical = `${origin}${basePath}/${route}${route && trailingSlash ? '/' : ''}`;
   assert(
@@ -60,7 +66,7 @@ for (const [route, language, text] of routes) {
   );
   assert(!html.includes('/_sites/'), `${route}: private Sites runtime`);
   if (!route.includes('v2')) {
-    const cover = `assets/og-mealset-life-${language}-v2.png`;
+    const cover = `assets/og-mealset-life-${key}-v2.png`;
     assert(existsSync(join(root, cover)), `${route}: social cover exists`);
     assert(
       html.includes(
@@ -82,7 +88,7 @@ for (const [route, language, text] of routes) {
       `${route}: six nutritionist scenarios`,
     );
     assert(
-      html.includes(language === 'ru' ? 'Клетчатка' : 'Fibre'),
+      html.includes(fibre[key]),
       `${route}: nutrition result is server rendered`,
     );
     assert(
@@ -93,7 +99,55 @@ for (const [route, language, text] of routes) {
       html.includes(`${basePath}/assets/food-hero.jpg`),
       `${route}: original hero`,
     );
+    const slash = trailingSlash ? '/' : '';
+    const alternates = {
+      en: `${origin}${basePath}/`,
+      ru: `${origin}${basePath}/ru${slash}`,
+      'pt-PT': `${origin}${basePath}/pt${slash}`,
+      'x-default': `${origin}${basePath}/`,
+    };
+    // React prints the attribute as hrefLang; compare it as hreflang.
+    const normalized = html.replace(/hrefLang=/g, 'hreflang=');
+    const links = normalized.match(/<link[^>]*>/g) ?? [];
+    for (const [tag, url] of Object.entries(alternates)) {
+      assert(
+        links.some(
+          (link) =>
+            link.includes(`hreflang="${tag}"`) &&
+            link.includes(`href="${url}"`),
+        ),
+        `${route}: hreflang ${tag}`,
+      );
+    }
+    for (const [tag, path] of [
+      ['ru', `${basePath}/ru${slash}`],
+      ['en', `${basePath}/?lang=en`],
+      ['pt-PT', `${basePath}/pt${slash}`],
+    ]) {
+      assert(
+        normalized.includes(`hreflang="${tag}"`) &&
+          normalized.includes(`href="${path}"`),
+        `${route}: language switch link ${tag}`,
+      );
+    }
+    if (key === 'pt') {
+      assert(!/[\u0400-\u04ff]/.test(html), `${route}: no Cyrillic text`);
+      assert(
+        !html.includes('Enjoy your life'),
+        `${route}: no English headline`,
+      );
+    }
   }
+}
+// Retired /en address: a stub that sends old links to the English root.
+for (const file of trailingSlash ? ['en.html', 'en/index.html'] : ['en.html']) {
+  const html = readFileSync(join(root, file), 'utf8');
+  assert(html.includes('http-equiv="refresh"'), `${file}: refresh redirect`);
+  assert(html.includes(`${basePath}/?lang=en`), `${file}: English target`);
+  assert(
+    html.includes(`rel="canonical" href="${origin}${basePath}/"`),
+    `${file}: canonical points to the root`,
+  );
 }
 for (const asset of [
   'assets/food-bolognese.png',
@@ -104,7 +158,7 @@ for (const asset of [
   assert(existsSync(join(root, asset)), `Missing ${asset}`);
 }
 console.log(
-  'Static export verified: four routes, RU/EN metadata, Telegram links and final images.',
+  'Static export verified: EN/RU/PT pages, the /en redirect stub, hreflang metadata, Telegram links and final images.',
 );
 
 await import('./verify-preview-artifacts.mjs');

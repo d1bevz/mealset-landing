@@ -10,12 +10,12 @@ import {
   Plus,
 } from 'lucide-react';
 import { pagePath, publicPath } from '@/lib/public-path';
-import type { Locale } from './copy';
+import { localeInfo, type PrimaryLocale } from '@/lib/primary-locales';
 import { primaryCopy } from './primary-copy';
 import { Pricing } from './pricing';
 import { PrimaryDemo } from './primary-demo';
 import { PrimaryLanguageSwitch } from './primary-language-switch';
-import { languageBootstrap } from '@/lib/language-preference';
+import { languageBootstrap } from '@/lib/language-bootstrap';
 import './primary.css';
 const telegram = 'https://t.me/mealset_bot';
 export function Wordmark() {
@@ -25,14 +25,18 @@ export function Wordmark() {
     </span>
   );
 }
-export function Landing({ locale }: { locale: Locale }) {
+export function Landing({ locale }: { locale: PrimaryLocale }) {
   const d = primaryCopy[locale];
   return (
     <div className="mealset-primary">
-      {locale === 'ru' && (
+      {locale === 'en' && (
         <script
           dangerouslySetInnerHTML={{
-            __html: languageBootstrap(pagePath('/'), pagePath('/en')),
+            __html: languageBootstrap({
+              en: pagePath('/'),
+              ru: pagePath('/ru'),
+              pt: pagePath('/pt'),
+            }),
           }}
         />
       )}
@@ -40,7 +44,7 @@ export function Landing({ locale }: { locale: Locale }) {
         {d.skip}
       </a>
       <header className="site-header">
-        <a href={pagePath(locale === 'ru' ? '/' : '/en')} aria-label={d.home}>
+        <a href={pagePath(localeInfo[locale].route)} aria-label={d.home}>
           <Wordmark />
         </a>
         <nav aria-label={d.mainNav}>
