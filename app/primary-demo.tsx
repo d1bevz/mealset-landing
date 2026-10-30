@@ -14,11 +14,10 @@ import {
 } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { publicPath } from '@/lib/public-path';
-import { localeInfo } from '@/lib/primary-locales';
+import { localeInfo, type PrimaryLocale } from '@/lib/primary-locales';
 import { primaryCopy } from './primary-copy';
 import { demoContent } from './primary-demo-copy';
 import { demoVisual } from './primary-demo-visuals';
-import type { Locale } from './copy';
 
 const ids = ['calories', 'memory', 'advice', 'plan', 'shopping', 'proactive'];
 const icons = [
@@ -48,7 +47,7 @@ function Nutrition({
 }: {
   c: Copy;
   index: number;
-  locale: Locale;
+  locale: PrimaryLocale;
 }) {
   const n = c.nutrition[index];
   const fmt = (v: number) => v.toLocaleString(localeInfo[locale].intl);
@@ -103,7 +102,7 @@ function FoodResponse({
 }: {
   c: Copy;
   index: number;
-  locale: Locale;
+  locale: PrimaryLocale;
 }) {
   return (
     <>
@@ -226,7 +225,7 @@ function Shopping({ c }: { c: Copy }) {
     </Message>
   );
 }
-function Scenario({ locale, index }: { locale: Locale; index: number }) {
+function Scenario({ locale, index }: { locale: PrimaryLocale; index: number }) {
   const d = primaryCopy[locale];
   const c = demoContent(locale);
   const [step, setStep] = useState(0);
@@ -401,7 +400,7 @@ function ScenarioVisual({
   mobile = false,
 }: {
   index: number;
-  locale: Locale;
+  locale: PrimaryLocale;
   mobile?: boolean;
 }) {
   const visual = demoVisual(index, locale);
@@ -423,7 +422,7 @@ function ScenarioVisual({
     </figure>
   );
 }
-export function PrimaryDemo({ locale }: { locale: Locale }) {
+export function PrimaryDemo({ locale }: { locale: PrimaryLocale }) {
   const d = primaryCopy[locale];
   const [method, setMethod] = useState(ids[0]);
   const scenariosRef = useRef<HTMLDivElement>(null);
