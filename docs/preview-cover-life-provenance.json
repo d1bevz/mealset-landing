@@ -12,6 +12,18 @@
     {
       "path": "public/assets/og-mealset-life-en-v2.png",
       "prompt": "Use case: text-localization. Edit target: supplied Mealset cover. Preserve forest green background, mealset. wordmark, Sasha smiling vegetable bowl inside lime circle right, margins and layout. Landscape 1200x630. Replace ALL Russian text with English. Large ivory headline on left exactly three lines: 'Enjoy your life.' then 'Sasha handles' then 'the food.' Smaller sage subheading exactly two lines: 'Healthier eating habits.' then 'Less manual tracking.' Footer exactly 'Your AI nutritionist in Telegram'. Clear typography, generous margins, no text overlapping circle. No other text."
+    },
+    {
+      "path": "public/assets/og-mealset-life-pt-v2.png",
+      "method": "Recomposed on 2026-10-30 from public/assets/og-mealset-life-en-v2.png with Pillow; no image generation tool was used. The text area (x 40-717, y 150-590) was filled with the flat background colour rgb(5, 70, 60) and the Portuguese text re-typeset with public/fonts/onest.ttf (headline Bold 75 px, subheading Medium 44 px, footer Medium 24 px). The wordmark and the illustration are unchanged.",
+      "text": {
+        "headline": ["Aproveita a vida.", "A Sasha trata", "da comida."],
+        "subheading": [
+          "Hábitos alimentares saudáveis.",
+          "Menos registo manual."
+        ],
+        "footer": "O teu nutricionista com IA no Telegram"
+      }
     }
   ],
   "postprocessing": "Resized to 1200 × 630 PNG using sips."
