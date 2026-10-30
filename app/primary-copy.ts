@@ -513,7 +513,7 @@ export const primaryCopy = {
     role: 'Nutricionista com IA',
     skip: 'Saltar para o conteúdo',
     home: 'Mealset — página inicial',
-    start: 'Começar com a Sasha',
+    start: 'Falar com a Sasha',
     meet: 'Conhecer a Sasha',
     foodAlt:
       'Salmão, cereais e legumes frescos numa taça de cerâmica cor de menta',
