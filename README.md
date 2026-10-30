@@ -213,9 +213,12 @@ workflow **Publish GitHub Pages**.
 
 Статическая сборка также подходит для существующего Nginx без Docker:
 разместите содержимое `dist/client` в document root и перенесите правила
-из `deploy/nginx.conf`. Пути `/en`, `/v2`, `/en/v2` соответствуют файлам
-`en.html`, `v2.html`, `en/v2.html`; нужен `try_files $uri.html $uri =404`.
-Корень отдельно отдаёт `index.html`. В текущей версии Vinext экспорт со
+из `deploy/nginx.conf`. Пути `/ru`, `/pt`, `/v2`, `/en/v2` соответствуют файлам
+`ru.html`, `pt.html`, `v2.html`, `en/v2.html`; нужен
+`try_files $uri.html $uri =404`. Корень отдельно отдаёт `index.html`
+(английская версия). Старый адрес `/en` обрабатывает правило
+`location = /en { return 301 /?lang=en; }`; на статическом хостинге без Nginx
+его заменяет заглушка `en.html` с редиректом. В текущей версии Vinext экспорт со
 `trailingSlash: true` пропускает страницы из-за редиректов, поэтому используется
 `false`, а Nginx приводит адреса с завершающим слешем к адресам без него.
 
